@@ -1,0 +1,43 @@
+ #tab{
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    width: 77.5%;
+    margin-left: 10%;
+    overflow: auto;
+    text-align: left;
+    background: #fff;
+    position: absolute;
+    top: 4em;
+    border-radius: 15px;
+    border-spacing: 0 2px;
+    color: #737373;
+    margin-bottom: 4em;
+    box-shadow: 0 1px 3px #e3e3e3, 0 1px 2px #ccc;
+    line-height: 15px
+}
+
+#tab th{
+    height: 50px;
+}
+
+#tab tr,
+#tab th {
+    text-align: center;
+    width: 19.375%;
+    border-bottom: 1.5px solid #e3e3e3;
+}
+
+#tab td{
+    border-bottom: 1.5px solid #e3e3e3;
+    border-left: 1.5px solid #e3e3e3;
+    padding: 2px;
+}
+
+#tab tr:hover{
+    background: #f1f1f1;
+}
+
+#tab thead tr:hover {
+    background: #ffffff;
+    color: #212121;
+} 

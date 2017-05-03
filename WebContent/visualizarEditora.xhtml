@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="style.css" target="head" />
+	<title>Editoras</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:commandLink value="Cadastrar Nova Editora" action="#{editoraMB.abrirCadastro}" />
+		<br />
+		<table id="tab">
+			<tr>
+				<th>Editora</th><th>CNPJ</th><th>Editar</th><th>Remover</th>
+			</tr>
+			<ui:repeat var="f" value="#{editoraMB.listEditora}">
+				<tr>
+					<td>#{f.categoria}</td>
+					<td>
+						<h:commandLink value="Editar" action="#{editoraMB.abrirEditar}">
+							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
+						</h:commandLink>
+					</td>
+					<td>
+						<h:commandLink value="Deletar" action="#{categoriaMB.deletar}">
+							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
+						</h:commandLink>
+					</td>
+				</tr>
+			</ui:repeat>
+		</table>
+	</h:form>
+</h:body>
+</html>

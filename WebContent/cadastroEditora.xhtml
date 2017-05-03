@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cadastro de Editoras</title>
+</h:head>
+<h:body>
+<h:form>
+	CNPJ:<h:inputText disabled="#{not empty editoraMB.editora.cnpj}" value="#{editoraMB.editora.cnpj}"/><br/>
+	Editora: <h:inputText value="#{editoraMB.editora.nome}"/><br/>
+	<h:inputHidden value="#{editoraMB.editora.id}" />
+	<br/>	
+	<h:commandButton rendered="#{empty categoriaMB.categoria.id}" value="Incluir" action="#{categoriaMB.teste}"/>
+	<h:commandButton rendered="#{not empty categoriaMB.categoria.id}" value="Alterar" action="#{categoriaMB.atualizar}"/>
+	<br/>
+	<h:commandLink value="Voltar" action="visualizarEditora"/>
+</h:form>
+</h:body>
+</html>
+
