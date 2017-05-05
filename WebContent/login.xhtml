@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Login</title>
+	<h:outputStylesheet library="css" name="style.css" target="head" />
+
+</h:head>
+<h:body>
+	<h2>Login</h2>
+	<h:form styleClass="form">
+		<h:inputText a:placeholder="Usuario" styleClass="input"
+			value="#{usuarioMB.usuario.login}" />
+		<h:inputText a:placeholder="Senha" styleClass="input"
+			value="#{usuarioMB.usuario.senha}" />
+		<h:inputHidden value="#{usuarioMB.usuario.id}" />
+		<br />
+		<h:commandButton styleClass="botaoAdd"
+			rendered="#{empty usuarioMB.usuario.id}" value="Entrar"
+			action="#{usuarioMB.inserir}" />
+		<h:commandLink styleClass="back" value="Cadastrar"
+			action="cadastroUsuario" />
+	</h:form>
+</h:body>
+</html>
+
+

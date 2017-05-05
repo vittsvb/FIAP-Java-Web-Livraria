@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Cadastro de Categoria</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Categoria</title>
+	<h:outputStylesheet library="css" name="style.css" target="head" />
+
 </h:head>
 <h:body>
-<h:form>
-	Nome da categoria: <h:inputText  value="#{categoriaMB.categoria.categoria}"/><br/>
-	<h:inputHidden value="#{categoriaMB.categoria.id}" />
-	<br/>
-	<h:commandButton rendered="#{empty categoriaMB.categoria.id}" value="Incluir" action="#{categoriaMB.teste}"/>
-	<h:commandButton rendered="#{not empty categoriaMB.categoria.id}" value="Alterar" action="#{categoriaMB.atualizar}"/>
-	<br/>
-	<h:commandLink value="Voltar" action="visualizarCategoria"/>
-</h:form>
+<h2>Cadastrar Categorias</h2>
+	<h:form styleClass="form">
+		<h:inputText styleClass="input" a:placeholder="Categoria" value="#{categoriaMB.categoria.categoria}" />
+		<h:inputHidden value="#{categoriaMB.categoria.id}" />
+		<br />
+		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}"
+			value="Incluir" action="#{categoriaMB.teste}" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{not empty categoriaMB.categoria.id}"
+			value="Alterar" action="#{categoriaMB.atualizar}" />
+		<h:commandLink styleClass="back" value="Voltar" action="visualizarCategoria" />
+	</h:form>
 </h:body>
 </html>
 

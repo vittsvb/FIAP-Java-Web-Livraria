@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro Usuario</title>
+	<h:outputStylesheet library="css" name="style.css" target="head" />
+
+</h:head>
+<h:body>
+	<h2>Cadastro Usuario</h2>
+	<h:form styleClass="form">
+		<h:inputText a:placeholder="Login" styleClass="input"
+			value="#{usuarioMB.usuario.login}" />
+		<h:inputText a:placeholder="Senha" styleClass="input"
+			value="#{usuarioMB.usuario.senha}" />
+		<h:inputText a:placeholder="Nome" styleClass="input"
+			value="#{usuarioMB.usuario.nome}" />
+		<h:inputText a:placeholder="Idade" styleClass="input"
+			value="#{usuarioMB.usuario.idade}" />
+		<h:inputText a:placeholder="CPF" styleClass="input"
+			value="#{usuarioMB.usuario.cpfCnpj}" />
+		<h:inputText a:placeholder="Endereço" styleClass="input"
+			value="#{usuarioMB.usuario.logradouro}" />
+		<h:inputText a:placeholder="CEP" styleClass="input"
+			value="#{usuarioMB.usuario.cep}" />
+		<h:inputText a:placeholder="Estado" styleClass="input"
+			value="#{usuarioMB.usuario.estado}" />
+		<h:inputHidden value="#{usuarioMB.usuario.id}" />
+		<br />
+		<h:selectBooleanCheckbox value="#{usuarioMB.usuario.adm}" /> Administrador
+		<br />
+		<br />
+		<h:commandButton styleClass="botaoAdd"
+			rendered="#{empty usuarioMB.autor.id}" value="Incluir"
+			action="#{usuarioMB.inserir}" />
+		<h:commandLink styleClass="back" value="Voltar"
+			action="login" />
+	</h:form>
+</h:body>
+</html>
+
+

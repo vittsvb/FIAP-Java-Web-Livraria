@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-
+@Table(name="usuarios")
 @Entity
 public class Usuario {
 
@@ -20,8 +21,8 @@ public class Usuario {
 	private String senha;
 	private boolean adm;
 	private String nome;
-	private int idade;
-	private int cpfCnpj;
+	private String idade;
+	private String cpfCnpj;
 	private String logradouro;
 	private String cep;
 	private String estado;
@@ -77,19 +78,19 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public int getIdade() {
+	public String getIdade() {
 		return idade;
 	}
 
-	public void setIdade(int idade) {
+	public void setIdade(String idade) {
 		this.idade = idade;
 	}
 
-	public int getCpfCnpj() {
+	public String getCpfCnpj() {
 		return cpfCnpj;
 	}
 
-	public void setCpfCnpj(int cpfCnpj) {
+	public void setCpfCnpj(String cpfCnpj) {
 		this.cpfCnpj = cpfCnpj;
 	}
 

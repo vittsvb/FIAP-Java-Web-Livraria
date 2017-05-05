@@ -85,7 +85,6 @@ body {
 }
 
 .back {
-	font-size: 14px;
 	cursor: pointer;
 	margin-top: 5px;
 	margin-left: 15px;
@@ -99,11 +98,9 @@ body {
 	font-weight: bold
 }
 
-.back:hover{
+.back:hover {
 	background: #e53a20;
-	
 }
-
 
 .form {
 	max-width: 400px;
@@ -113,6 +110,7 @@ body {
 
 .input {
 	border: 0;
+	font-size: 15px;
 	outline: 0;
 	padding: 1em;
 	border-radius: 8px;
@@ -128,7 +126,7 @@ body {
 }
 
 .botaoAdd {
-	font-size: 14px;
+	font-size: 15px;
 	cursor: pointer;
 	margin-top: 5px;
 	margin-left: 70px;
