@@ -3,8 +3,9 @@
 }
 
 body {
-	font-family: Lato, sans-serif;
 	background: #f1f1f1;
+	font-family: "Segoe UI", sans-serif;
+	padding: 1em;
 }
 
 #pesquisa {
@@ -81,4 +82,65 @@ body {
 
 .add:hover {
 	background: #3F88C5;
+}
+
+.back {
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: 5px;
+	margin-left: 15px;
+	background: #e8503a;
+	width: 30%;
+	padding: 10px 15px;
+	border: 0;
+	color: #fff;
+	float: left;
+	text-decoration: none;
+	font-weight: bold
+}
+
+.back:hover{
+	background: #e53a20;
+	
+}
+
+
+.form {
+	max-width: 400px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.input {
+	border: 0;
+	outline: 0;
+	padding: 1em;
+	border-radius: 8px;
+	display: block;
+	width: 100%;
+	margin-top: 1em;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.input:focus {
+	box-shadow: 0 0 5px #3470A2;
+	border: 1px solid #3470A2;
+}
+
+.botaoAdd {
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: 5px;
+	margin-left: 70px;
+	background: #2ecc71;
+	width: 30%;
+	padding: 11.5px 15px;
+	border: 0;
+	color: #fff;
+	float: left;
+	font-weight: bold
+}
+
+.botaoAdd:hover {
+	background: #27ae60;
 }

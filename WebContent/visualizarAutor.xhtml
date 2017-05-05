@@ -6,6 +6,8 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>Autores</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
@@ -32,12 +34,12 @@
 					<td>#{f.nome}</td>
 					<td>#{f.cpf}</td>
 					<td id="edit"><h:commandLink value="Editar"
-							action="#{autorMB.abrirEditar}">
+							action="#{autorMB.abrirEditar}"> <i class="fa fa-pencil" aria-hidden="true"></i>
 							<f:setPropertyActionListener value="{f.id}"
 								target="#{autorMB.autor.id}" />
 						</h:commandLink></td>
 					<td id="remove"><h:commandLink value="Editar"
-							action="#{autorMB.deletar}">
+							action="#{autorMB.deletar}"> <i class="fa fa-trash" aria-hidden="true"></i>
 							<f:setPropertyActionListener value="{f.id}"
 								target="#{autorMB.autor.id}" />
 						</h:commandLink></td>
