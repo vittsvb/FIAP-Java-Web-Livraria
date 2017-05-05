@@ -8,28 +8,35 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>Categorias</title>
+	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
 	<h:form>
-		<h:commandLink value="Cadastrar Nova Categoria" action="#{categoriaMB.abrirCadastro}" />
+		<h:commandLink styleClass="add" value="Nova Categoria"
+			action="#{categoriaMB.abrirCadastro}" />
 		<br />
+		<h2>Categoria</h2>
+		<input type="text" id="pesquisa" onkeyup="filtro()"
+			placeholder="Buscar Categoria..." title="Type in a name"></input>
 		<table id="tab">
 			<tr>
-				<th>Categoria</th><th>Editar</th><th>Remover</th>
+				<th style="width: 60%;">Categoria</th>
+				<th style="width: 20%;">Editar</th>
+				<th style="width: 20%;">Remover</th>
 			</tr>
 			<ui:repeat var="f" value="#{categoriaMB.listCategoria}">
 				<tr>
 					<td>#{f.categoria}</td>
-					<td>
-						<h:commandLink value="Editar" action="#{categoriaMB.abrirEditar}">
-							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
-						</h:commandLink>
-					</td>
-					<td>
-						<h:commandLink value="Deletar" action="#{categoriaMB.deletar}">
-							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
-						</h:commandLink>
-					</td>
+					<td id="edit"><h:commandLink value="Editar"
+							action="#{categoriaMB.abrirEditar}">
+							<f:setPropertyActionListener value="{f.id}"
+								target="#{categoriaMB.categoria.id}" />
+						</h:commandLink></td>
+					<td id="remove"><h:commandLink value="Deletar"
+							action="#{categoriaMB.deletar}">
+							<f:setPropertyActionListener value="{f.id}"
+								target="#{categoriaMB.categoria.id}" />
+						</h:commandLink></td>
 				</tr>
 			</ui:repeat>
 		</table>
