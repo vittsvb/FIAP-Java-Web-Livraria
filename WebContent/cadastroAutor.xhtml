@@ -12,7 +12,7 @@
 	Nome: <h:inputText  value="#{autorMB.autor.nome}"/><br/>
 	<h:inputHidden value="#{autorMB.autor.id}" />
 	<br/>
-	<h:commandButton rendered="#{empty autorMB.autor.id}" value="Incluir" action="#{autorMB.teste}"/>
+	<h:commandButton rendered="#{empty autorMB.autor.id}" value="Incluir" action="#{autorMB.inserir}"/>
 	<h:commandButton rendered="#{not empty autorMB.autor.id}" value="Editar" action="#{autorMB.atualizar}"/>
 	<br/>
 	<h:commandLink value="Voltar" action="visualizarAutor"/>

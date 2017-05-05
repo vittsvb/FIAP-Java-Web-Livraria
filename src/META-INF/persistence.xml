@@ -8,7 +8,8 @@
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-		<class>br.com.caelum.financas.modelo.Conta</class>
+		<class>br.com.fiap.si.modelo.Conta</class>
+<!-- 		<mapping class="br.com.fiap.si.modelo.Autor" /> -->
 
 		<properties>
 

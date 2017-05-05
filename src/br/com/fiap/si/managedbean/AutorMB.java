@@ -10,7 +10,7 @@ import br.com.fiap.si.dao.AutorDAOImpl;
 import br.com.fiap.si.modelo.Autor;
 
 
-@ViewScoped
+@SessionScoped
 @ManagedBean
 public class AutorMB {
 	private Autor autor;
