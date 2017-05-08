@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>Categorias</title>
+	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
 	<h:form>
-		<h:commandLink value="Cadastrar Nova Categoria" action="#{categoriaMB.abrirCadastro}" />
+		<h:commandLink styleClass="add" value="Nova Categoria" action="#{categoriaMB.abrirCadastro}" />
 		<br />
+		<h2>Categoria</h2>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Categoria..." title="Type in a name"></input>
 		<table id="tab">
 			<tr>
-				<th>Categoria</th><th>Editar</th><th>Remover</th>
+				<th style="width: 60%;">Categoria</th>
+				<th style="width: 20%;">Editar</th>
+				<th style="width: 20%;">Remover</th>
 			</tr>
 			<ui:repeat var="f" value="#{categoriaMB.listCategoria}">
 				<tr>
 					<td>#{f.categoria}</td>
-					<td>
+					<td id="edit">
 						<h:commandLink value="Editar" action="#{categoriaMB.abrirEditar}">
 							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
 					</td>
-					<td>
+					<td id="remove">
 						<h:commandLink value="Deletar" action="#{categoriaMB.deletar}">
 							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
@@ -37,4 +39,5 @@
 
 	</h:form>
 </h:body>
+
 </html>

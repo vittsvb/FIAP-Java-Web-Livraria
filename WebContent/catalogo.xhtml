@@ -6,15 +6,28 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-	<title>Autores</title>
+	<title>THE LIBRARY | Home</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
 	<h:form>
-		<h:commandLink styleClass="add" value="Novo Autor" action="#{autorMB.abrirCadastro}" />
-		<br />
-		<h2>Autores</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Autor..." title="Type in a name"></input>
+		<div class="header">
+			<div class="main-logo">
+				<a class="logo"></a>
+			</div>
+
+			<div class="main-navigation">
+				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
+						value="Login" action="login"></h:commandLink></i> <i class="fa fa-shopping-cart"><h:commandLink
+						styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i>
+				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
+						value="Desejos" action="login"></h:commandLink></i> <i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="Sair" action="catalogo"></h:commandLink></i>
+			</div>
+
+		</div>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Livro..."></input>
+
 		<table id="tab">
 			<thead>
 				<tr>
@@ -29,12 +42,15 @@
 					<td>#{f.nome}</td>
 					<td>#{f.cpf}</td>
 					<td id="edit">
-						<h:commandLink value="Editar" action="#{autorMB.abrirEditar}"> <i class="fa fa-pencil" aria-hidden="true"></i>
+						<h:commandLink value="Editar" action="#{autorMB.abrirEditar}">
+							<i class="fa fa-pencil"></i>
 							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
 						</h:commandLink>
 					</td>
+
 					<td id="remove">
-						<h:commandLink value="Editar" action="#{autorMB.deletar}"> <i class="fa fa-trash" aria-hidden="true"></i>
+						<h:commandLink value="Editar" action="#{autorMB.deletar}">
+							<i class="fa fa-trash"></i>
 							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
 						</h:commandLink>
 					</td>
@@ -42,7 +58,6 @@
 			</tbody>
 		</table>
 	</h:form>
-
 </h:body>
 
 </html>

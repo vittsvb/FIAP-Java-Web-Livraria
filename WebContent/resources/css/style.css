@@ -1,43 +1,205 @@
- #tab{
-    font-family: arial, sans-serif;
-    font-size: 12px;
-    width: 77.5%;
-    margin-left: 10%;
-    overflow: auto;
-    text-align: left;
-    background: #fff;
-    position: absolute;
-    top: 4em;
-    border-radius: 15px;
-    border-spacing: 0 2px;
-    color: #737373;
-    margin-bottom: 4em;
-    box-shadow: 0 1px 3px #e3e3e3, 0 1px 2px #ccc;
-    line-height: 15px
+* {
+	box-sizing: border-box;
+	font-family: "Segoe UI", sans-serif;
 }
 
-#tab th{
-    height: 50px;
+body {
+	background: #f1f1f1;
+	padding: 1em;
 }
 
-#tab tr,
+#pesquisa {
+	background-image:
+		url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
+	background-position: 5px 5px;
+	background-size: 30px;
+	background-repeat: no-repeat;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	width: 100%;
+	border: 0;
+	font-size: 15px;
+	outline: 0;
+	border-radius: 25px;
+	display: block;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#tab {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #ddd;
+	font-size: 18px;
+	margin: 1em auto;
+}
+
+#tab td {
+	text-align: left;
+	padding: 12px;
+}
+
 #tab th {
-    text-align: center;
-    width: 19.375%;
-    border-bottom: 1.5px solid #e3e3e3;
+	text-align: center;
+	padding: 1em;
+	background-color: #e8503a;
+	color: white;
 }
 
-#tab td{
-    border-bottom: 1.5px solid #e3e3e3;
-    border-left: 1.5px solid #e3e3e3;
-    padding: 2px;
+#tab tr:nth-child(even) {
+	background-color: #eee;
 }
 
-#tab tr:hover{
-    background: #f1f1f1;
+#tab tr:nth-child(odd) {
+	background-color: #fff;
 }
 
-#tab thead tr:hover {
-    background: #ffffff;
-    color: #212121;
-} 
+#tab tr {
+	border-bottom: 1px solid #ddd;
+}
+
+#tab td#edit {
+	font-weight: bold;
+	color: #3470A2;
+	cursor: pointer;
+	text-align: center;
+}
+
+#tab td#remove {
+	font-weight: bold;
+	color: #E63946;
+	cursor: pointer;
+	text-align: center;
+}
+
+.add {
+	max-width: 150px;
+	text-decoration: none;
+	font-size: 1em;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+	font-weight: bold;
+	text-align: center;
+	padding: 15px;
+	background: #3470A2;
+	transition: 0.3s ease;
+	color: #FFF;
+	float: right;
+}
+
+.add:hover {
+	background: #3F88C5;
+}
+
+.back {
+	cursor: pointer;
+	margin-top: 5px;
+	margin-left: 15px;
+	background: #e8503a;
+	width: 30%;
+	padding: 10px 15px;
+	border: 0;
+	color: #fff;
+	float: left;
+	text-decoration: none;
+	font-weight: bold
+}
+
+.back:hover {
+	background: #e53a20;
+}
+
+.form {
+	max-width: 400px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.form h2 {
+	background: #219E9A;
+	padding: 11.5px 15px;
+	color: #fff;
+}
+
+.input {
+	border: 0;
+	font-size: 15px;
+	outline: 0;
+	padding: 1em;
+	border-radius: 8px;
+	display: block;
+	width: 100%;
+	margin-top: 1em;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.input:focus, #pesquisa:focus {
+	box-shadow: 0 0 5px #3470A2;
+	border: 1px solid #3470A2;
+}
+
+.botaoAdd {
+	font-size: 15px;
+	cursor: pointer;
+	margin-top: 5px;
+	margin-left: 70px;
+	background: #2ecc71;
+	width: 30%;
+	padding: 11.5px 15px;
+	border: 0;
+	color: #fff;
+	float: left;
+	font-weight: bold
+}
+
+.botaoAdd:hover {
+	background: #27ae60;
+}
+
+.header {
+	position: relative;
+	margin-bottom: 50px;
+	width: 100%;
+	border-bottom: 1px solid #d2d6d5;
+	background-color: #fff;
+	border-radius: 5px;
+		box-shadow: 2px 2px 5px #e3e3e3, 0 1px 2px #ccc;
+}
+
+.main-logo {
+	display: inline-block;
+	padding: 1em;
+	width: auto;
+}
+
+.main-logo a.logo {
+	display: block;
+	width: 150px;
+	height: 40px;
+	background:
+		url("http://interactivejoe.com/book-viewer/assets/images/logo.svg");
+	background-color: #fff;
+	transition: background-color 250ms ease-out;
+}
+
+.main-logo a.logo:hover {
+	background-color: #ecf0f1;
+}
+
+.main-navigation {
+	position: relative;
+	float: right;
+	margin: 16px 0;
+	padding: 0 20px;
+	height: 40px;
+	border-left: 1px solid #d2d6d5;
+}
+
+.item-menu {
+	display: inline-block;
+	line-height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #313131;
+	margin: 0 1em 0 0.1em;
+}

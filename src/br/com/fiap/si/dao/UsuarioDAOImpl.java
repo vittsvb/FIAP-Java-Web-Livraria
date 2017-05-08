@@ -10,14 +10,14 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public void saveUser(Usuario usuario) {
 		EntityManager em = new JPAUtil().getEntityManager();
-			try {
-				em.getTransaction().begin();
-				
-				em.persist(usuario);
-				
-			} catch (Exception e) {
-				em.getTransaction().rollback();
-			}
+		try {
+			em.getTransaction().begin();
+
+			em.persist(usuario);
+
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+		}
 	}
 
 }

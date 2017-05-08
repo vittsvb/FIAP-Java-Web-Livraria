@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>Editoras</title>
+	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
 	<h:form>
-		<h:commandLink value="Cadastrar Nova Editora" action="#{editoraMB.abrirCadastro}" />
+		<h:commandLink styleClass="add" value="Nova Editora" action="#{editoraMB.abrirCadastro}" />
 		<br />
+		<h2>Editoras</h2>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Editora..." title="Type in a name"></input>
 		<table id="tab">
 			<tr>
-				<th>Editora</th><th>CNPJ</th><th>Editar</th><th>Remover</th>
+				<th style="width: 40%;">Editora</th>
+				<th style="width: 40%;">CNPJ</th>
+				<th style="width: 10%;">Editar</th>
+				<th style="width: 10%;">Remover</th>
 			</tr>
 			<ui:repeat var="f" value="#{editoraMB.listEditora}">
 				<tr>
 					<td>#{f.categoria}</td>
-					<td>
+					<td id="edit">
 						<h:commandLink value="Editar" action="#{editoraMB.abrirEditar}">
 							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
 					</td>
-					<td>
+					<td id="remove">
 						<h:commandLink value="Deletar" action="#{categoriaMB.deletar}">
 							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
@@ -34,5 +37,7 @@
 			</ui:repeat>
 		</table>
 	</h:form>
+
 </h:body>
+
 </html>
