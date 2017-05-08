@@ -4,14 +4,30 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Cadastro Usuario</title>
+	<title>THE LIBRARY | Cadastro</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 
 </h:head>
 <h:body>
-	<h2>Cadastro Usuario</h2>
+	<h:form>
+		<div class="header">
+			<div class="main-logo">
+				<a class="logo"></a>
+			</div>
+
+			<div class="main-navigation">
+				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="Sair" action="catalogo"></h:commandLink></i>
+			</div>
+
+		</div>
+	</h:form>
+
 	<h:form styleClass="form">
+		<h2>Cadastro Usuário</h2>
 		<h:inputText a:placeholder="Login" styleClass="input"
 			value="#{usuarioMB.usuario.login}" />
 		<h:inputText a:placeholder="Senha" styleClass="input"
@@ -36,8 +52,7 @@
 		<h:commandButton styleClass="botaoAdd"
 			rendered="#{empty usuarioMB.autor.id}" value="Incluir"
 			action="#{usuarioMB.inserir}" />
-		<h:commandLink styleClass="back" value="Voltar"
-			action="login" />
+		<h:commandLink styleClass="back" value="Voltar" action="login" />
 	</h:form>
 </h:body>
 </html>
