@@ -2,16 +2,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
+<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>Editoras</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
+
+<h:form>
+		<div class="header">
+			<div class="main-logo">
+				<a class="logo"></a>
+			</div>
+
+			<div class="main-navigation">
+				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="Sair" action="catalogo"></h:commandLink></i>
+			</div>
+
+		</div>
+</h:form>
 	<h:form>
 		<h:commandLink styleClass="add" value="Nova Editora" action="#{editoraMB.abrirCadastro}" />
-		<br />
-		<h2>Editoras</h2>
+		<h2 style="float:left;">Editoras</h2>
 		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Editora..." title="Type in a name"></input>
 		<table id="tab">
 			<tr>

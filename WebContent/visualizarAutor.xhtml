@@ -15,10 +15,30 @@
 </h:head>
 <h:body>
 	<h:form>
+<<<<<<< HEAD
 		<h:commandLink styleClass="add" value="Novo Autor"
 			action="#{autorMB.abrirCadastro}" />
 		<br />
 		<h2>Autores</h2>
+=======
+		<div class="header">
+			<div class="main-logo">
+				<a class="logo"></a>
+			</div>
+
+			<div class="main-navigation">
+				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="Sair" action="catalogo"></h:commandLink></i>
+			</div>
+
+		</div>
+	</h:form>
+	<h:form>
+		<h:commandLink styleClass="add" value="Novo Autor"
+			action="#{autorMB.abrirCadastro}" />
+		
+		<h2 style="float:left;">Autores</h2>
+>>>>>>> 3c645d75bc3de30b7928b16ebafd3eb3fd89e026
 		<input type="text" id="pesquisa" onkeyup="filtro()"
 			placeholder="Buscar Autor..." title="Type in a name"></input>
 		<table id="tab">
@@ -32,6 +52,7 @@
 			</thead>
 			<tbody>
 				<ui:repeat var="f" value="#{autorMB.listAutor}">
+<<<<<<< HEAD
 					<tr>
 						<td>#{f.id}</td>
 						<td>#{f.nome}</td>
@@ -49,6 +70,22 @@
 									target="#{autorMB.autor.id}" />
 							</h:commandLink></td>
 					</tr>
+=======
+					<td>#{f.nome}</td>
+					<td>#{f.cpf}</td>
+					<td id="edit"><h:commandLink value="Editar"
+							action="#{autorMB.abrirEditar}">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+							<f:setPropertyActionListener value="{f.id}"
+								target="#{autorMB.autor.id}" />
+						</h:commandLink></td>
+					<td id="remove"><h:commandLink value="Editar"
+							action="#{autorMB.deletar}">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+							<f:setPropertyActionListener value="{f.id}"
+								target="#{autorMB.autor.id}" />
+						</h:commandLink></td>
+>>>>>>> 3c645d75bc3de30b7928b16ebafd3eb3fd89e026
 				</ui:repeat>
 			</tbody>
 		</table>
