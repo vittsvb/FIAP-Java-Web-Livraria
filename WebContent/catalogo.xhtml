@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>THE LIBRARY | Home</title>
@@ -22,18 +18,15 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
-						value="Login" action="login"></h:commandLink></i> <i
-					class="fa fa-shopping-cart"><h:commandLink
+						value="Login" action="login"></h:commandLink></i> <i class="fa fa-shopping-cart"><h:commandLink
 						styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
-						value="Desejos" action="login"></h:commandLink></i> <i
-					class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="Desejos" action="login"></h:commandLink></i> <i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
 						value="Sair" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
-		<input type="text" id="pesquisa" onkeyup="filtro()"
-			placeholder="Buscar Livro..."></input>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Livro..."></input>
 
 		<table id="tab">
 			<thead>
@@ -48,22 +41,23 @@
 				<ui:repeat var="f" value="#{autorMB.listAutor}">
 					<td>#{f.nome}</td>
 					<td>#{f.cpf}</td>
-					<td id="edit"><h:commandLink value="Editar"
-							action="#{autorMB.abrirEditar}">
+					<td id="edit">
+						<h:commandLink value="Editar" action="#{autorMB.abrirEditar}">
 							<i class="fa fa-pencil"></i>
-							<f:setPropertyActionListener value="{f.id}"
-								target="#{autorMB.autor.id}" />
-						</h:commandLink></td>
+							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
+						</h:commandLink>
+					</td>
 
-					<td id="remove"><h:commandLink value="Editar"
-							action="#{autorMB.deletar}">
+					<td id="remove">
+						<h:commandLink value="Editar" action="#{autorMB.deletar}">
 							<i class="fa fa-trash"></i>
-							<f:setPropertyActionListener value="{f.id}"
-								target="#{autorMB.autor.id}" />
-						</h:commandLink></td>
+							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
+						</h:commandLink>
+					</td>
 				</ui:repeat>
 			</tbody>
 		</table>
 	</h:form>
 </h:body>
+
 </html>

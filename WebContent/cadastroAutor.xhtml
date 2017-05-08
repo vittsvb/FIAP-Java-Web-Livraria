@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Cadastro de Autores</title>
@@ -12,23 +10,14 @@
 <h:body>
 	<h2>Cadastrar Autores</h2>
 	<h:form styleClass="form">
-		<h:inputText a:placeholder="CPF" styleClass="input"
-			disabled="#{not empty autorMB.autor.cpf}"
-			value="#{autorMB.autor.cpf}" />
-		<h:inputText a:placeholder="Autor" styleClass="input"
-			value="#{autorMB.autor.nome}" />
+		<h:inputText a:placeholder="CPF" styleClass="input" disabled="#{not empty autorMB.autor.cpf}" value="#{autorMB.autor.cpf}" />
+		<h:inputText a:placeholder="Autor" styleClass="input" value="#{autorMB.autor.nome}" />
 		<h:inputHidden value="#{autorMB.autor.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd"
-			rendered="#{empty autorMB.autor.id}" value="Incluir"
-			action="#{autorMB.inserir}" />
-		<h:commandButton styleClass="botaoAdd"
-			rendered="#{not empty autorMB.autor.id}" value="Editar"
-			action="#{autorMB.atualizar}" />
-		<h:commandLink styleClass="back" value="Voltar"
-			action="visualizarAutor" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{empty autorMB.autor.id}" value="Incluir" action="#{autorMB.inserir}" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{not empty autorMB.autor.id}" value="Editar" action="#{autorMB.atualizar}" />
+		<h:commandLink styleClass="back" value="Voltar" action="visualizarAutor" />
 	</h:form>
 </h:body>
+
 </html>
-
-
