@@ -41,9 +41,14 @@ public class AutorMB {
 	    listAutor = new ArrayList<>();
 	}
 	public String inserir(){
+		try{
 			AutorDAOImpl dao = new AutorDAOImpl();
 			dao.saveAutor(autor);
 			return listar();
+		}catch (Exception e) {
+			erro = e.getMessage();
+			return "erro";
+		}
 	}
 	public String atualizar(){
 		try{
@@ -97,10 +102,16 @@ public class AutorMB {
 		
 	}
 	public String listar(){
-		AutorDAOImpl dao = new AutorDAOImpl();
-		listAutor = dao.selectAutor();
-		return "visualizarAutor";
+		try{
+			AutorDAOImpl dao = new AutorDAOImpl();
+			listAutor = dao.selectAutor();
+			return "visualizarAutor";
 		
+		}
+		catch (Exception e) {
+			erro = e.getMessage();
+			return "erro";
+		}
 	}
 	
 	public String teste(){
