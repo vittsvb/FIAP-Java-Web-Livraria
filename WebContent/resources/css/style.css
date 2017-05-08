@@ -157,7 +157,7 @@ body {
 
 .header {
 	position: relative;
-	margin-bottom: 55px;
+	margin-bottom: 50px;
 	width: 100%;
 	border-bottom: 1px solid #d2d6d5;
 	background-color: #fff;
@@ -178,7 +178,6 @@ body {
 	background:
 		url("http://interactivejoe.com/book-viewer/assets/images/logo.svg");
 	background-color: #fff;
-	-webkit-transition: background-color 250ms ease-out;
 	transition: background-color 250ms ease-out;
 }
 
