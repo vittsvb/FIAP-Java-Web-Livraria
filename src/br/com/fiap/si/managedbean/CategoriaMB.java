@@ -42,87 +42,64 @@ public class CategoriaMB {
 	}
 
 	public CategoriaMB() {
+		CategoriaDAOImpl dao = new CategoriaDAOImpl();
+		listCategoria = dao.selectCategoria();
 		categoria = new Categoria();
-		listCategoria = new ArrayList<>();
 	}
 
 	public String inserir() {
-		try {
+		
 			CategoriaDAOImpl dao = new CategoriaDAOImpl();
 			dao.saveCategoria(categoria);
 			return listar();
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+		
 	}
 
 	public String atualizar() {
-		try {
 			CategoriaDAOImpl dao = new CategoriaDAOImpl();
 			dao.updateCategoria(categoria);
 			return listar();
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
 	}
 
 	public String deletar() {
-		try {
-			CategoriaDAOImpl dao = new CategoriaDAOImpl();
-			dao.deleteCategoria(categoria);
-			return listar();
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+		CategoriaDAOImpl dao = new CategoriaDAOImpl();
+		dao.deleteCategoria(categoria);
+		return listar();
+		
 	}
 
 	public String abrirCadastro() {
 
-		try {
+		
 			categoria.setCategoria(null);
 			categoria.setId(null);
 			return "cadastroCategoria";
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
-
+		
 	}
 
 	public String abrirEditar() {
 
-		try {
-			CategoriaDAOImpl dao = new CategoriaDAOImpl();
-			categoria = dao.getCategoriaID(categoria.getId());
+		
+			try {
+				CategoriaDAOImpl dao = new CategoriaDAOImpl();
+				categoria = dao.getCategoriaID(categoria.getId());
 
-			return "cadastroCategoria";
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+				return "cadastroCategoria";
+			} catch (Exception e) {
+				erro = e.getMessage();
+				return "erro";
+			}
+		
 
 	}
 
 	public String listar() {
-		try {
+	
 			CategoriaDAOImpl dao = new CategoriaDAOImpl();
 			listCategoria = dao.selectCategoria();
 			return "visualizarCategoria";
 
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+	}
 
-	}
-	
-	public String teste(){
-		erro="Sucesso";
-		System.out.println("ENTROU");
-		return "sucesso";
-	}
 
 }

@@ -59,7 +59,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	public List<Categoria> selectCategoria() {
 		List<Categoria> lista;
 		EntityManager em = new JPAUtil().getEntityManager();
-		lista = em.createQuery("select * from categoria").getResultList();
+		lista = em.createQuery("select c from Categoria c").getResultList();
 		return lista;
 
 	}
@@ -67,7 +67,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	@Override
 	public Categoria getCategoriaID(Long id) {
 		EntityManager em = new JPAUtil().getEntityManager();
-		Query q = em.createQuery("select * from categoria where id = :id");
+		Query q = em.createQuery("select c from Categoria c where id = :id");
 		q.setParameter("id", id);
 		Categoria categoria = (Categoria) q.getSingleResult();
 

@@ -38,12 +38,12 @@
 					<td>#{f.categoria}</td>
 					<td id="edit">
 						<h:commandLink value="Editar" action="#{categoriaMB.abrirEditar}">
-							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
+							<f:setPropertyActionListener value="#{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
 					</td>
 					<td id="remove">
 						<h:commandLink value="Deletar" action="#{categoriaMB.deletar}">
-							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
+							<f:setPropertyActionListener value="#{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
 					</td>
 				</tr>

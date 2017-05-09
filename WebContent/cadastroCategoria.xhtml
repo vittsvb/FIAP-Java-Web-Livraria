@@ -28,7 +28,7 @@
 		<h:inputText styleClass="input" a:placeholder="Categoria" value="#{categoriaMB.categoria.categoria}" />
 		<h:inputHidden value="#{categoriaMB.categoria.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="Incluir" action="#{categoriaMB.teste}" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="Incluir" action="#{categoriaMB.inserir}" />
 		<h:commandButton styleClass="botaoAdd" rendered="#{not empty categoriaMB.categoria.id}" value="Alterar" action="#{categoriaMB.atualizar}" />
 		<h:commandLink styleClass="back" value="Voltar" action="visualizarCategoria" />
 	</h:form>
