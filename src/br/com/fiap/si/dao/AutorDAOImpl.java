@@ -68,7 +68,7 @@ public class AutorDAOImpl implements AutorDAO{
 	@Override
 	public Autor getAutorID(Long id) {
 		EntityManager em = new JPAUtil().getEntityManager();
-		Query q =  em.createQuery("select * from Autor where id = :id");
+		Query q =  em.createQuery("select a from Autor a where id = :id");
 		q.setParameter("id",id);
 		Autor autor = (Autor) q.getSingleResult();
 		

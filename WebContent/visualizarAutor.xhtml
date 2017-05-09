@@ -45,20 +45,22 @@
 			</thead>
 			<tbody>
 				<ui:repeat var="f" value="#{autorMB.listAutor}">
+				<tr>
 					<td>#{f.nome}</td>
 					<td>#{f.cpf}</td>
 					<td id="edit"><h:commandLink value="Editar"
 							action="#{autorMB.abrirEditar}">
-							<i class="fa fa-pencil" aria-hidden="true"></i>
-							<f:setPropertyActionListener value="{f.id}"
-								target="#{autorMB.autor.id}" />
+							<i class="fa fa-pencil" aria-hidden="true"/>
+							<f:setPropertyActionListener value="#{f.id}"
+								target="#{autorMB.autor.id}"/>
 						</h:commandLink></td>
-					<td id="remove"><h:commandLink value="Editar"
+					<td id="remove"><h:commandLink value="Deletar"
 							action="#{autorMB.deletar}">
 							<i class="fa fa-trash" aria-hidden="true"></i>
-							<f:setPropertyActionListener value="{f.id}"
+							<f:setPropertyActionListener value="#{f.id}"
 								target="#{autorMB.autor.id}" />
 						</h:commandLink></td>
+				</tr>
 				</ui:repeat>
 			</tbody>
 		</table>

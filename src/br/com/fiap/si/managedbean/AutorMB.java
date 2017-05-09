@@ -37,8 +37,9 @@ public class AutorMB {
 	}
 	
 	public AutorMB() {
+		AutorDAOImpl dao = new AutorDAOImpl();
 		autor = new Autor();
-	    listAutor = new ArrayList<>();
+	    listAutor = dao.selectAutor();
 	}
 	public String inserir(){
 		try{
@@ -64,6 +65,7 @@ public class AutorMB {
 	public String deletar(){
 		try{
 			AutorDAOImpl dao = new AutorDAOImpl();
+			autor = dao.getAutorID(autor.getId());	
 			dao.deleteAutor(autor);
 			return listar();
 		}catch (Exception e) {
@@ -113,13 +115,4 @@ public class AutorMB {
 			return "erro";
 		}
 	}
-	
-	public String teste(){
-		erro="Sucesso";
-		System.out.println("ENTROU");
-		return "sucesso";
-	}
-	
-	
-	
 }
