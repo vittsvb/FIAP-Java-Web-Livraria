@@ -34,11 +34,11 @@
 		<h:inputHidden value="#{editoraMB.editora.id}" />
 		<br />
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{empty categoriaMB.categoria.id}" value="Incluir"
-			action="#{categoriaMB.teste}" />
+			rendered="#{empty editoraMB.editora.id}" value="Incluir"
+			action="#{editoraMB.inserir}" />
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{not empty categoriaMB.categoria.id}" value="Alterar"
-			action="#{categoriaMB.atualizar}" />
+			rendered="#{not empty editoraMB.editora.id}" value="Alterar"
+			action="#{editoraMB.atualizar}" />
 		<h:commandLink styleClass="back" value="Voltar"
 			action="visualizarEditora" />
 			

@@ -25,7 +25,7 @@
 	
 	<h:form styleClass="form">
 	<h2>Cadastrar Categorias</h2>
-		<h:inputText styleClass="input" a:placeholder="Categoria" value="#{categoriaMB.categoria.categoria}" />
+		<h:inputText styleClass="input" a:placeholder="Categoria" disable ="#{not empty categoriaMB.categoria.categoria}" value="#{categoriaMB.categoria.categoria}" />
 		<h:inputHidden value="#{categoriaMB.categoria.id}" />
 		<br />
 		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="Incluir" action="#{categoriaMB.inserir}" />

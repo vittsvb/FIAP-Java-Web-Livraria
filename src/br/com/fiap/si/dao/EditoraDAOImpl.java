@@ -61,7 +61,7 @@ public class EditoraDAOImpl implements EditoraDAO{
 	public List<Editora> selectEditora() {
 		List<Editora> lista;
 		EntityManager em = new JPAUtil().getEntityManager();
-		lista = em.createQuery("select * from editora").getResultList();
+		lista = em.createQuery("select e from Editora e").getResultList();
 		return lista;
 		
 	}
@@ -69,7 +69,7 @@ public class EditoraDAOImpl implements EditoraDAO{
 	@Override
 	public Editora getEditoraID(Long id) {
 		EntityManager em = new JPAUtil().getEntityManager();
-		Query q =  em.createQuery("select * from editora where id = :id");
+		Query q =  em.createQuery("select e from Editora e where id = :id");
 		q.setParameter("id",id);
 		Editora editora = (Editora) q.getSingleResult();
 		

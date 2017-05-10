@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import br.com.fiap.si.dao.CategoriaDAOImpl;
 import br.com.fiap.si.modelo.Categoria;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean
 public class CategoriaMB {
 
@@ -83,7 +84,7 @@ public class CategoriaMB {
 			try {
 				CategoriaDAOImpl dao = new CategoriaDAOImpl();
 				categoria = dao.getCategoriaID(categoria.getId());
-
+				System.out.println(categoria.getId() +" - "+categoria.getCategoria());
 				return "cadastroCategoria";
 			} catch (Exception e) {
 				erro = e.getMessage();

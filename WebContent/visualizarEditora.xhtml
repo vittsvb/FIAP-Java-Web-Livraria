@@ -37,15 +37,16 @@
 			</tr>
 			<ui:repeat var="f" value="#{editoraMB.listEditora}">
 				<tr>
-					<td>#{f.categoria}</td>
+					<td>#{f.nome}</td>
+					<td>#{f.cnpj}</td>
 					<td id="edit">
 						<h:commandLink value="Editar" action="#{editoraMB.abrirEditar}">
-							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
+							<f:setPropertyActionListener value="#{f.id}" target="#{editoraMB.editora.id}" />
 						</h:commandLink>
 					</td>
 					<td id="remove">
-						<h:commandLink value="Deletar" action="#{categoriaMB.deletar}">
-							<f:setPropertyActionListener value="{f.id}" target="#{categoriaMB.categoria.id}" />
+						<h:commandLink value="Deletar" action="#{editoraMB.deletar}">
+							<f:setPropertyActionListener value="#{f.id}" target="#{editoraMB.editora.id}" />
 						</h:commandLink>
 					</td>
 				</tr>
