@@ -44,7 +44,8 @@ public class CategoriaMB {
 
 	public CategoriaMB() {
 		CategoriaDAOImpl dao = new CategoriaDAOImpl();
-		listCategoria = dao.selectCategoria();
+        listCategoria = dao.selectCategoria();
+		//listCategoria = null;
 		categoria = new Categoria();
 	}
 

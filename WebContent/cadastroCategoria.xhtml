@@ -5,7 +5,7 @@
 <h:head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Cadastro de Categoria</title>
+	<title>THE LIBRARY | #{str.cadastrarCategoria}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 
 </h:head>
@@ -18,20 +18,20 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 </h:form>
 	
 	<h:form styleClass="form">
-	<h2>Cadastrar Categorias</h2>
+	<h2>#{str.cadastrarCategoria}</h2>
 		<h:inputText styleClass="input" a:placeholder="#{str.categoria}" disable ="#{not empty categoriaMB.categoria.categoria}" value="#{categoriaMB.categoria.categoria}" />
 		<h:inputHidden value="#{categoriaMB.categoria.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="Incluir" action="#{categoriaMB.inserir}" />
-		<h:commandButton styleClass="botaoAdd" rendered="#{not empty categoriaMB.categoria.id}" value="Alterar" action="#{categoriaMB.atualizar}" />
-		<h:commandLink styleClass="back" value="Voltar" action="visualizarCategoria" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="#{str.incluir}" action="#{categoriaMB.inserir}" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{not empty categoriaMB.categoria.id}" value="#{str.alterar}" action="#{categoriaMB.atualizar}" />
+		<h:commandLink styleClass="back" value="#{str.voltar}" action="visualizarCategoria" />
 	</h:form>
 </h:body>
 </f:view>

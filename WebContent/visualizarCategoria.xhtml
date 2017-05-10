@@ -6,7 +6,7 @@
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-	<title>Categorias</title>
+	<title>THE LIBRARY | #{str.categoria}</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
@@ -18,31 +18,31 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 </h:form>
 	<h:form>
-		<h:commandLink styleClass="add" value="Nova Categoria" action="#{categoriaMB.abrirCadastro}" />
-		<h2 style="float:left;">Categoria</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Categoria..." title="Type in a name"></input>
+		<h:commandLink styleClass="add" value="#{str.novaCategoria}" action="#{categoriaMB.abrirCadastro}" />
+		<h2 style="float:left;">#{str.categoria}</h2>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarCategoria}" title="Type in a name"></input>
 		<table id="tab">
 			<tr>
-				<th style="width: 60%;">Categoria</th>
-				<th style="width: 20%;">Editar</th>
-				<th style="width: 20%;">Remover</th>
+				<th style="width: 60%;">#{str.categoria}</th>
+				<th style="width: 20%;">#{str.editar}</th>
+				<th style="width: 20%;">#{str.remover}</th>
 			</tr>
 			<ui:repeat var="f" value="#{categoriaMB.listCategoria}">
 				<tr>
 					<td>#{f.categoria}</td>
 					<td id="edit">
-						<h:commandLink value="Editar" action="#{categoriaMB.abrirEditar}">
+						<h:commandLink value="#{str.editar}" action="#{categoriaMB.abrirEditar}">
 							<f:setPropertyActionListener value="#{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
 					</td>
 					<td id="remove">
-						<h:commandLink value="Deletar" action="#{categoriaMB.deletar}">
+						<h:commandLink value="#{str.deletar}" action="#{categoriaMB.deletar}">
 							<f:setPropertyActionListener value="#{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
 					</td>
