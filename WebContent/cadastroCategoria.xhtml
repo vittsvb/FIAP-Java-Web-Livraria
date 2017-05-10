@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://java.sun.com/jsf/core">
+<f:view locale="#{facesContext.externalContext.requestLocale}">
 <h:head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,21 +18,21 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 </h:form>
 	
 	<h:form styleClass="form">
-	<h2>Cadastrar Categorias</h2>
-		<h:inputText styleClass="input" a:placeholder="Categoria" value="#{categoriaMB.categoria.categoria}" />
+	<h2>#{str.cadastrarCategoria}</h2>
+        <h:inputText styleClass="input" a:placeholder="#{str.categoria}" disable ="#{not empty categoriaMB.categoria.categoria}" value="#{categoriaMB.categoria.categoria}" />
 		<h:inputHidden value="#{categoriaMB.categoria.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="Incluir" action="#{categoriaMB.teste}" />
-		<h:commandButton styleClass="botaoAdd" rendered="#{not empty categoriaMB.categoria.id}" value="Alterar" action="#{categoriaMB.atualizar}" />
-		<h:commandLink styleClass="back" value="Voltar" action="visualizarCategoria" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="#{str.incluir}" action="#{categoriaMB.teste}" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{not empty categoriaMB.categoria.id}" value="#{str.alterar}" action="#{categoriaMB.atualizar}" />
+		<h:commandLink styleClass="back" value="#{str.voltar}" action="visualizarCategoria" />
 	</h:form>
 </h:body>
-
+</f:view>
 </html>
