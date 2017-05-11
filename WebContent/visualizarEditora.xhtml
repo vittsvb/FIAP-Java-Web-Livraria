@@ -6,7 +6,7 @@
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-	<title>Editoras</title>
+	<title>#{str.editora}</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
@@ -19,21 +19,21 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 </h:form>
 	<h:form>
-		<h:commandLink styleClass="add" value="Nova Editora" action="#{editoraMB.abrirCadastro}" />
-		<h2 style="float:left;">Editoras</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Editora..." title="Type in a name"></input>
+		<h:commandLink styleClass="add" value="#{str.novaEditora}" action="#{editoraMB.abrirCadastro}" />
+		<h2 style="float:left;">#{str.editora}</h2>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarEditora}" title="Type in a name"></input>
 		<table id="tab">
 			<tr>
-				<th style="width: 40%;">Editora</th>
+				<th style="width: 40%;">#{str.editora}</th>
 				<th style="width: 40%;">CNPJ</th>
-				<th style="width: 10%;">Editar</th>
-				<th style="width: 10%;">Remover</th>
+				<th style="width: 10%;">#{str.editar}</th>
+				<th style="width: 10%;">#{str.remover}</th>
 			</tr>
 			<ui:repeat var="f" value="#{editoraMB.listEditora}">
 				<tr>

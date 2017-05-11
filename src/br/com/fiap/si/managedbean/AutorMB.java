@@ -37,8 +37,8 @@ public class AutorMB {
 	}
 	
 	public AutorMB() {
-		AutorDAOImpl dao = new AutorDAOImpl();
 		autor = new Autor();
+		AutorDAOImpl dao = new AutorDAOImpl();
 	    listAutor = dao.selectAutor();
 		//listAutor = null;
 	}

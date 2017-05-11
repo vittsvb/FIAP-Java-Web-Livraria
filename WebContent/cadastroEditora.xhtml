@@ -6,7 +6,7 @@
 <h:head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Cadastro de Editoras</title>
+	<title>#{str.cadastrarEditora}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 
 </h:head>
@@ -19,27 +19,27 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 	</h:form>
 
 	<h:form styleClass="form">
-	<h2>Cadastrar Editoras</h2>
+	<h2>#{str.cadastrarEditora}</h2>
 		<h:inputText styleClass="input" a:placeholder="CNPJ"
 			disabled="#{not empty editoraMB.editora.cnpj}"
 			value="#{editoraMB.editora.cnpj}" />
-		<h:inputText styleClass="input" a:placeholder="Editora" value="#{editoraMB.editora.nome}" />
+		<h:inputText styleClass="input" a:placeholder="#{str.editora}" value="#{editoraMB.editora.nome}" />
 		<h:inputHidden value="#{editoraMB.editora.id}" />
 		<br />
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{empty editoraMB.editora.id}" value="Incluir"
+			rendered="#{empty editoraMB.editora.id}" value="#{str.incluir}"
 			action="#{editoraMB.inserir}" />
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{not empty editoraMB.editora.id}" value="Alterar"
+			rendered="#{not empty editoraMB.editora.id}" value="#{str.alterar}"
 			action="#{editoraMB.atualizar}" />
-		<h:commandLink styleClass="back" value="Voltar"
+		<h:commandLink styleClass="back" value="#{str.voltar}"
 			action="visualizarEditora" />
 			
 	</h:form>
