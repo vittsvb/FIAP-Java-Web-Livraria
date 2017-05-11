@@ -60,6 +60,13 @@ public class LivroMB {
 		
 		return "visualizarlivro";
 	}
+	public String abrirEditar(){
+		
+		
+		
+		return "cadastroLivro";
+	}
+	
 	
 	
 }
