@@ -10,7 +10,7 @@
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-	<title>Autores</title>
+	<title>THE LIBRARY | #{str.autores}</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
@@ -22,25 +22,25 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 	</h:form>
 	<h:form>
-		<h:commandLink styleClass="add" value="Novo Autor"
+		<h:commandLink styleClass="add" value="#{str.novoAutor}"
 			action="#{autorMB.abrirCadastro}" />
 		
-		<h2 style="float:left;">Autores</h2>
+		<h2 style="float:left;">#{str.autores}</h2>
 		<input type="text" id="pesquisa" onkeyup="filtro()"
-			placeholder="Buscar Autor..." title="Type in a name"></input>
+			placeholder="#{str.buscarAutor}" title="Type in a name"></input>
 		<table id="tab">
 			<thead>
 				<tr>
-					<th style="width: 40%;">Autor</th>
+					<th style="width: 40%;">#{str.autor}</th>
 					<th style="width: 40%;">CPF</th>
-					<th style="width: 10%;">Editar</th>
-					<th style="width: 10%;">Remover</th>
+					<th style="width: 10%;">#{str.editar}</th>
+					<th style="width: 10%;">#{str.remover}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -48,13 +48,13 @@
 				<tr>
 					<td>#{f.nome}</td>
 					<td>#{f.cpf}</td>
-					<td id="edit"><h:commandLink value="Editar"
+					<td id="edit"><h:commandLink value="#{str.editar}"
 							action="#{autorMB.abrirEditar}">
 							<i class="fa fa-pencil" aria-hidden="true"/>
 							<f:setPropertyActionListener value="#{f.id}"
 								target="#{autorMB.autor.id}"/>
 						</h:commandLink></td>
-					<td id="remove"><h:commandLink value="Deletar"
+					<td id="remove"><h:commandLink value="#{str.deletar}"
 							action="#{autorMB.deletar}">
 							<i class="fa fa-trash" aria-hidden="true"></i>
 							<f:setPropertyActionListener value="#{f.id}"

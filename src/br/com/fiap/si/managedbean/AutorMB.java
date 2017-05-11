@@ -40,6 +40,7 @@ public class AutorMB {
 		AutorDAOImpl dao = new AutorDAOImpl();
 		autor = new Autor();
 	    listAutor = dao.selectAutor();
+		//listAutor = null;
 	}
 	public String inserir(){
 		try{

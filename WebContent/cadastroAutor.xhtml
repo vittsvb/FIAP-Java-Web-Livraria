@@ -4,7 +4,7 @@
 <h:head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Cadastro de Autores</title>
+	<title>THE LIBRARY | #{str.cadastrarAutor}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 
 </h:head>
@@ -17,7 +17,7 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
@@ -25,14 +25,14 @@
 	
 	
 	<h:form styleClass="form">
-	<h2>Cadastrar Autores</h2>
+	<h2>#{str.cadastrarAutor}</h2>
 		<h:inputText a:placeholder="CPF" styleClass="input" disabled="#{not empty autorMB.autor.cpf}" value="#{autorMB.autor.cpf}" />
-		<h:inputText a:placeholder="Autor" styleClass="input" value="#{autorMB.autor.nome}" />
+		<h:inputText a:placeholder="#{str.autor}" styleClass="input" value="#{autorMB.autor.nome}" />
 		<h:inputHidden value="#{autorMB.autor.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd" rendered="#{empty autorMB.autor.id}" value="Incluir" action="#{autorMB.inserir}" />
-		<h:commandButton styleClass="botaoAdd" rendered="#{not empty autorMB.autor.id}" value="Editar" action="#{autorMB.atualizar}" />
-		<h:commandLink styleClass="back" value="Voltar" action="visualizarAutor" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{empty autorMB.autor.id}" value="#{str.incluir}" action="#{autorMB.inserir}" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{not empty autorMB.autor.id}" value="#{str.editar}" action="#{autorMB.atualizar}" />
+		<h:commandLink styleClass="back" value="#{str.voltar}" action="visualizarAutor" />
 	</h:form>
 </h:body>
 

@@ -6,7 +6,7 @@
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-	<title>THE LIBRARY | #{str.categoria}</title>
+	<title>THE LIBRARY | #{str.categorias}</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
@@ -25,7 +25,7 @@
 </h:form>
 	<h:form>
 		<h:commandLink styleClass="add" value="#{str.novaCategoria}" action="#{categoriaMB.abrirCadastro}" />
-		<h2 style="float:left;">#{str.categoria}</h2>
+		<h2 style="float:left;">#{str.categorias}</h2>
 		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarCategoria}" title="Type in a name"></input>
 		<table id="tab">
 			<tr>
