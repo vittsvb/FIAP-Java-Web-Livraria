@@ -8,10 +8,6 @@ body {
 	padding: 1em;
 }
 
-ul {
-  list-style-type: none;
-}
-
 #pesquisa {
 	background-image:
 		url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
@@ -150,7 +146,7 @@ ul {
 	margin-left: 70px;
 	background: #2ecc71;
 	width: 30%;
-	padding: 11.5px 15px;
+	padding: 10px 15px;
 	border: 0;
 	color: #fff;
 	float: left;
@@ -207,4 +203,71 @@ ul {
 	text-transform: uppercase;
 	color: #313131;
 	margin: 0 1em 0 0.1em;
+}
+
+.alert {
+  list-style-type: none !important;
+}
+
+/*Menu Admin*/
+
+.menu-adm {
+   position: absolute;
+}
+
+ .menu-adm li {
+   height: 50px;
+   display: block;
+   position: relative;
+   margin: 5px 0;
+ }
+
+.menu-adm li:hover {
+   cursor: pointer;
+  }
+  
+  
+.menu-adm li:before {
+    display: block;
+    height: 50px;
+    width: 50px;
+    content: '>';
+    font-size: 2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-right: rgba(255,255,255,0.2) 1px solid;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    line-height: 1.5em;
+  }
+    
+  
+  .menu-adm li a {
+     color: #fff;
+     display: block;
+     height: 50px;
+     padding: 0 2em 0 70px;
+     text-decoration: none;
+     text-transform: uppercase;
+     font-size: 18px;
+     line-height: 2.8em;
+     position: absolute;
+}
+
+  .menu-adm li:nth-child(1) a {
+    background: #888888;
+  }
+
+  .menu-adm li:nth-child(2) a {
+    background: #628179;
+  }
+
+  .menu-adm li:nth-child(3) a {
+    background: #21aabd;
+  }
+
+ .menu-adm li a:hover {
+   padding-right: 3.0em;
 }

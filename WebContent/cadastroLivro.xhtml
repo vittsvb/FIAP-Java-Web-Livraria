@@ -5,14 +5,21 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.cadastrarLivro}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 
 </h:head>
 <h:body>
-<h:form>
+	<h:form>
 		<div class="header">
 			<div class="main-logo">
 				<a class="logo"></a>
@@ -27,20 +34,27 @@
 	</h:form>
 
 	<h:form styleClass="form">
-	<h2>#{str.cadastrarLivro}</h2>
+		<h:messages styleClass="alert alert-danger"></h:messages>
+
+		<h2>#{str.cadastrarLivro}</h2>
 		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
-			value="#{livroMB.livro.nome}" />
+			value="#{livroMB.livro.nome}" required="true"
+			requiredMessage="O Título do Livro é obrigatório" id="idLivro" />
 		<h:selectOneMenu styleClass="input">
-			<f:selectItem itemValue="#{str.selecionarCategoria}" noSelectionOption="true" />
-			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat" itemValue="#{cat.id}" itemLabel="#{cat.categoria}"/>
+			<f:selectItem itemValue="#{str.selecionarCategoria}"
+				noSelectionOption="true" />
+			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat"
+				itemValue="#{cat.id}" itemLabel="#{cat.categoria}" />
 		</h:selectOneMenu>
 		<h:selectOneMenu styleClass="input">
-			<f:selectItem itemValue="#{str.selecionarEditora}" noSelectionOption="true" />
-			<f:selectItems value="#{editoraMB.listEditora}" var="edi" itemValue="#{edi.id}" itemLabel="#{edi.nome}"/>
+			<f:selectItem itemValue="#{str.selecionarEditora}"
+				noSelectionOption="true" />
+			<f:selectItems value="#{editoraMB.listEditora}" var="edi"
+				itemValue="#{edi.id}" itemLabel="#{edi.nome}" />
 		</h:selectOneMenu>
-		
+
 		<br />
-		
+
 		<h:commandButton styleClass="botaoAdd"
 			rendered="#{empty editoraMB.editora.id}" value="#{str.incluir}"
 			action="#{editoraMB.inserir}" />
@@ -49,7 +63,7 @@
 			action="#{editoraMB.atualizar}" />
 		<h:commandLink styleClass="back" value="#{str.voltar}"
 			action="visualizarEditora" />
-			
+
 	</h:form>
 </h:body>
 </html>
