@@ -6,7 +6,7 @@
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-	<title>THE LIBRARY | Livros</title>
+	<title>THE LIBRARY | #{str.livros}</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
@@ -25,14 +25,14 @@
 		</div>
 </h:form>
 	<h:form>
-		<h:commandLink styleClass="add" value="Novo Livro" action="#{livroMB.abrirCadastro}" />
-		<h2 style="float:left;">Livros</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Livros..." title="Type in a name"></input>
+		<h:commandLink styleClass="add" value="#{str.novoLivro}" action="#{livroMB.abrirCadastro}" />
+		<h2 style="float:left;">#{str.livros}</h2>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarLivro}" title="Type in a name"></input>
 		<table id="tab">
 			<tr>
-				<th style="width: 40%;">Livro</th>
-				<th style="width: 10%;">Editar</th>
-				<th style="width: 10%;">Remover</th>
+				<th style="width: 40%;">#{str.livro}</th>
+				<th style="width: 10%;">#{str.editar}</th>
+				<th style="width: 10%;">#{str.remover}</th>
 			</tr>
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tr>
