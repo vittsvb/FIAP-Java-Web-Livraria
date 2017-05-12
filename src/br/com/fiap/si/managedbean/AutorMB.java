@@ -39,8 +39,8 @@ public class AutorMB {
 	public AutorMB() {
 		autor = new Autor();
 		AutorDAOImpl dao = new AutorDAOImpl();
-	    listAutor = dao.selectAutor();
-		//listAutor = null;
+	    //listAutor = dao.selectAutor();
+		listAutor = null;
 	}
 	public String inserir(){
 		try{
