@@ -10,6 +10,7 @@
 
 </h:head>
 <h:body>
+<h:messages/>
 <h:form>
 		<div class="header">
 			<div class="main-logo">
@@ -26,7 +27,13 @@
 	
 	<h:form styleClass="form">
 	<h2>#{str.cadastrarCategoria}</h2>
-		<h:inputText styleClass="input" a:placeholder="#{str.categoria}" disable ="#{not empty categoriaMB.categoria.categoria}" value="#{categoriaMB.categoria.categoria}" />
+		
+		<h:inputText styleClass="input" a:placeholder="#{str.categoria}" 
+					 disable ="#{not empty categoriaMB.categoria.categoria}" 
+					 value="#{categoriaMB.categoria.categoria}" required="true" 
+					 requiredMessage="Vocễ deve colocar um valor para categoria" id="idCategoria" /><tb><h:message style="color:#f00;" for="idCategoria"></h:message></tb>
+					 
+					 
 		<h:inputHidden value="#{categoriaMB.categoria.id}" />
 		<br />
 		<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="#{str.incluir}" action="#{categoriaMB.inserir}" />
