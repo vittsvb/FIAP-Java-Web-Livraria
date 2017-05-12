@@ -39,8 +39,8 @@ public class EditoraMB {
 	public EditoraMB() {
 		editora = new Editora();
 		EditoraDAOImpl dao = new EditoraDAOImpl();
-	    //listEditora = dao.selectEditora();
-		listEditora = null;
+	    listEditora = dao.selectEditora();
+		//listEditora = null;
 	}
 
 	public String inserir(){
