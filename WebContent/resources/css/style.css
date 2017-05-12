@@ -74,6 +74,7 @@ body {
 }
 
 .add {
+	margin: 1em 0;
 	max-width: 150px;
 	text-decoration: none;
 	font-size: 1em;

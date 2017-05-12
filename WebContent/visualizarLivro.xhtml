@@ -6,7 +6,7 @@
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-	<title>Editoras</title>
+	<title>THE LIBRARY | Livros</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
@@ -19,15 +19,15 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 </h:form>
 	<h:form>
-		<h:commandLink styleClass="add" value="Nova Editora" action="#{editoraMB.abrirCadastro}" />
-		<h2 style="float:left;">Editoras</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Editora..." title="Type in a name"></input>
+		<h:commandLink styleClass="add" value="Novo Livro" action="#{livroMB.abrirCadastro}" />
+		<h2 style="float:left;">Livros</h2>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Livros..." title="Type in a name"></input>
 		<table id="tab">
 			<tr>
 				<th style="width: 40%;">Livro</th>
