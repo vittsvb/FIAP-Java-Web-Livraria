@@ -12,4 +12,10 @@
 
 
 
+	<application>
+		<resource-bundle>
+			<base-name>string</base-name>
+			<var>str</var>
+		</resource-bundle>
+	</application>
 </faces-config>

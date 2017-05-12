@@ -8,6 +8,10 @@ body {
 	padding: 1em;
 }
 
+ul {
+  list-style-type: none;
+}
+
 #pesquisa {
 	background-image:
 		url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
@@ -74,6 +78,7 @@ body {
 }
 
 .add {
+	margin: 1em 0;
 	max-width: 150px;
 	text-decoration: none;
 	font-size: 1em;

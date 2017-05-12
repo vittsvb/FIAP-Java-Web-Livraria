@@ -6,7 +6,7 @@
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-	<title>#{str.editora}</title>
+	<title>THE LIBRARY | Livros</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
@@ -25,28 +25,26 @@
 		</div>
 </h:form>
 	<h:form>
-		<h:commandLink styleClass="add" value="#{str.novaEditora}" action="#{editoraMB.abrirCadastro}" />
-		<h2 style="float:left;">#{str.editora}</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarEditora}" title="Type in a name"></input>
+		<h:commandLink styleClass="add" value="Novo Livro" action="#{livroMB.abrirCadastro}" />
+		<h2 style="float:left;">Livros</h2>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Livros..." title="Type in a name"></input>
 		<table id="tab">
 			<tr>
-				<th style="width: 40%;">#{str.editora}</th>
-				<th style="width: 40%;">CNPJ</th>
-				<th style="width: 10%;">#{str.editar}</th>
-				<th style="width: 10%;">#{str.remover}</th>
+				<th style="width: 40%;">Livro</th>
+				<th style="width: 10%;">Editar</th>
+				<th style="width: 10%;">Remover</th>
 			</tr>
-			<ui:repeat var="f" value="#{editoraMB.listEditora}">
+			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tr>
-					<td>#{f.nome}</td>
-					<td>#{f.cnpj}</td>
+					<td>#{f.livro}</td>
 					<td id="edit">
-						<h:commandLink value="Editar" action="#{editoraMB.abrirEditar}">
-							<f:setPropertyActionListener value="#{f.id}" target="#{editoraMB.editora.id}" />
+						<h:commandLink value="#{str.editar}" action="#{livroMB.abrirEditar}">
+							<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
 						</h:commandLink>
 					</td>
 					<td id="remove">
-						<h:commandLink value="Deletar" action="#{editoraMB.deletar}">
-							<f:setPropertyActionListener value="#{f.id}" target="#{editoraMB.editora.id}" />
+						<h:commandLink value="#{str.deletar}" action="#{livroMB.deletar}">
+							<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
 						</h:commandLink>
 					</td>
 				</tr>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>THE LIBRARY | #{str.cadastrarLivro}</title>
+	<h:outputStylesheet library="css" name="style.css" target="head" />
+
+</h:head>
+<h:body>
+<h:form>
+		<div class="header">
+			<div class="main-logo">
+				<a class="logo"></a>
+			</div>
+
+			<div class="main-navigation">
+				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+			</div>
+
+		</div>
+	</h:form>
+
+	<h:form styleClass="form">
+	<h2>#{str.cadastrarLivro}</h2>
+		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
+			value="#{livroMB.livro.nome}" />
+		<h:selectOneMenu styleClass="input">
+			<f:selectItem itemValue="#{str.selecionarCategoria}" noSelectionOption="true" />
+			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat" itemValue="#{cat.id}" itemLabel="#{cat.categoria}"/>
+		</h:selectOneMenu>
+		<h:selectOneMenu styleClass="input">
+			<f:selectItem itemValue="#{str.selecionarEditora}" noSelectionOption="true" />
+			<f:selectItems value="#{editoraMB.listEditora}" var="edi" itemValue="#{edi.id}" itemLabel="#{edi.nome}"/>
+		</h:selectOneMenu>
+		
+		<br />
+		
+		<h:commandButton styleClass="botaoAdd"
+			rendered="#{empty editoraMB.editora.id}" value="#{str.incluir}"
+			action="#{editoraMB.inserir}" />
+		<h:commandButton styleClass="botaoAdd"
+			rendered="#{not empty editoraMB.editora.id}" value="#{str.editar}"
+			action="#{editoraMB.atualizar}" />
+		<h:commandLink styleClass="back" value="#{str.voltar}"
+			action="visualizarEditora" />
+			
+	</h:form>
+</h:body>
+</html>
+

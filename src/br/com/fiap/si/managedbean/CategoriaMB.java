@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import br.com.fiap.si.dao.CategoriaDAOImpl;
 import br.com.fiap.si.modelo.Categoria;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean
 public class CategoriaMB {
 
@@ -43,86 +44,64 @@ public class CategoriaMB {
 
 	public CategoriaMB() {
 		categoria = new Categoria();
-		listCategoria = new ArrayList<>();
+		CategoriaDAOImpl dao = new CategoriaDAOImpl();
+        listCategoria = dao.selectCategoria();
+		//listCategoria = null;
 	}
 
 	public String inserir() {
-		try {
+		
 			CategoriaDAOImpl dao = new CategoriaDAOImpl();
 			dao.saveCategoria(categoria);
 			return listar();
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+		
 	}
 
 	public String atualizar() {
-		try {
 			CategoriaDAOImpl dao = new CategoriaDAOImpl();
 			dao.updateCategoria(categoria);
 			return listar();
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
 	}
 
 	public String deletar() {
-		try {
-			CategoriaDAOImpl dao = new CategoriaDAOImpl();
-			dao.deleteCategoria(categoria);
-			return listar();
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+		CategoriaDAOImpl dao = new CategoriaDAOImpl();
+		dao.deleteCategoria(categoria);
+		return listar();
+		
 	}
 
 	public String abrirCadastro() {
 
-		try {
+		
 			categoria.setCategoria(null);
 			categoria.setId(null);
 			return "cadastroCategoria";
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
-
+		
 	}
 
 	public String abrirEditar() {
 
-		try {
-			CategoriaDAOImpl dao = new CategoriaDAOImpl();
-			categoria = dao.getCategoriaID(categoria.getId());
-
-			return "cadastroCategoria";
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+		
+			try {
+				CategoriaDAOImpl dao = new CategoriaDAOImpl();
+				categoria = dao.getCategoriaID(categoria.getId());
+				System.out.println(categoria.getId() +" - "+categoria.getCategoria());
+				return "cadastroCategoria";
+			} catch (Exception e) {
+				erro = e.getMessage();
+				return "erro";
+			}
+		
 
 	}
 
 	public String listar() {
-		try {
+	
 			CategoriaDAOImpl dao = new CategoriaDAOImpl();
 			listCategoria = dao.selectCategoria();
 			return "visualizarCategoria";
 
-		} catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+	}
 
-	}
-	
-	public String teste(){
-		erro="Sucesso";
-		System.out.println("ENTROU");
-		return "sucesso";
-	}
 
 }

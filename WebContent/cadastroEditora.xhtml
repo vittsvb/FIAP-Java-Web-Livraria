@@ -4,14 +4,21 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Cadastro de Editoras</title>
+	<title>THE LIBRARY | #{str.cadastrarEditora}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 
 </h:head>
 <h:body>
-<h:form>
+	<h:form>
 		<div class="header">
 			<div class="main-logo">
 				<a class="logo"></a>
@@ -19,29 +26,33 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 	</h:form>
 
 	<h:form styleClass="form">
-	<h2>Cadastrar Editoras</h2>
+		<h:messages styleClass="alert alert-danger"></h:messages>
+		<h2>#{str.cadastrarEditora}</h2>
 		<h:inputText styleClass="input" a:placeholder="CNPJ"
 			disabled="#{not empty editoraMB.editora.cnpj}"
-			value="#{editoraMB.editora.cnpj}" />
-		<h:inputText styleClass="input" a:placeholder="Editora" value="#{editoraMB.editora.nome}" />
+			value="#{editoraMB.editora.cnpj}" required="true"
+			requiredMessage="O CNPJ da Editora é obrigatório" id="idCNPJ" />
+		<h:inputText styleClass="input" a:placeholder="#{str.editora}"
+			value="#{editoraMB.editora.nome}" required="true"
+			requiredMessage="O Nome da Editora é obrigatório" id="idEditora" />
 		<h:inputHidden value="#{editoraMB.editora.id}" />
 		<br />
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{empty categoriaMB.categoria.id}" value="Incluir"
-			action="#{categoriaMB.teste}" />
+			rendered="#{empty editoraMB.editora.id}" value="#{str.incluir}"
+			action="#{editoraMB.inserir}" />
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{not empty categoriaMB.categoria.id}" value="Alterar"
-			action="#{categoriaMB.atualizar}" />
-		<h:commandLink styleClass="back" value="Voltar"
+			rendered="#{not empty editoraMB.editora.id}" value="#{str.alterar}"
+			action="#{editoraMB.atualizar}" />
+		<h:commandLink styleClass="back" value="#{str.voltar}"
 			action="visualizarEditora" />
-			
+
 	</h:form>
 </h:body>
 </html>

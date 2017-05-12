@@ -6,18 +6,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.fiap.si.modelo.Autor;
+import br.com.fiap.si.modelo.Livro;
 import br.com.fiap.si.util.JPAUtil;
 
-public class AutorDAOImpl implements AutorDAO{
+public class LivroDAOImpl implements LivroDAO {
 
 	@Override
-	public void saveAutor(Autor autor) {
+	public void saveLivro(Livro livro) {
 		EntityManager em = new JPAUtil().getEntityManager();
 		try {
 			em.getTransaction().begin();
-			
-			em.persist(autor);
-			
+			em.persist(livro);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
@@ -26,54 +25,53 @@ public class AutorDAOImpl implements AutorDAO{
 	}
 
 	@Override
-	public void updateAutor(Autor autor) {
+	public void updateLivro(Livro livro) {
+		EntityManager em = new JPAUtil().getEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.merge(livro);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+
+			em.getTransaction().rollback();
+			
+		}
+
+	}
+
+	@Override
+	public void deleteLivro(Livro livro) {
 		EntityManager em = new JPAUtil().getEntityManager();
 		try{
 			em.getTransaction().begin();
 			
-			em.merge(autor);
-			
-			em.getTransaction().commit();
-			
-		} catch (Exception e) {
-			em.getTransaction().rollback();
-		}
-		
-	}
-
-	@Override
-	public void deleteAutor(Autor autor) {
-		EntityManager em = new JPAUtil().getEntityManager();
-		try{
-			em.getTransaction().begin();
-			
-			em.remove(autor);
+			em.remove(livro);
 			
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 		}
 		
+
 	}
 
 	@Override
-	public List<Autor> selectAutor(){
-		List<Autor> lista;
+	public List<Livro> selectLivro() {
+		List<Livro> lista;
 		EntityManager em = new JPAUtil().getEntityManager();
-		Query result = em.createQuery("select a from Autor a");
+		Query result = em.createQuery("select l from Livro l");
 		return result.getResultList();
-		
 	}
 
 	@Override
-	public Autor getAutorID(Long id) {
+	public Livro getLivroID(Long id) {
 		EntityManager em = new JPAUtil().getEntityManager();
-		Query q =  em.createQuery("select a from Autor a where id = :id");
+		Query q =  em.createQuery("select l from Livro l where id = :id");
 		q.setParameter("id",id);
-		Autor autor = (Autor) q.getSingleResult();
+		Livro livro = (Livro) q.getSingleResult();
 		
 		
-		return autor;
+		return livro;
 	}
 
 }

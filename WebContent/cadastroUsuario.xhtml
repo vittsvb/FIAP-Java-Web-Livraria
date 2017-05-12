@@ -4,7 +4,7 @@
 <h:head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>THE LIBRARY | Cadastro</title>
+	<title>THE LIBRARY | #{str.cadastro}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 
 </h:head>
@@ -17,29 +17,29 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 	</h:form>
 
 	<h:form styleClass="form">
-		<h2>Cadastro Usuário</h2>
-		<h:inputText a:placeholder="Login" styleClass="input" value="#{usuarioMB.usuario.login}" />
-		<h:inputText a:placeholder="Senha" styleClass="input" value="#{usuarioMB.usuario.senha}" />
-		<h:inputText a:placeholder="Nome" styleClass="input" value="#{usuarioMB.usuario.nome}" />
-		<h:inputText a:placeholder="Idade" styleClass="input" value="#{usuarioMB.usuario.idade}" />
+		<h2>#{str.cadastrarUsuario}</h2>
+		<h:inputText a:placeholder="#{str.login}" styleClass="input" value="#{usuarioMB.usuario.login}" />
+		<h:inputText a:placeholder="#{str.senha}" styleClass="input" value="#{usuarioMB.usuario.senha}" />
+		<h:inputText a:placeholder="#{str.nome}" styleClass="input" value="#{usuarioMB.usuario.nome}" />
+		<h:inputText a:placeholder="#{str.idade}" styleClass="input" value="#{usuarioMB.usuario.idade}" />
 		<h:inputText a:placeholder="CPF" styleClass="input" value="#{usuarioMB.usuario.cpfCnpj}" />
-		<h:inputText a:placeholder="Endereço" styleClass="input" value="#{usuarioMB.usuario.logradouro}" />
-		<h:inputText a:placeholder="CEP" styleClass="input" value="#{usuarioMB.usuario.cep}" />
-		<h:inputText a:placeholder="Estado" styleClass="input" value="#{usuarioMB.usuario.estado}" />
+		<h:inputText a:placeholder="#{str.endereco}" styleClass="input" value="#{usuarioMB.usuario.logradouro}" />
+		<h:inputText a:placeholder="#{str.cep}" styleClass="input" value="#{usuarioMB.usuario.cep}" />
+		<h:inputText a:placeholder="#{str.estado}" styleClass="input" value="#{usuarioMB.usuario.estado}" />
 		<h:inputHidden value="#{usuarioMB.usuario.id}" />
 		<br />
-		<h:selectBooleanCheckbox value="#{usuarioMB.usuario.adm}" /> Administrador
+		<h:selectBooleanCheckbox value="#{usuarioMB.usuario.adm}" /> #{str.administrador}
 		<br />
 		<br />
-		<h:commandButton styleClass="botaoAdd" rendered="#{empty usuarioMB.autor.id}" value="Incluir" action="#{usuarioMB.inserir}" />
-		<h:commandLink styleClass="back" value="Voltar" action="login" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{empty usuarioMB.autor.id}" value="#{str.incluir}" action="#{usuarioMB.inserir}" />
+		<h:commandLink styleClass="back" value="#{str.voltar}" action="login" />
 	</h:form>
 </h:body>
 

@@ -38,39 +38,32 @@ public class EditoraMB {
 	
 	public EditoraMB() {
 		editora = new Editora();
-	    listEditora = new ArrayList<>();
+		EditoraDAOImpl dao = new EditoraDAOImpl();
+	    listEditora = dao.selectEditora();
+		//listEditora = null;
 	}
 
 	public String inserir(){
-		try{
-			EditoraDAOImpl dao = new EditoraDAOImpl();
-			dao.saveEditora(editora);
-			return listar();
-		}catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+			
+		EditoraDAOImpl dao = new EditoraDAOImpl();
+		dao.saveEditora(editora);
+		return listar();
+		
 	}
 	public String atualizar(){
-		try{
+		
 			EditoraDAOImpl dao = new EditoraDAOImpl();
 			dao.updateEditora(editora);
 			return listar();
-		}catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+		
 	}
 
 	public String deletar(){
-		try{
+		
 			EditoraDAOImpl dao = new EditoraDAOImpl();
 			dao.deleteEditora(editora);
 			return listar();
-		}catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
+		
 	}
 	public String abrirCadastro(){
 		
@@ -103,21 +96,11 @@ public class EditoraMB {
 		
 	}
 	public String listar(){
-		try{
+		
 			EditoraDAOImpl dao = new EditoraDAOImpl();
 			listEditora = dao.selectEditora();
 			return "visualizarEditora";
-		}
-		catch (Exception e) {
-			erro = e.getMessage();
-			return "erro";
-		}
-	}
-	
-	public String teste(){
-		erro="Sucesso";
-		System.out.println("ENTROU");
-		return "sucesso";
+		
 	}
 	
 }
