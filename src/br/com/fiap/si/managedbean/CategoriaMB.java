@@ -85,7 +85,6 @@ public class CategoriaMB {
 			try {
 				CategoriaDAOImpl dao = new CategoriaDAOImpl();
 				categoria = dao.getCategoriaID(categoria.getId());
-				System.out.println(categoria.getId() +" - "+categoria.getCategoria());
 				return "cadastroCategoria";
 			} catch (Exception e) {
 				erro = e.getMessage();

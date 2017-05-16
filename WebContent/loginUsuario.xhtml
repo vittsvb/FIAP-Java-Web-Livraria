@@ -35,9 +35,8 @@
 			value="#{usuarioMB.usuario.senha}" />
 		<h:inputHidden value="#{usuarioMB.usuario.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd"
-			rendered="#{empty usuarioMB.usuario.id}" value="Entrar"
-			action="#{usuarioMB.inserir}" />
+		<h:commandButton styleClass="botaoAdd" value="Entrar"
+			action="#{usuarioMB.login}" />
 		<h:commandLink styleClass="back" value="Cadastrar"
 			action="cadastroUsuario" />
 	</h:form>

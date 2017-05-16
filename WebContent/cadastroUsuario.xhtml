@@ -38,7 +38,7 @@
 		<h:selectBooleanCheckbox value="#{usuarioMB.usuario.adm}" /> #{str.administrador}
 		<br />
 		<br />
-		<h:commandButton styleClass="botaoAdd" rendered="#{empty usuarioMB.autor.id}" value="#{str.incluir}" action="#{usuarioMB.inserir}" />
+		<h:commandButton styleClass="botaoAdd" rendered="#{empty usuarioMB.usuario.id}" value="#{str.incluir}" action="#{usuarioMB.inserir}" />
 		<h:commandLink styleClass="back" value="#{str.voltar}" action="login" />
 	</h:form>
 </h:body>
