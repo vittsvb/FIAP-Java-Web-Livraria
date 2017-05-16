@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.cadastrarAutor}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
@@ -33,15 +40,26 @@
 	<h:form styleClass="form" prependId="false">
 		<h:messages styleClass="alert alert-danger"></h:messages>
 		<h2>#{str.cadastrarAutor}</h2>
-		<h:inputText a:placeholder="CPF*" styleClass="input" disabled="#{not empty autorMB.autor.cpf}" value="#{autorMB.autor.cpf}" required="true" requiredMessage="O CPF do Autor é obrigatório" id="idCPF" a:maxlength="14" validatorMessage="Formato do CPF inválido">
+		<h:inputText a:placeholder="CPF*" styleClass="input"
+			disabled="#{not empty autorMB.autor.cpf}"
+			value="#{autorMB.autor.cpf}" required="true"
+			requiredMessage="O CPF do Autor é obrigatório" id="idCPF"
+			a:maxlength="14" validatorMessage="Formato do CPF inválido">
 			<f:validateRegex pattern="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}" />
 		</h:inputText>
-		<h:inputText a:placeholder="#{str.autor}*" styleClass="input" value="#{autorMB.autor.nome}" required="true" requiredMessage="O Nome do Autor é obrigatório" id="idNomeAutor" />
+		<h:inputText a:placeholder="#{str.autor}*" styleClass="input"
+			value="#{autorMB.autor.nome}" required="true"
+			requiredMessage="O Nome do Autor é obrigatório" id="idNomeAutor" />
 		<h:inputHidden value="#{autorMB.autor.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd" rendered="#{empty autorMB.autor.id}" value="#{str.incluir}" action="#{autorMB.inserir}" />
-		<h:commandButton styleClass="botaoAdd" rendered="#{not empty autorMB.autor.id}" value="#{str.editar}" action="#{autorMB.atualizar}" />
-		<h:commandLink styleClass="back" value="#{str.voltar}" action="visualizarAutor"></h:commandLink>
+		<h:commandButton styleClass="botaoAdd"
+			rendered="#{empty autorMB.autor.id}" value="#{str.incluir}"
+			action="#{autorMB.inserir}" />
+		<h:commandButton styleClass="botaoAdd"
+			rendered="#{not empty autorMB.autor.id}" value="#{str.editar}"
+			action="#{autorMB.atualizar}" />
+		<h:commandLink styleClass="back" value="#{str.voltar}"
+			action="visualizarAutor"></h:commandLink>
 	</h:form>
 </h:body>
 
