@@ -29,7 +29,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		EntityManager em = new JPAUtil().getEntityManager();
 		try {
 			em.getTransaction().begin();
-
+			
 			em.merge(categoria);
 
 			em.getTransaction().commit();
@@ -46,7 +46,8 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		try {
 			em.getTransaction().begin();
 
-			em.remove(categoria);
+			Categoria attached = em.merge(categoria);
+			em.remove(attached);
 
 			em.getTransaction().commit();
 		} catch (Exception e) {

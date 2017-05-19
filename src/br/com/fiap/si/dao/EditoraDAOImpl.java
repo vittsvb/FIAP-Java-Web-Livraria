@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.fiap.si.modelo.Autor;
+import br.com.fiap.si.modelo.Categoria;
 import br.com.fiap.si.modelo.Editora;
 import br.com.fiap.si.util.JPAUtil;
 
@@ -48,7 +49,8 @@ public class EditoraDAOImpl implements EditoraDAO{
 		try{
 			em.getTransaction().begin();
 			
-			em.remove(editora);
+			Editora attached = em.merge(editora);
+			em.remove(attached);
 			
 			em.getTransaction().commit();
 		} catch (Exception e) {
