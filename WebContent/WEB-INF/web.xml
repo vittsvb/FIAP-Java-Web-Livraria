@@ -30,4 +30,13 @@
   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
   </listener>
+  <filter>
+       <filter-name>Login</filter-name>
+       <filter-class>br.com.fiap.si.util.FilterApp</filter-class>     
+   </filter>
+   
+   <filter-mapping>
+      <filter-name>Login</filter-name>
+      <url-pattern>/Adm/*</url-pattern>
+  </filter-mapping>
 </web-app>
