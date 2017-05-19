@@ -31,15 +31,18 @@
 		<table id="tab">
 			<thead>
 				<tr>
-					<th style="width: 40%;">Autor</th>
-					<th style="width: 40%;">CPF</th>
-					<th style="width: 10%;">Editar</th>
-					<th style="width: 10%;">Remover</th>
+					<th style="width: 40%;">Imagem</th>
+					<th style="width: 40%;">nome</th>
+					<th style="width: 10%;">autor</th>
+					<th style="width: 10%;">preco</th>
 				</tr>
 			</thead>
 			<tbody>
 				<ui:repeat var="f" value="#{autorMB.listAutor}">
 					<td>#{f.nome}</td>
+					<td>#{f.cpf}</td>
+					<td>#{f.cpf}</td>
+					<td>#{f.cpf}</td>
 					<td>#{f.cpf}</td>
 					<td id="edit">
 						<h:commandLink value="Editar" action="#{autorMB.abrirEditar}">

@@ -2,11 +2,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.cadastro}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
-
+	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
 	<h:form>
@@ -23,9 +32,11 @@
 		</div>
 	</h:form>
 
-	<h:form styleClass="form">
+	<h:form styleClass="form" prependId="false">
+	<h:messages styleClass="alert alert-danger"></h:messages>
 		<h2>#{str.cadastrarUsuario}</h2>
-		<h:inputText a:placeholder="#{str.login}" styleClass="input" value="#{usuarioMB.usuario.login}" />
+		<h:inputText a:placeholder="#{str.login}" styleClass="input" value="#{usuarioMB.usuario.login}" required="true"
+			requiredMessage="O campo Login é obrigatório"/>
 		<h:inputText a:placeholder="#{str.senha}" styleClass="input" value="#{usuarioMB.usuario.senha}" />
 		<h:inputText a:placeholder="#{str.nome}" styleClass="input" value="#{usuarioMB.usuario.nome}" />
 		<h:inputText a:placeholder="#{str.idade}" styleClass="input" value="#{usuarioMB.usuario.idade}" />
