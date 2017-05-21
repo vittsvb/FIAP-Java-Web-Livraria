@@ -20,3 +20,24 @@ function filtro() {
 		}
 	}
 }
+
+function filtroLivro() {
+	var input, filter, table, tbody, td, i;
+	input = document.getElementById("pesquisa");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("tab");
+	tbody = table.getElementsByTagName("tbody");
+	for (i = 0; i < tbody.length; i++) {
+		td = tbody[i].getElementsByTagName("td")[1];
+		if (td) {
+			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tbody[i].style.display = "";
+			} else {
+				tbody[i].style.display = "none";
+			}
+		}
+	}
+}
+
+
+
