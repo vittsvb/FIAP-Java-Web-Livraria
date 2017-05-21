@@ -23,6 +23,10 @@ public class Livro {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
     
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "autor_id")
+    private Autor autor;
 
     public Livro(String nome) {
         this.nome = nome;
@@ -53,5 +57,13 @@ public class Livro {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public void setAutor(Autor autor) {
+		this.autor = autor;
 	}
 }
