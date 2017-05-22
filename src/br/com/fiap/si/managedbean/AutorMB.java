@@ -66,7 +66,7 @@ public class AutorMB {
 	public String deletar(){
 		try{
 			AutorDAOImpl dao = new AutorDAOImpl();
-			autor = dao.getAutorID(autor.getId());	
+			//autor = dao.getAutorID(autor.getId());	
 			dao.deleteAutor(autor);
 			return listar();
 		}catch (Exception e) {

@@ -47,7 +47,8 @@ public class AutorDAOImpl implements AutorDAO{
 		try{
 			em.getTransaction().begin();
 			
-			em.remove(autor);
+			Autor attached = em.merge(autor);
+			em.remove(attached);
 			
 			em.getTransaction().commit();
 		} catch (Exception e) {
