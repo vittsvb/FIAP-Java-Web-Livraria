@@ -24,14 +24,14 @@
 				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
 						value="Login" action="loginUsuario"></h:commandLink></i> <i
 					class="fa fa-shopping-cart"><h:commandLink
-						styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i>
+						styleClass="item-menu" value="#{str.carrinho}" action="login"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
-						value="Desejos" action="login"></h:commandLink></i>
+						value="#{str.desejos}" action="login"></h:commandLink></i>
 			</div>
 
 		</div>
 		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
-			placeholder="Buscar Livro..."></input>
+			placeholder="#{str.buscarLivro}"></input>
 
 		<!--<table id="tab">
 			<thead>
@@ -131,9 +131,9 @@
 					</tr>
 
 					<tr>
-						<td style="font-size: 12px;">Autor(a): #{f.autor}</td>
-						<td style="font-size: 12px;">Editora: #{f.editora}</td>
-						<td style="font-size: 12px;">Categoria: #{f.categoria}</td>
+						<td style="font-size: 12px;">#{str.autor}: #{f.autor}</td>
+						<td style="font-size: 12px;">#{str.editora}: #{f.editora}</td>
+						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria}</td>
 						<td style="font-size: 14px;">desconto de #{f.desconto}</td>
 						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
 									styleClass="item-menu" value="Carrinho"
