@@ -17,7 +17,9 @@ import javax.persistence.*;
 public class Item {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
+	@SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 	private Integer id;
 
 	private BigDecimal valor;

@@ -14,8 +14,6 @@ public class UsuarioMB {
 
 	private Usuario usuario;
 	
-	
-	
 	public UsuarioMB() {
 		usuario = new Usuario();
 	
