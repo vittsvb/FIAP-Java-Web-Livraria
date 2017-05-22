@@ -19,22 +19,22 @@
 			<div class="main-navigation">
 				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
 						value="Login" action="login"></h:commandLink></i> <i class="fa fa-shopping-cart"><h:commandLink
-						styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i>
+						styleClass="item-menu" value="#{str.carrinho} action="login"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
-						value="Desejos" action="login"></h:commandLink></i> <i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.desejos}" action="login"></h:commandLink></i> <i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Livro..."></input>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarLivro}"></input>
 
 		<table id="tab">
 			<thead>
 				<tr>
-					<th style="width: 40%;">Imagem</th>
-					<th style="width: 40%;">nome</th>
-					<th style="width: 10%;">autor</th>
-					<th style="width: 10%;">preco</th>
+					<th style="width: 40%;">#{str.imagem}</th>
+					<th style="width: 40%;">#{str.titulo}</th>
+					<th style="width: 10%;">#{str.autor}</th>
+					<th style="width: 10%;">#{str.preco}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -45,14 +45,14 @@
 					<td>#{f.cpf}</td>
 					<td>#{f.cpf}</td>
 					<td id="edit">
-						<h:commandLink value="Editar" action="#{autorMB.abrirEditar}">
+						<h:commandLink value="#{str.editar}" action="#{autorMB.abrirEditar}">
 							<i class="fa fa-pencil"></i>
 							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
 						</h:commandLink>
 					</td>
 
 					<td id="remove">
-						<h:commandLink value="Editar" action="#{autorMB.deletar}">
+						<h:commandLink value="#{str.deletar}" action="#{autorMB.deletar}">
 							<i class="fa fa-trash"></i>
 							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
 						</h:commandLink>

@@ -38,7 +38,7 @@
 		<h2>#{str.cadastrarLivro}</h2>
 		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
 			value="#{livroMB.livro.nome}" required="true"
-			requiredMessage="O Título do Livro é obrigatório" id="idLivro" />
+			requiredMessage="#{str.tituloObrigatorio}" id="idLivro" />
 		<h:selectOneMenu styleClass="input">
 			<f:selectItem itemValue="#{str.selecionarCategoria}"
 				noSelectionOption="true" />

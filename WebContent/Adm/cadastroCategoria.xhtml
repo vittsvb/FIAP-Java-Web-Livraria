@@ -40,7 +40,7 @@
 			<h:inputText styleClass="input" a:placeholder="#{str.categoria}"
 				disable="#{not empty categoriaMB.categoria.categoria}"
 				value="#{categoriaMB.categoria.categoria}" required="true"
-				requiredMessage="O campo categoria é obrigatório" id="idCategoria" />
+				requiredMessage="#{str.categoriaNomeObrigatorio}" id="idCategoria" />
 			<h:inputHidden value="#{categoriaMB.categoria.id}" />
 			<br />
 			<h:commandButton styleClass="botaoAdd"

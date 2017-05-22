@@ -42,13 +42,13 @@
 		<h:inputText styleClass="input" a:placeholder="CNPJ*"
 			disabled="#{not empty editoraMB.editora.cnpj}"
 			value="#{editoraMB.editora.cnpj}" required="true"
-			requiredMessage="O CNPJ da editora é obrigatório" id="idCNPJ"
-			validatorMessage="Formato do CNPJ inválido">
+			requiredMessage="#{str.editoraCNPJObrigatorio}" id="idCNPJ"
+			validatorMessage="#{str.editoraCNPJInvalido}">
 			<f:validateRegex pattern="[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}" />
 		</h:inputText>
 		<h:inputText styleClass="input" a:placeholder="#{str.editora}*"
 			value="#{editoraMB.editora.nome}" required="true"
-			requiredMessage="O Nome da Editora é obrigatório" id="idEditora" />
+			requiredMessage="#{str.editoraNomeObrigatorio}" id="idEditora" />
 		<h:inputHidden value="#{editoraMB.editora.id}" />
 		<br />
 		<h:commandButton styleClass="botaoAdd"
