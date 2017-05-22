@@ -19,36 +19,22 @@
 			<div class="main-logo">
 				<a class="logo"></a>
 			</div>
-
 			<div class="main-navigation">
 				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
-<<<<<<< HEAD
 						value="Login" action="loginUsuario"></h:commandLink></i> <i
 					class="fa fa-shopping-cart"><h:commandLink
 						styleClass="item-menu" value="#{str.carrinho}" action="login"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
 						value="#{str.desejos}" action="login"></h:commandLink></i>
 			</div>
-
 		</div>
+
 		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
 			placeholder="#{str.buscarLivro}"></input>
-=======
-						value="Login" action="login"></h:commandLink></i> <i class="fa fa-shopping-cart"><h:commandLink
-						styleClass="item-menu" value="#{str.carrinho} action="login"></h:commandLink></i>
-				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
-						value="#{str.desejos}" action="login"></h:commandLink></i> <i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
-			</div>
-
-		</div>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarLivro}"></input>
->>>>>>> vvilas
 
 		<!--<table id="tab">
 			<thead>
 				<tr>
-<<<<<<< HEAD
 					<th style="width: 5%;">Imagem</th>
 					<th colspan="3" style="width: 40%;">Descrição</th>
 					<th style="width: 10%;">Preço</th>
@@ -85,35 +71,6 @@
 						como um estorvo.</td>
 					<td style="font-size: 14px;">por: R$ 26,95</td>
 				</tr>
-=======
-					<th style="width: 40%;">#{str.imagem}</th>
-					<th style="width: 40%;">#{str.titulo}</th>
-					<th style="width: 10%;">#{str.autor}</th>
-					<th style="width: 10%;">#{str.preco}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<ui:repeat var="f" value="#{autorMB.listAutor}">
-					<td>#{f.nome}</td>
-					<td>#{f.cpf}</td>
-					<td>#{f.cpf}</td>
-					<td>#{f.cpf}</td>
-					<td>#{f.cpf}</td>
-					<td id="edit">
-						<h:commandLink value="#{str.editar}" action="#{autorMB.abrirEditar}">
-							<i class="fa fa-pencil"></i>
-							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
-						</h:commandLink>
-					</td>
-
-					<td id="remove">
-						<h:commandLink value="#{str.deletar}" action="#{autorMB.deletar}">
-							<i class="fa fa-trash"></i>
-							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
-						</h:commandLink>
-					</td>
-				</ui:repeat>
->>>>>>> vvilas
 			</tbody>
 			<tbody>
 				<tr>
@@ -190,5 +147,4 @@
 		</table>
 	</h:form>
 </h:body>
-
 </html>
