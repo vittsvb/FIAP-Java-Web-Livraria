@@ -21,7 +21,7 @@
 
 			<div class="main-navigation">
 				 <i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
@@ -29,15 +29,15 @@
 	
 	<h:form styleClass="form">
 	<h2>Login</h2>
-		<h:inputText a:placeholder="Usuario" styleClass="input"
+		<h:inputText a:placeholder="#{str.usuario}" styleClass="input"
 			value="#{usuarioMB.usuario.login}" />
-		<h:inputSecret a:placeholder="Senha" styleClass="input"
+		<h:inputSecret a:placeholder="#{str.senha}" styleClass="input"
 			value="#{usuarioMB.usuario.senha}" />
 		<h:inputHidden value="#{usuarioMB.usuario.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd" value="Entrar"
+		<h:commandButton styleClass="botaoAdd" value="#{str.entrar}"
 			action="#{usuarioMB.login}" />
-		<h:commandLink styleClass="back" value="Cadastrar"
+		<h:commandLink styleClass="back" value="#{str.cadastrar}"
 			action="cadastroUsuario" />
 	</h:form>
 </h:body>

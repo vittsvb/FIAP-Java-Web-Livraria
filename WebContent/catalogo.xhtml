@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 
-	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>THE LIBRARY | Home</title>
+	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
@@ -18,44 +22,129 @@
 
 			<div class="main-navigation">
 				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
-						value="Login" action="login"></h:commandLink></i> <i class="fa fa-shopping-cart"><h:commandLink
+						value="Login" action="loginUsuario"></h:commandLink></i> <i
+					class="fa fa-shopping-cart"><h:commandLink
 						styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
-						value="Desejos" action="login"></h:commandLink></i> <i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="Sair" action="catalogo"></h:commandLink></i>
+						value="Desejos" action="login"></h:commandLink></i>
 			</div>
 
 		</div>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="Buscar Livro..."></input>
+		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
+			placeholder="Buscar Livro..."></input>
+
+		<!--<table id="tab">
+			<thead>
+				<tr>
+					<th style="width: 5%;">Imagem</th>
+					<th colspan="3" style="width: 40%;">Descrição</th>
+					<th style="width: 10%;">Preço</th>
+					<th style="width: 10%;">Compra</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="3"><img
+						src="http://www.infoescola.com/wp-content/uploads/2009/01/Harry-Potter-e-a-Pedra-Filosofal-livro.jpg"
+						width="100"></img></td>
+
+					<td colspan="3">HARRY POTTER E A PEDRA FILOSOFAL</td>
+					<td style="font-size: 14px;">de:<strike> R$ 38,50</strike></td>
+					<td><i class="fa fa-heart"><h:commandLink
+								styleClass="item-menu" value="Desejos" action="login"></h:commandLink></i></td>
+				</tr>
+				<tr>
+					<td style="font-size: 12px;">Autor(a): ROWLING, J. K.</td>
+					<td style="font-size: 12px;">Editora: ROCCO</td>
+					<td style="font-size: 12px;">Categoria: Ficção Fantasiosa</td>
+					<td style="font-size: 14px;">desconto de 30%</td>
+					<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
+								styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i></td>
+				</tr>
+				<tr>
+					<td colspan="3" style="font-size: 12px;">Harry Potter é um
+						garoto cujos pais, feiticeiros, foram assassinados por um
+						poderosíssimo bruxo quando ele ainda era um bebê. Ele foi levado,
+						então, para a casa dos tios que nada tinham a ver com o
+						sobrenatural. Pelo contrário. Até os 10 anos, Harry foi uma
+						espécie de gata borralheira: maltratado pelos tios, herdava roupas
+						velhas do primo gorducho, tinha óculos remendados e era tratado
+						como um estorvo.</td>
+					<td style="font-size: 14px;">por: R$ 26,95</td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<td rowspan="3"><img
+						src="http://statics.livrariacultura.net.br/products/capas_lg/192/11008192.jpg"
+						width="100"></img></td>
+
+					<td colspan="3" name="titulo">BATMAN - CAVALEIRO DAS TREVAS</td>
+					<td style="font-size: 14px;">de: <strike>R$ 94,00</strike></td>
+					<td><i class="fa fa-heart"><h:commandLink
+								styleClass="item-menu" value="Desejos" action="login"></h:commandLink></i></td>
+				<tr>
+					<td style="font-size: 12px;">Autor(a): MILLER, FRANK</td>
+					<td style="font-size: 12px;">Editora: PANINI LIVROS</td>
+					<td style="font-size: 12px;">Categoria: Quadrinhos</td>
+					<td style="font-size: 14px;">desconto de 30%</td>
+					<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
+								styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i></td>
+				</tr>
+				<tr>
+					<td colspan="3" style="font-size: 12px;">Originalmente uma
+						minissérie em 4 edições lançada no início de 1986, BATMAN - O
+						CAVALEIRO DAS TREVAS levou muito pouco tempo para ser considerada
+						uma das duas pedras angulares dos quadrinhos modernos, ao lado de
+						Watchmen, de Alan Moore. Escrita e desenhada por Frank Miller, a
+						história, mostrando um Cavaleiro das Trevas envelhecido e
+						amargurado voltando à ativa após anos de aposentadoria,
+						ultrapassou as fronteiras do que se convencionava considerar
+						"histórias em quadrinhos", estabelecendo novos parâmetros, tanto
+						em narrativa como em temática, e influenciando tudo o que veio
+						depois.</td>
+					<td style="font-size: 14px;">por: R$ 65,80</td>
+				</tr>
+				</tr>
+			</tbody>
+		</table>-->
 
 		<table id="tab">
 			<thead>
 				<tr>
-					<th style="width: 40%;">Autor</th>
-					<th style="width: 40%;">CPF</th>
-					<th style="width: 10%;">Editar</th>
-					<th style="width: 10%;">Remover</th>
+					<th style="width: 10%;">Imagem</th>
+					<th colspan="3" style="width: 70%;">Descrição</th>
+					<th style="width: 10%;">Preço</th>
+					<th style="width: 10%;">Compra</th>
 				</tr>
 			</thead>
-			<tbody>
-				<ui:repeat var="f" value="#{autorMB.listAutor}">
-					<td>#{f.nome}</td>
-					<td>#{f.cpf}</td>
-					<td id="edit">
-						<h:commandLink value="Editar" action="#{autorMB.abrirEditar}">
-							<i class="fa fa-pencil"></i>
-							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
-						</h:commandLink>
-					</td>
+			<ui:repeat var="f" value="#{livroMB.listLivro}">
+				<tbody>
+					<tr>
+						<td rowspan="3"><img src="#{f.img}" width="100"></img></td>
+						<td colspan="3">#{f.titulo}L</td>
+						<td style="font-size: 14px;">de:<strike>
+								R$#{f.preco}</strike></td>
+						<td><i class="fa fa-heart"><h:commandLink
+									styleClass="item-menu" value="Desejos"
+									action="#{livroMB.addListaDesejos}"></h:commandLink></i></td>
+					</tr>
 
-					<td id="remove">
-						<h:commandLink value="Editar" action="#{autorMB.deletar}">
-							<i class="fa fa-trash"></i>
-							<f:setPropertyActionListener value="{f.id}" target="#{autorMB.autor.id}" />
-						</h:commandLink>
-					</td>
-				</ui:repeat>
-			</tbody>
+					<tr>
+						<td style="font-size: 12px;">Autor(a): #{f.autor}</td>
+						<td style="font-size: 12px;">Editora: #{f.editora}</td>
+						<td style="font-size: 12px;">Categoria: #{f.categoria}</td>
+						<td style="font-size: 14px;">desconto de #{f.desconto}</td>
+						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
+									styleClass="item-menu" value="Carrinho"
+									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
+					</tr>
+					<tr>
+						<td colspan="3" style="font-size: 12px;">#{f.descricao}</td>
+						<td style="font-size: 14px;">por: R$ #{f.precoComDesconto}</td>
+					</tr>
+				</tbody>
+			</ui:repeat>
 		</table>
 	</h:form>
 </h:body>
