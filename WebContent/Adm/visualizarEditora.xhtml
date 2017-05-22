@@ -40,12 +40,12 @@
 					<td>#{f.nome}</td>
 					<td>#{f.cnpj}</td>
 					<td id="edit">
-						<h:commandLink value="Editar" action="#{editoraMB.abrirEditar}">
+						<h:commandLink value="#{str.editar}" action="#{editoraMB.abrirEditar}">
 							<f:setPropertyActionListener value="#{f.id}" target="#{editoraMB.editora.id}" />
 						</h:commandLink>
 					</td>
 					<td id="remove">
-						<h:commandLink value="Deletar" action="#{editoraMB.deletar}">
+						<h:commandLink value="#{str.deletar}" action="#{editoraMB.deletar}">
 							<f:setPropertyActionListener value="#{f.id}" target="#{editoraMB.editora.id}" />
 						</h:commandLink>
 					</td>
