@@ -67,6 +67,13 @@ public class LivroMB {
 		return "cadastroLivro";
 	}
 	
+	public String abrirCadastro(){
+		
+		
+		
+		return "cadastroLivro";
+	}
+	
 	
 	
 }

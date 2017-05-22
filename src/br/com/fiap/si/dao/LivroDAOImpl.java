@@ -59,7 +59,6 @@ public class LivroDAOImpl implements LivroDAO {
 
 	@Override
 	public List<Livro> selectLivro() {
-		List<Livro> lista;
 		EntityManager em = new JPAUtil().getEntityManager();
 		Query result = em.createQuery("select l from Livro l");
 		return result.getResultList();
