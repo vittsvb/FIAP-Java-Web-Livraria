@@ -36,7 +36,7 @@
 			</tr>
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tr>
-					<td>#{f.livro}</td>
+					<td>#{f.nome}</td>
 					<td id="edit">
 						<h:commandLink value="#{str.editar}" action="#{livroMB.abrirEditar}">
 							<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />

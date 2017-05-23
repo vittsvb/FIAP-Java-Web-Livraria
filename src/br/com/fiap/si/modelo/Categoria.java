@@ -28,11 +28,10 @@ public class Categoria {
 	@OneToMany( mappedBy = "categoria",fetch = FetchType.LAZY)
 	private List<Livro> livro;
 	
-	public Categoria() {
+	
+	public Categoria(){
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
 	public Categoria(Long id, String categoria) {
 		super();
 		this.id = id;

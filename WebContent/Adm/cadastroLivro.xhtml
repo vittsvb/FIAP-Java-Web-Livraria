@@ -49,22 +49,26 @@
 			value="#{livroMB.livro.sinopse}" required="true"
 			requiredMessage="A sinopse do Livro é obrigatório" id="idSinopse" />
 		
-		<h:selectOneMenu styleClass="input">
-			<f:selectItem itemValue="#{str.selecionarCategoria}"
-				noSelectionOption="true" />
-			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat"
-				itemValue="#{cat}" itemLabel="#{cat.categoria}" />
+		
+		
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}" converter="omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat" itemValue="#{livroMB.livro.categoria}" itemLabel="#{cat.categoria}" />
+			<!-- f:selectItem itemValue="#{empty livroMB.livro.id?str.selecionarCategoria:livroMB.livro.categoria}" 
+						  itemLabel="#{empty livroMB.livro.id?str.selecionarCategoria:livroMB.livro.categoria.categoria}"/-->
 		</h:selectOneMenu>
-		<h:selectOneMenu styleClass="input">
+		
+		
+		
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.editora}" converter="omnifaces.SelectItemsConverter">
 			<f:selectItem itemValue="#{str.selecionarEditora}"
 				noSelectionOption="true" />
 			<f:selectItems value="#{editoraMB.listEditora}" var="edi"
 				itemValue="#{edi}" itemLabel="#{edi.nome}" />
 		</h:selectOneMenu>
 		
-		<h:selectOneMenu styleClass="input">
-			<f:selectItem itemValue="Categoria"
-				noSelectionOption="true" />
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.autor}" converter="omnifaces.SelectItemsConverter">
+			<f:selectItem itemValue="Autor"
+				noSelectionOption="true" />	
 			<f:selectItems value="#{autorMB.listAutor}" var="aut"
 				itemValue="#{aut}" itemLabel="#{aut.nome}" />
 		</h:selectOneMenu>
@@ -84,7 +88,7 @@
 			rendered="#{not empty livroMB.livro.id}" value="#{str.editar}"
 			action="#{livroMB.atualizar}" />
 		<h:commandLink styleClass="back" value="#{str.voltar}"
-			action="visualizarEditora" />
+			action="visualizarLivro" />
 
 	</h:form>
 </h:body>
