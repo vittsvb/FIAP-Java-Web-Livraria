@@ -45,13 +45,13 @@
 		<h:inputText a:placeholder="#{str.nome}*" styleClass="input" value="#{usuarioMB.usuario.nome}" required="true"
 			requiredMessage="O campo Nome é obrigatório"/>
 		<h:inputText a:placeholder="#{str.idade}*" styleClass="input" value="#{usuarioMB.usuario.idade}" required="true" 
-			requiredMessage="O campo Idade é obrigatório" id="idIdade"/>
+			requiredMessage="O campo Idade é obrigatório" id="idIdade" a:maxlength="2"/>
+			
 		<h:inputText a:placeholder="CPF*" styleClass="input" value="#{usuarioMB.usuario.cpfCnpj}" required="true" 
 			requiredMessage="#{str.cpfObrigatorio}" id="idCPF"
 			a:maxlength="14" validatorMessage="#{str.cpfInvalido}">		
 			<f:validateRegex pattern="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}" />
 		</h:inputText>
-		
 		<h:inputText a:placeholder="#{str.endereco}*" styleClass="input" value="#{usuarioMB.usuario.logradouro}" />
 		<h:inputText a:placeholder="#{str.cep}*" styleClass="input" value="#{usuarioMB.usuario.cep}" required="true" 
 			requiredMessage="#{str.cepObrigatorio}" id="idCEP"
