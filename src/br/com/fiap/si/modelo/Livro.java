@@ -3,7 +3,6 @@ package br.com.fiap.si.modelo;
 
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,19 +10,44 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-
+@Table(name="livros")
 @Entity
 public class Livro {
-	@Id
-	@Column(name = "ID")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
-	@SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
+    private Double valor;
+    private Double desconto;
+    private String sinopse;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public Double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(Double desconto) {
+		this.desconto = desconto;
+	}
+
+	public Editora getEditora() {
+		return editora;
+	}
+
+	public void setEditora(Editora editora) {
+		this.editora = editora;
+	}
+
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
     
@@ -31,7 +55,11 @@ public class Livro {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "autor_id")
     private Autor autor;
-
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "editora_id")
+    private Editora editora;
+    
     public Livro(String nome) {
         this.nome = nome;
     }
@@ -69,5 +97,13 @@ public class Livro {
 
 	public void setAutor(Autor autor) {
 		this.autor = autor;
+	}
+
+	public String getSinopse() {
+		return sinopse;
+	}
+
+	public void setSinopse(String sinopse) {
+		this.sinopse = sinopse;
 	}
 }
