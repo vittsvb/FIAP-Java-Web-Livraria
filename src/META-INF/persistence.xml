@@ -31,8 +31,8 @@
 			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
 			<property name="hibernate.connection.url"
 				value="jdbc:oracle:thin:@192.168.60.15:1521:orcl" />
-			<property name="hibernate.connection.username" value="RM74632" />
-			<property name="hibernate.connection.password" value="241296" />
+			<property name="hibernate.connection.username" value="RM73808" />
+			<property name="hibernate.connection.password" value="160996" />
 			<!-- <property name="hibernate.show_sql" value="true"/> -->
 			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
