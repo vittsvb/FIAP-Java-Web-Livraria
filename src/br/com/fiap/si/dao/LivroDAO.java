@@ -15,5 +15,5 @@ public interface LivroDAO {
 	
 	public List<Livro> selectLivro();
 	
-	public Livro getLivroID(Long id);
+	public Livro getLivroID(Integer id);
 }
