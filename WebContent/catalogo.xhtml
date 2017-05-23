@@ -21,7 +21,7 @@
 			</div>
 			<div class="main-navigation">
 				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
-						value="Login" action="loginUsuario"></h:commandLink></i> <i
+						value="#{str.login}" action="loginUsuario"></h:commandLink></i> <i
 					class="fa fa-shopping-cart"><h:commandLink
 						styleClass="item-menu" value="#{str.carrinho}" action="login"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
@@ -111,18 +111,18 @@
 		<table id="tab">
 			<thead>
 				<tr>
-					<th style="width: 10%;">Imagem</th>
-					<th colspan="3" style="width: 70%;">Descrição</th>
-					<th style="width: 10%;">Preço</th>
-					<th style="width: 10%;">Compra</th>
+					<th style="width: 10%;">#{str.imagem}</th>
+					<th colspan="3" style="width: 70%;">#{str.descricao}</th>
+					<th style="width: 10%;">#{str.preco}</th>
+					<th style="width: 10%;">#{str.compra}</th>
 				</tr>
 			</thead>
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tbody>
 					<tr>
 						<td rowspan="3"><img src="#{f.img}" width="100"></img></td>
-						<td colspan="3">#{f.titulo}L</td>
-						<td style="font-size: 14px;">de:<strike>
+						<td colspan="3">#{f.titulo}</td>
+						<td style="font-size: 14px;">#{str.de}:<strike>
 								R$#{f.preco}</strike></td>
 						<td><i class="fa fa-heart"><h:commandLink
 									styleClass="item-menu" value="Desejos"
@@ -133,14 +133,14 @@
 						<td style="font-size: 12px;">#{str.autor}: #{f.autor}</td>
 						<td style="font-size: 12px;">#{str.editora}: #{f.editora}</td>
 						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria}</td>
-						<td style="font-size: 14px;">desconto de #{f.desconto}</td>
+						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.desconto}</td>
 						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
 									styleClass="item-menu" value="Carrinho"
 									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
 					</tr>
 					<tr>
 						<td colspan="3" style="font-size: 12px;">#{f.descricao}</td>
-						<td style="font-size: 14px;">por: R$ #{f.precoComDesconto}</td>
+						<td style="font-size: 14px;">#{str.por}: R$#{f.precoComDesconto}</td>
 					</tr>
 				</tbody>
 			</ui:repeat>
