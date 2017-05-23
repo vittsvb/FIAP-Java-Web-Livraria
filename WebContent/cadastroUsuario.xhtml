@@ -39,13 +39,13 @@
 	<h:messages styleClass="alert alert-danger"></h:messages>
 		<h2>#{str.cadastrarUsuario}</h2>
 		<h:inputText a:placeholder="#{str.login}*" styleClass="input" value="#{usuarioMB.usuario.login}" required="true"
-			requiredMessage="O campo Login é obrigatório"/>
+			requiredMessage="#{str.loginObrigatorio}"/>
 		<h:inputText a:placeholder="#{str.senha}*" styleClass="input" value="#{usuarioMB.usuario.senha}" required="true"
-			requiredMessage="O campo Senha é obrigatório"/>
+			requiredMessage="#{str.senhaObrigatorio}"/>
 		<h:inputText a:placeholder="#{str.nome}*" styleClass="input" value="#{usuarioMB.usuario.nome}" required="true"
-			requiredMessage="O campo Nome é obrigatório"/>
+			requiredMessage="#{str.nomeObrigatorio}"/>
 		<h:inputText a:placeholder="#{str.idade}*" styleClass="input" value="#{usuarioMB.usuario.idade}" required="true" 
-			requiredMessage="O campo Idade é obrigatório" id="idIdade" a:maxlength="2"/>
+			requiredMessage="#{str.idadeObrigatorio}" id="idIdade" a:maxlength="2"/>
 			
 		<h:inputText a:placeholder="CPF*" styleClass="input" value="#{usuarioMB.usuario.cpfCnpj}" required="true" 
 			requiredMessage="#{str.cpfObrigatorio}" id="idCPF"
