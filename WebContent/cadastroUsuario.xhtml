@@ -45,8 +45,7 @@
 		<h:inputText a:placeholder="#{str.nome}*" styleClass="input" value="#{usuarioMB.usuario.nome}" required="true"
 			requiredMessage="O campo Nome é obrigatório"/>
 		<h:inputText a:placeholder="#{str.idade}*" styleClass="input" value="#{usuarioMB.usuario.idade}" required="true" 
-			requiredMessage="O campo Idade é obrigatório"/>
-		
+			requiredMessage="O campo Idade é obrigatório" id="idIdade"/>
 		<h:inputText a:placeholder="CPF*" styleClass="input" value="#{usuarioMB.usuario.cpfCnpj}" required="true" 
 			requiredMessage="#{str.cpfObrigatorio}" id="idCPF"
 			a:maxlength="14" validatorMessage="#{str.cpfInvalido}">		
