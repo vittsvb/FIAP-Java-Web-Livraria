@@ -3,10 +3,13 @@ package br.com.fiap.si.managedbean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import br.com.fiap.si.dao.CategoriaDAOImpl;
 import br.com.fiap.si.dao.LivroDAOImpl;
+import br.com.fiap.si.modelo.Categoria;
 import br.com.fiap.si.modelo.Livro;
 @ManagedBean
 @SessionScoped
@@ -30,7 +33,10 @@ public class LivroMB {
 	}
 	public LivroMB(){
 		livro = new Livro();
-		listLivro = new ArrayList();
+		
+		LivroDAOImpl dao = new LivroDAOImpl();
+		
+		listLivro = dao.selectLivro();
 	}
 	public String inserir(){
 		
@@ -42,7 +48,7 @@ public class LivroMB {
 	public String atualizar(){
 		
 		LivroDAOImpl dao = new LivroDAOImpl();
-		dao.saveLivro(livro);
+		dao.updateLivro(livro);
 		
 		return listar();
 	}
@@ -60,16 +66,18 @@ public class LivroMB {
 		
 		return "visualizarlivro";
 	}
+	@PostConstruct
 	public String abrirEditar(){
-		
-		
+		LivroDAOImpl dao = new LivroDAOImpl();
+		livro = dao.getLivroID(livro.getId());		
 		
 		return "cadastroLivro";
 	}
 	
 	public String abrirCadastro(){
 		
-		
+		livro = null;
+		livro = new Livro();
 		
 		return "cadastroLivro";
 	}

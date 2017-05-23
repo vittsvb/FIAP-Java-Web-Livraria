@@ -23,51 +23,28 @@ public class Livro {
     private Double desconto;
     private String sinopse;
     
-    public Double getValor() {
-		return valor;
-	}
-
-	public void setValor(Double valor) {
-		this.valor = valor;
-	}
-
-	public Double getDesconto() {
-		return desconto;
-	}
-
-	public void setDesconto(Double desconto) {
-		this.desconto = desconto;
-	}
-
-	public Editora getEditora() {
-		return editora;
-	}
-
-	public void setEditora(Editora editora) {
-		this.editora = editora;
-	}
-
-	@ManyToOne(cascade = CascadeType.ALL)
+    
+	@ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
     
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "autor_id")
     private Autor autor;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "editora_id")
     private Editora editora;
     
-    public Livro(String nome) {
-        this.nome = nome;
-    }
 
     public Livro() {
-    }
+		super();
+		// categoria = new Categoria();
+		// TODO Auto-generated constructor stub
+	}
 
-    public Integer getId() {
+	public Integer getId() {
         return id;
     }
 
@@ -106,4 +83,28 @@ public class Livro {
 	public void setSinopse(String sinopse) {
 		this.sinopse = sinopse;
 	}
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public Double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(Double desconto) {
+		this.desconto = desconto;
+	}
+
+	public Editora getEditora() {
+		return editora;
+	}
+
+	public void setEditora(Editora editora) {
+		this.editora = editora;
+	}
+
 }

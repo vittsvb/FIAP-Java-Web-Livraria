@@ -65,7 +65,7 @@ public class LivroDAOImpl implements LivroDAO {
 	}
 
 	@Override
-	public Livro getLivroID(Long id) {
+	public Livro getLivroID(Integer id) {
 		EntityManager em = new JPAUtil().getEntityManager();
 		Query q =  em.createQuery("select l from Livro l where id = :id");
 		q.setParameter("id",id);
