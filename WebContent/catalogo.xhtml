@@ -125,7 +125,7 @@
 						<td style="font-size: 14px;">#{str.de}:<strike>
 								R$#{f.preco}</strike></td>
 						<td><i class="fa fa-heart"><h:commandLink
-									styleClass="item-menu" value="Desejos"
+									styleClass="item-menu" value="#{str.desejos}"
 									action="#{livroMB.addListaDesejos}"></h:commandLink></i></td>
 					</tr>
 
@@ -135,7 +135,7 @@
 						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria}</td>
 						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.desconto}</td>
 						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
-									styleClass="item-menu" value="Carrinho"
+									styleClass="item-menu" value="#{str.carrinho}"
 									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
 					</tr>
 					<tr>
