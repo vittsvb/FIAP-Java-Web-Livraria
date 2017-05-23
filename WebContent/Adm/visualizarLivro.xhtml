@@ -20,6 +20,8 @@
 			<div class="main-navigation">
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
 						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="menuAdmin"></h:commandLink></i>
 			</div>
 
 		</div>
@@ -30,20 +32,28 @@
 		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarLivro}" title="Type in a name"></input>
 		<table id="tab">
 			<tr>
-				<th style="width: 40%;">#{str.livro}</th>
+				<th style="width: 15%;">#{str.livro}</th>
+				<th style="width: 15%;">#{str.editora}</th>
+				<th style="width: 15%;">#{str.autor}</th>
+				<th style="width: 15%;">#{str.categoria}</th>	
 				<th style="width: 10%;">#{str.editar}</th>
 				<th style="width: 10%;">#{str.remover}</th>
 			</tr>
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tr>
 					<td>#{f.livro}</td>
+					<td>#{f.editora}</td>
+					<td>#{f.autor}</td>
+					<td>#{f.categoria}</td>
 					<td id="edit">
 						<h:commandLink value="#{str.editar}" action="#{livroMB.abrirEditar}">
+							<i class="fa fa-pencil" aria-hidden="true"/>
 							<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
 						</h:commandLink>
 					</td>
 					<td id="remove">
 						<h:commandLink value="#{str.deletar}" action="#{livroMB.deletar}">
+							<i class="fa fa-trash" aria-hidden="true"></i>
 							<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
 						</h:commandLink>
 					</td>
