@@ -40,45 +40,47 @@
 		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
 			value="#{livroMB.livro.nome}" required="true"
 			requiredMessage="O Título do Livro é obrigatório" id="idLivro" />
-		
+
 		<h:inputText styleClass="input" a:placeholder="Preço"
 			value="#{livroMB.livro.valor}" required="true"
 			requiredMessage="O preço do Livro é obrigatório" id="idPreco" />
-			
+
 		<h:inputText styleClass="input" a:placeholder="Sinopse"
 			value="#{livroMB.livro.sinopse}" required="true"
 			requiredMessage="A sinopse do Livro é obrigatório" id="idSinopse" />
-		
-		
-		
-		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}" converter="omnifaces.SelectItemsConverter">
-			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat" itemValue="#{livroMB.livro.categoria}" itemLabel="#{cat.categoria}" />
-			<!-- f:selectItem itemValue="#{empty livroMB.livro.id?str.selecionarCategoria:livroMB.livro.categoria}" 
-						  itemLabel="#{empty livroMB.livro.id?str.selecionarCategoria:livroMB.livro.categoria.categoria}"/-->
+	
+
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}"
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItem itemValue="#{str.selecionarCategoria}"
+				noSelectionOption="true" />
+			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat"
+				itemValue="#{cat}" itemLabel="#{cat.categoria}" />
 		</h:selectOneMenu>
-		
-		
-		
-		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.editora}" converter="omnifaces.SelectItemsConverter">
+
+
+
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.editora}"
+			converter="omnifaces.SelectItemsConverter">
 			<f:selectItem itemValue="#{str.selecionarEditora}"
 				noSelectionOption="true" />
 			<f:selectItems value="#{editoraMB.listEditora}" var="edi"
 				itemValue="#{edi}" itemLabel="#{edi.nome}" />
 		</h:selectOneMenu>
-		
-		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.autor}" converter="omnifaces.SelectItemsConverter">
-			<f:selectItem itemValue="Autor"
-				noSelectionOption="true" />	
+
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.autor}"
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItem itemValue="Autor" noSelectionOption="true" />
 			<f:selectItems value="#{autorMB.listAutor}" var="aut"
 				itemValue="#{aut}" itemLabel="#{aut.nome}" />
 		</h:selectOneMenu>
-		
+
 		<!-- p:fileUpload fileUploadListener="#{mbProduto.processFileUpload}"
                     label="Escolher" cancelLabel="Cancelar" sizeLimit="400000"
                     invalidSizeMessage="Imagem muito grande" auto="true"
                     invalidFileMessage="Tipo de imagem não suportado"
                     allowTypes="/(\.|\/)(jpe?g|png)$/" /-->
-		
+
 		<br />
 
 		<h:commandButton styleClass="botaoAdd"
