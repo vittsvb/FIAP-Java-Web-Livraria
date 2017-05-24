@@ -76,66 +76,45 @@
 		<table id="tab">
 			<thead>
 				<tr>
-					<th style="width: 35%;">Frete</th>
-					<th style="width: 30%;">Total</th>
-					<th style="width: 35%;">Cartão de Crédito</th>
+					<th style="width: 35%;">#{str.frete}</th>
+					<th style="width: 30%;">Subtotal</th>
+					<th style="width: 35%;">#{str.cartao}</th>
 								
 				</tr>
 				
 				
 			</thead>
-			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tbody>
+				<h:selectOneRadio value="#{user.favColor1}">
 					<tr>
-					<td style="font-size: 14px;"><input type="radio" name="frete1" id="frete1" value="1"/></td>
-					<td style="font-size: 14px;">Subtotal: R$ #{f.precoSubtotal}</td>						
-					<td>	
-					<h:form styleClass="form">
-					<h:inputText />
-					</h:form>
-					</td>
+						<td style="font-size: 14px;"><f:selectItem itemValue="15" itemLabel="R$ 15,00" />a</td>
+						<td style="font-size: 14px;">R$ #{f.precoSubtotal}</td>						
+						<td><h:form width="200px" styleClass="form"><h:inputText /></h:form>
+						</td>
 					</tr>
 
 					<tr>
-					<td colspan="2"><input type="radio" name="frete2" id="frete2" value="2"/></td>
-					
-					<td id="remove"><h:commandLink value="#{str.deletar}"
-							action="#{livroMB.deletar}">
-							<i class="fa fa-trash" aria-hidden="true"></i>
-							<f:setPropertyActionListener value="#{f}"
-								target="#{livroMB.livro}" />
-						</h:commandLink></td>	
+						<td colspan="2"><f:selectItem itemValue="30" itemLabel="R$ 30,00" /></td>
+						<td id="finalizar"><h:commandLink value="#{str.finalizar}"
+								action="#{livroMB.finalizar}">
+								<i class="fa fa-trash" aria-hidden="true"></i>
+								<f:setPropertyActionListener value="#{f}"
+									target="#{livroMB.livro}" />
+							</h:commandLink>
+						</td>	
 					</tr>
 					
+				</h:selectOneRadio>
 					
 					
 				</tbody>
-			</ui:repeat>
-		</table>  
+				
+				
+				
+			</table>  
+			
 		
 
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	</h:form>
 </h:body>
