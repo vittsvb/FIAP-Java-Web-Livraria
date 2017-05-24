@@ -13,7 +13,16 @@ import br.com.fiap.si.modelo.Usuario;
 public class UsuarioMB {
 
 	private Usuario usuario;
+	private String erro;
 	
+	public String getErro() {
+		return erro;
+	}
+
+	public void setErro(String erro) {
+		this.erro = erro;
+	}
+
 	public UsuarioMB() {
 		usuario = new Usuario();
 	
@@ -56,5 +65,33 @@ public class UsuarioMB {
 		usuario = new Usuario();
 		
 		return "loginUsuario";
+	}
+	
+	
+	public String sair() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		
+		return "catalogo";
+	}
+
+	public String abrirEditar() {
+
+		try{
+			usuario.setAdm(false);
+			usuario.setCep(null);
+			usuario.setCpfCnpj(null);
+			usuario.setEstado(null);
+			usuario.setId(null);
+			usuario.setIdade(null);
+			usuario.setLogin(null);
+			usuario.setLogradouro(null);
+			usuario.setNome(null);
+			usuario.setSenha(null);
+			return "cadastroUsuario";
+		}
+		catch(Exception e){
+			erro = e.getMessage();
+			return "erro";
+		}
 	}
 }

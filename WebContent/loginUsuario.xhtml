@@ -7,7 +7,7 @@
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>THE LIBRARY | Login</title>
+	<title>THE LIBRARY | #{str.login}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 
 </h:head>
@@ -20,15 +20,15 @@
 			</div>
 
 			<div class="main-navigation">
-				 <i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="catalogo"></h:commandLink></i>
 			</div>
 
 		</div>
 	</h:form>
-	
+
 	<h:form styleClass="form">
-	<h2>Login</h2>
+		<h2>#{str.login}</h2>
 		<h:inputText a:placeholder="#{str.usuario}" styleClass="input"
 			value="#{usuarioMB.usuario.login}" />
 		<h:inputSecret a:placeholder="#{str.senha}" styleClass="input"

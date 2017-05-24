@@ -3,10 +3,13 @@ package br.com.fiap.si.managedbean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import br.com.fiap.si.dao.CategoriaDAOImpl;
 import br.com.fiap.si.dao.LivroDAOImpl;
+import br.com.fiap.si.modelo.Categoria;
 import br.com.fiap.si.modelo.Livro;
 @ManagedBean
 @SessionScoped
@@ -15,6 +18,8 @@ public class LivroMB {
 	private Livro livro;
 	private List<Livro> listLivro;
 	private String erro;
+	Categoria categoria;
+	int teste;
 	
 	public Livro getLivro() {
 		return livro;
@@ -30,7 +35,12 @@ public class LivroMB {
 	}
 	public LivroMB(){
 		livro = new Livro();
-		listLivro = new ArrayList();
+		
+		LivroDAOImpl dao = new LivroDAOImpl();
+		
+		listLivro = dao.selectLivro();
+//		CategoriaDAOImpl catdao = new CategoriaDAOImpl();
+//		categoria = catdao.getCategoriaID(3l);	
 	}
 	public String inserir(){
 		
@@ -42,7 +52,7 @@ public class LivroMB {
 	public String atualizar(){
 		
 		LivroDAOImpl dao = new LivroDAOImpl();
-		dao.saveLivro(livro);
+		dao.updateLivro(livro);
 		
 		return listar();
 	}
@@ -60,9 +70,35 @@ public class LivroMB {
 		
 		return "visualizarlivro";
 	}
+	@PostConstruct
 	public String abrirEditar(){
+		LivroDAOImpl dao = new LivroDAOImpl();
+		livro = dao.getLivroID(livro.getId());
 		
+		teste = 1;
 		
+		return "cadastroLivro";
+	}
+	
+	public int getTeste() {
+		return teste;
+	}
+	public void setTeste(int teste) {
+		this.teste = teste;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public void setListLivro(List<Livro> listLivro) {
+		this.listLivro = listLivro;
+	}
+	public String abrirCadastro(){
+		
+		livro = null;
+		livro = new Livro();
 		
 		return "cadastroLivro";
 	}

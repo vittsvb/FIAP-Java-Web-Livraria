@@ -8,6 +8,7 @@ body {
 	padding: 1em;
 }
 
+
 #pesquisa {
 	background-image:
 		url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
@@ -271,3 +272,8 @@ body {
  .menu-adm li a:hover {
    padding-right: 3.0em;
 }
+
+a{
+	text-decoration: none;
+}
+

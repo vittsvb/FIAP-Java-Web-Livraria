@@ -25,8 +25,10 @@
 			</div>
 
 			<div class="main-navigation">
+				#{str.bemVindo} <strong>#{usuarioMB.usuario.nome}!</strong>&nbsp;&nbsp;&nbsp;
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
 						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+						
 			</div>
 
 		</div>
@@ -34,7 +36,7 @@
 	
 	<h:form>
 	<br />
-		#{str.bemVindo} #{usuarioMB.usuario.nome}! 
+		
 		<div class="row">
 			<ul class="menu-adm">
 				<li><h:commandLink value="#{str.autores}"

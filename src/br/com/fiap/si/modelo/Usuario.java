@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Table(name="usuarios")
 @Entity
@@ -21,6 +22,7 @@ public class Usuario {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
 	@SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 	private Integer id;
+	@Column(unique=true)
 	private String login;
 	private String senha;
 	private boolean adm;

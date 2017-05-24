@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
@@ -38,44 +39,62 @@
 		<h2>#{str.cadastrarLivro}</h2>
 		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
 			value="#{livroMB.livro.nome}" required="true"
-			requiredMessage="O Título do Livro é obrigatório" />
+			requiredMessage="O Título do Livro é obrigatório" id="idLivro" />
 
-		<h:selectOneMenu styleClass="input">
+		<h:inputText styleClass="input" a:placeholder="Preço"
+			value="#{livroMB.livro.valor}" required="true"
+			requiredMessage="O preço do Livro é obrigatório" id="idPreco" />
+
+		<h:inputText styleClass="input" a:placeholder="Sinopse"
+			value="#{livroMB.livro.sinopse}" required="true"
+			requiredMessage="A sinopse do Livro é obrigatório" id="idSinopse" />
+			
+		<h:inputText styleClass="input" a:placeholder="Disconto %"
+			value="#{livroMB.livro.desconto}" required="true"
+			requiredMessage="A sinopse do Livro é obrigatório" id="idDesconto" />
+	
+
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}"
+			converter="omnifaces.SelectItemsConverter">
 			<f:selectItem itemValue="#{str.selecionarCategoria}"
 				noSelectionOption="true" />
 			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat"
-				itemValue="#{cat.id}" itemLabel="#{cat.categoria}" />
+				itemValue="#{cat}" itemLabel="#{cat.categoria}" />
 		</h:selectOneMenu>
 
-		<h:selectOneMenu styleClass="input">
+
+
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.editora}"
+			converter="omnifaces.SelectItemsConverter">
 			<f:selectItem itemValue="#{str.selecionarEditora}"
 				noSelectionOption="true" />
 			<f:selectItems value="#{editoraMB.listEditora}" var="edi"
-				itemValue="#{edi.id}" itemLabel="#{edi.nome}" />
+				itemValue="#{edi}" itemLabel="#{edi.nome}" />
 		</h:selectOneMenu>
 
-		<!-- Falta a editora -->
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.autor}"
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItem itemValue="Autor" noSelectionOption="true" />
+			<f:selectItems value="#{autorMB.listAutor}" var="aut"
+				itemValue="#{aut}" itemLabel="#{aut.nome}" />
+		</h:selectOneMenu>
 
-		<h:inputText styleClass="input" a:placeholder="Preço"
-			value="#{livroMB.livro.nome}" required="true"
-			requiredMessage="O Preço do Livro é obrigatório" />
+		<!-- p:fileUpload fileUploadListener="#{mbProduto.processFileUpload}"
+                    label="Escolher" cancelLabel="Cancelar" sizeLimit="400000"
+                    invalidSizeMessage="Imagem muito grande" auto="true"
+                    invalidFileMessage="Tipo de imagem não suportado"
+                    allowTypes="/(\.|\/)(jpe?g|png)$/" /-->
 
-		<h:inputText styleClass="input" a:placeholder="Desconto"
-			value="#{livroMB.livro.nome}" />
-
-		<h:inputTextarea cols="30" rows="10" styleClass="input" a:placeholder= "Resumo"
-			value="#{livroMB.livro.nome}" />
-			
 		<br />
 
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{empty editoraMB.editora.id}" value="#{str.incluir}"
-			action="#{editoraMB.inserir}" />
+			rendered="#{empty livroMB.livro.id}" value="#{str.incluir}"
+			action="#{livroMB.inserir}" />
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{not empty editoraMB.editora.id}" value="#{str.editar}"
-			action="#{editoraMB.atualizar}" />
+			rendered="#{not empty livroMB.livro.id}" value="#{str.editar}"
+			action="#{livroMB.atualizar}" />
 		<h:commandLink styleClass="back" value="#{str.voltar}"
-			action="visualizarEditora" />
+			action="visualizarLivro" />
 
 	</h:form>
 </h:body>
