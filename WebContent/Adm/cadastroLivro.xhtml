@@ -51,6 +51,9 @@
 			value="#{livroMB.livro.sinopse}" required="true"
 			requiredMessage="A sinopse do Livro é obrigatório" id="idSinopse" />
 		
+		<h:inputText styleClass="input" a:placeholder="Desconto"
+			value="#{livroMB.livro.desconto}" id="idDesconto" />
+		
 		
 		
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}" converter="omnifaces.SelectItemsConverter">

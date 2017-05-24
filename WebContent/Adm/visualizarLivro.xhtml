@@ -31,12 +31,18 @@
 		<table id="tab">
 			<tr>
 				<th style="width: 40%;">#{str.livro}</th>
+				<th style="width: 40%;">#{str.editora}</th>
+				<th style="width: 40%;">#{str.autor}</th>
+				<th style="width: 40%;">#{str.categoria}</th>
 				<th style="width: 10%;">#{str.editar}</th>
 				<th style="width: 10%;">#{str.remover}</th>
 			</tr>
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tr>
 					<td>#{f.nome}</td>
+					<td>#{f.editora.nome}</td>
+                    <td>#{f.autor.nome}</td>
+                    <td>#{f.categoria.categoria}</td>
 					<td id="edit">
 						<h:commandLink value="#{str.editar}" action="#{livroMB.abrirEditar}">
 							<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
