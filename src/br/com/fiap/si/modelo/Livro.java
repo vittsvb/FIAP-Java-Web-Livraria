@@ -20,7 +20,7 @@ public class Livro {
     private Integer id;
     private String nome;
     private Double valor;
-    private Double desconto;
+    private Integer desconto;
     private String sinopse;
     
     
@@ -91,11 +91,11 @@ public class Livro {
 		this.valor = valor;
 	}
 
-	public Double getDesconto() {
+	public Integer getDesconto() {
 		return desconto;
 	}
 
-	public void setDesconto(Double desconto) {
+	public void setDesconto(Integer desconto) {
 		this.desconto = desconto;
 	}
 

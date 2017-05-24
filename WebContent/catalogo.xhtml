@@ -122,7 +122,7 @@
 					<tr>
 						<td rowspan="3"><img src="" width="100"></img></td>
 						<td colspan="3">#{f.nome}</td>
-						<td style="font-size: 14px;">#{str.de}:<strike>
+						<td style="font-size: 14px;">#{str.de}: <strike>
 								R$#{f.valor}</strike></td>
 						<td><i class="fa fa-heart"><h:commandLink
 									styleClass="item-menu" value="#{str.desejos}"
@@ -133,7 +133,7 @@
 						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
 						<td style="font-size: 12px;">#{str.editora}: #{f.editora.nome}</td>
 						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria.categoria}</td>
-						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.desconto}</td>
+						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.desconto}%</td>
 						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
 									styleClass="item-menu" value="#{str.carrinho}"
 									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
