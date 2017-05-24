@@ -60,18 +60,20 @@ body {
 	border-bottom: 1px solid #ddd;
 }
 
-#tab td#edit {
+#tab td#edit a{
 	font-weight: bold;
 	color: #3470A2;
 	cursor: pointer;
 	text-align: center;
+	text-decoration:none;
 }
 
-#tab td#remove {
+#tab td#remove a{
 	font-weight: bold;
 	color: #E63946;
 	cursor: pointer;
 	text-align: center;
+	text-decoration:none;
 }
 
 .add {
@@ -268,12 +270,13 @@ body {
   .menu-adm li:nth-child(3) a {
     background: #21aabd;
   }
+  
+  .menu-adm li:nth-child(4) a {
+    background: #3ca28a;
+  }
 
  .menu-adm li a:hover {
    padding-right: 3.0em;
 }
 
-a{
-	text-decoration: none;
-}
 

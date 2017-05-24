@@ -45,10 +45,6 @@
 			value="#{livroMB.livro.valor}" required="true"
 			requiredMessage="O preço do Livro é obrigatório" id="idPreco" />
 
-		<h:inputText styleClass="input" a:placeholder="Sinopse"
-			value="#{livroMB.livro.sinopse}" required="true"
-			requiredMessage="A sinopse do Livro é obrigatório" id="idSinopse" />
-			
 		<h:inputText styleClass="input" a:placeholder="Disconto %"
 			value="#{livroMB.livro.desconto}" required="true"
 			requiredMessage="A sinopse do Livro é obrigatório" id="idDesconto" />
@@ -74,7 +70,7 @@
 
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.autor}"
 			converter="omnifaces.SelectItemsConverter">
-			<f:selectItem itemValue="Autor" noSelectionOption="true" />
+			<f:selectItem itemValue="Selecione um autor..." noSelectionOption="true" />
 			<f:selectItems value="#{autorMB.listAutor}" var="aut"
 				itemValue="#{aut}" itemLabel="#{aut.nome}" />
 		</h:selectOneMenu>
@@ -84,6 +80,11 @@
                     invalidSizeMessage="Imagem muito grande" auto="true"
                     invalidFileMessage="Tipo de imagem não suportado"
                     allowTypes="/(\.|\/)(jpe?g|png)$/" /-->
+
+		<h:inputTextarea row = "30" col = "10" styleClass="input" a:placeholder="Sinopse"
+			value="#{livroMB.livro.sinopse}" required="true"
+			requiredMessage="A sinopse do Livro é obrigatório" id="idSinopse"></h:inputTextarea>
+			
 
 		<br />
 

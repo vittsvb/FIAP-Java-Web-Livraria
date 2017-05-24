@@ -68,7 +68,7 @@ public class LivroMB {
 		LivroDAOImpl dao = new LivroDAOImpl();
 		listLivro = dao.selectLivro();
 		
-		return "visualizarlivro";
+		return "visualizarLivro";
 	}
 	@PostConstruct
 	public String abrirEditar(){
