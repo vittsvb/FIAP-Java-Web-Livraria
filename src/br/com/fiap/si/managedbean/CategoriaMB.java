@@ -8,7 +8,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import br.com.fiap.si.dao.CategoriaDAOImpl;
+import br.com.fiap.si.dao.UsuarioDAOImpl;
 import br.com.fiap.si.modelo.Categoria;
+import br.com.fiap.si.modelo.Usuario;
 
 @SessionScoped
 @ManagedBean
@@ -50,10 +52,19 @@ public class CategoriaMB {
 	}
 
 	public String inserir() {
+		boolean valid;
+		String retorno = null;
+		CategoriaDAOImpl dao = new CategoriaDAOImpl();
+		valid = dao.saveCategoria(categoria);	
 		
-			CategoriaDAOImpl dao = new CategoriaDAOImpl();
-			dao.saveCategoria(categoria);
-			return listar();
+		if(valid == false){
+			retorno = "cadastroCategoria";
+
+		}else{
+			retorno = "visualizarCategoria";
+		}
+
+		return retorno;
 		
 	}
 

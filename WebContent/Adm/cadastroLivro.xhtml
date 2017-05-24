@@ -39,15 +39,15 @@
 		<h2>#{str.cadastrarLivro}</h2>
 		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
 			value="#{livroMB.livro.nome}" required="true"
-			requiredMessage="O Título do Livro é obrigatório" id="idLivro" />
+			requiredMessage="#{str.tituloObrigatorio}" id="idLivro" />
 
 		<h:inputText styleClass="input" a:placeholder="Preço"
 			value="#{livroMB.livro.valor}" required="true"
-			requiredMessage="O preço do Livro é obrigatório" id="idPreco" />
+			requiredMessage="#{str.precoObrigatorio}" id="idPreco" />
 
-		<h:inputText styleClass="input" a:placeholder="Disconto %"
+		<h:inputText styleClass="input" a:placeholder="Desconto %"
 			value="#{livroMB.livro.desconto}" required="true"
-			requiredMessage="A sinopse do Livro é obrigatório" id="idDesconto" />
+			requiredMessage="O desconto o é obrigatório" id="idDesconto" />
 	
 
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}"
@@ -81,11 +81,10 @@
                     invalidFileMessage="Tipo de imagem não suportado"
                     allowTypes="/(\.|\/)(jpe?g|png)$/" /-->
 
-		<h:inputTextarea row = "30" col = "10" styleClass="input" a:placeholder="Sinopse"
+		<h:inputTextarea rows = "5" cols = "10" styleClass="input" a:placeholder="Sinopse"
 			value="#{livroMB.livro.sinopse}" required="true"
 			requiredMessage="A sinopse do Livro é obrigatório" id="idSinopse"></h:inputTextarea>
 			
-
 		<br />
 
 		<h:commandButton styleClass="botaoAdd"
@@ -95,7 +94,7 @@
 			rendered="#{not empty livroMB.livro.id}" value="#{str.editar}"
 			action="#{livroMB.atualizar}" />
 		<h:commandLink styleClass="back" value="#{str.voltar}"
-			action="visualizarLivro" />
+			action="visualizarLivro" immediate="true"/>
 
 	</h:form>
 </h:body>

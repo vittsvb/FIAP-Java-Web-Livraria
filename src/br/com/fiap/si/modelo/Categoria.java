@@ -26,7 +26,7 @@ public class Categoria {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
 	@SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 	private Long id;
-	
+	@Column(unique=true)
 	private String categoria;
 
 	@OneToMany( mappedBy = "categoria",fetch = FetchType.LAZY)
