@@ -30,27 +30,35 @@
 				<a class="logo"></a>
 			</div>
 			<div class="main-navigation">
-				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
-						value="#{str.login}" action="#{usuarioMB.abrirLogin}"></h:commandLink></i> <i
-					class="fa fa-shopping-cart"><h:commandLink
+				<c:choose>
+					<c:when test="${empty usuario}">
+						<i class="fa fa-user"><h:commandLink styleClass="item-menu"
+								value="#{str.login}" action="#{usuarioMB.abrirLogin}"></h:commandLink></i>
+					</c:when>
+					<c:otherwise>
+						#{str.bemVindo} <strong>#{usuarioMB.usuario.nome}!</strong>&nbsp;&nbsp;&nbsp;
+			         </c:otherwise>
+				</c:choose>
+
+				<i class="fa fa-shopping-cart"><h:commandLink
 						styleClass="item-menu" value="#{str.carrinho}" action="login"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
-						value="#{str.desejos}" action="login"></h:commandLink></i>
-				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="#{str.desejos}" action="login"></h:commandLink></i> <i
+					class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
 						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
 			</div>
 		</div>
-		
+
 	</h:form>
-	
+
 	<h:form enctype="multipart/form-data">
 		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
 			placeholder="#{str.buscarLivro}"></input>
-			<input type="text" id="pesquisa2" onkeyup="filtroAutor()"
+		<input type="text" id="pesquisa2" onkeyup="filtroAutor()"
 			placeholder="#{str.buscarAutor}"></input>
-			<input type="text" id="pesquisa3" onkeyup="filtroEditora()"
+		<input type="text" id="pesquisa3" onkeyup="filtroEditora()"
 			placeholder="#{str.buscarEditora}"></input>
-			
+
 
 		<!--<table id="tab">
 			<thead>
@@ -136,33 +144,38 @@
 					<th style="width: 15%;">#{str.preco}</th>
 					<th style="width: 15%;">#{str.compra}</th>
 				</tr>
-			</thead>			
+			</thead>
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tbody>
 					<tr>
 						<td rowspan="3"><p:graphicImage value="" width="100px">
-							<f:param name="pid" value="#{f.id}" />
-						</p:graphicImage></td>
+								<f:param name="pid" value="#{f.id}" />
+							</p:graphicImage></td>
 						<td colspan="3">#{f.nome}</td>
 						<td style="font-size: 14px;">R$<label id="preco">#{f.valor}</label></td>
-						<td style="text-align:center;"><i class="fa fa-heart">&nbsp;&nbsp;<h:commandLink
+						<td style="text-align: center;"><i class="fa fa-heart">&nbsp;&nbsp;<h:commandLink
 									styleClass="item-menu" value="#{str.desejos}"
 									action="#{livroMB.addListaDesejos}"></h:commandLink></i></td>
 					</tr>
 
 					<tr>
 						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
-						<td style="font-size: 12px;">#{str.editora}: #{f.editora.nome}</td>
-						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria.categoria}</td>
-						<td style="font-size: 14px;">#{str.desconto} #{str.de} <label id="desconto">#{f.desconto}</label>%</td>    	
-						<td rowspan="2" style="text-align:center;"><i class="fa fa-shopping-cart">&nbsp;&nbsp;
-						<h:commandLink styleClass="item-menu" value="#{str.carrinho}"
-									action="#{livroMB.addCarrinho}"></h:commandLink></i>
+						<td style="font-size: 12px;">#{str.editora}:
+							#{f.editora.nome}</td>
+						<td style="font-size: 12px;">#{str.categoria}:
+							#{f.categoria.categoria}</td>
+						<td style="font-size: 14px;">#{str.desconto} #{str.de} <label
+							id="desconto">#{f.desconto}</label>%
 						</td>
+						<td rowspan="2" style="text-align: center;"><i
+							class="fa fa-shopping-cart">&nbsp;&nbsp; <h:commandLink
+									styleClass="item-menu" value="#{str.carrinho}"
+									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
 					</tr>
 					<tr>
 						<td colspan="3" style="font-size: 12px;">#{f.sinopse}</td>
-						<td style="font-size: 14px;" id="tdPrecoFinal">#{str.por} R$<label id="precoFinal">#{f.valor-(f.valor*(f.desconto/100))}</label></td>
+						<td style="font-size: 14px;" id="tdPrecoFinal">#{str.por} R$<label
+							id="precoFinal">#{f.valor-(f.valor*(f.desconto/100))}</label></td>
 					</tr>
 				</tbody>
 			</ui:repeat>
