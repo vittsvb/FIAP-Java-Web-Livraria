@@ -3,12 +3,14 @@ package br.com.fiap.si.modelo;
 
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -22,8 +24,18 @@ public class Livro {
     private Double valor;
     private Integer desconto;
     private String sinopse;
+    @Lob
+    @Column(name = "imagem",columnDefinition = "LONGBLOB")
+    private byte[] imagem;
     
-    
+	public byte[] getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
+	}
+
 	@ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
