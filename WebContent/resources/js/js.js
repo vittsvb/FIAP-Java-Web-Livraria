@@ -1,9 +1,21 @@
+
 $(document).ready(function () { 
         $("#idCPF").mask('000.000.000-00');
         $("#idCNPJ").mask('00.000.000/0000-00');
         $("#idCEP").mask('00000-000');
         $("#idIdade").mask('00');
-    });
+        $("#idPreco").mask("##0.00");
+        $("idDesconto").mask('000');
+        
+    	var preco = $('#preco').text();
+        var desconto = $('#desconto').text();
+        console.log(preco);
+        console.log(desconto);
+        var precoFinal = preco - (preco * (desconto/100));
+        console.log(precoFinal);
+        document.getElementById('precoFinal').innerHTML = precoFinal;
+        
+ });
 
 function filtro() {
 	var input, filter, table, tr, td, i;

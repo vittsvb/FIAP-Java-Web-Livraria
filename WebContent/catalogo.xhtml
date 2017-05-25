@@ -8,7 +8,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
-
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<title>THE LIBRARY | Home</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<h:outputScript name="js.js" library="js"></h:outputScript>
@@ -122,9 +129,8 @@
 					<tr>
 						<td rowspan="3"><img src="" width="100"></img></td>
 						<td colspan="3">#{f.nome}</td>
-						<td style="font-size: 14px;">#{str.de}: <strike>
-								R$#{f.valor}</strike></td>
-						<td><i class="fa fa-heart"><h:commandLink
+						<td style="font-size: 14px;">R$<label id="preco">#{f.valor}</label></td>
+						<td><i class="fa fa-heart" style="text-align:center;">&nbsp;&nbsp;<h:commandLink
 									styleClass="item-menu" value="#{str.desejos}"
 									action="#{livroMB.addListaDesejos}"></h:commandLink></i></td>
 					</tr>
@@ -133,14 +139,14 @@
 						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
 						<td style="font-size: 12px;">#{str.editora}: #{f.editora.nome}</td>
 						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria.categoria}</td>
-						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.desconto}%</td>
-						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
+						<td style="font-size: 14px;" id="tdDesonto">#{str.desconto} #{str.de} <label id="desconto" value="#{f.desconto}">#{f.desconto}</label>%</td>
+						<td rowspan="2" style="text-align:center;"><i class="fa fa-shopping-cart">&nbsp;&nbsp;<h:commandLink
 									styleClass="item-menu" value="#{str.carrinho}"
 									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
 					</tr>
 					<tr>
 						<td colspan="3" style="font-size: 12px;">#{f.sinopse}</td>
-						<td style="font-size: 14px;">#{str.por}: R$</td>
+						<td style="font-size: 14px;" id="tdPrecoFinal">#{str.por} R$<label id="precoFinal"></label></td>
 					</tr>
 				</tbody>
 			</ui:repeat>

@@ -14,6 +14,8 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.cadastrarLivro}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
@@ -39,22 +41,28 @@
 		<h:messages styleClass="alert alert-danger"></h:messages>
 
 		<h2>#{str.cadastrarLivro}</h2>
-		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
+		<h:inputText styleClass="input" a:placeholder="#{str.livro}*"
 			value="#{livroMB.livro.nome}" required="true"
 			requiredMessage="#{str.tituloObrigatorio}" id="idLivro" />
 
-		<h:inputText styleClass="input" a:placeholder="Preço"
+		<h:inputText styleClass="input" a:placeholder="#{str.preco}*"
 			value="#{livroMB.livro.valor}" required="true"
-			requiredMessage="#{str.precoObrigatorio}" id="idPreco" />
+			requiredMessage="#{str.precoObrigatorio}" converterMessage="#{str.somenteNumerosPreco}"
+			id="idPreco">   
+			<f:convertNumber pattern="##0.00"/></h:inputText>
 
-		<h:inputText styleClass="input" a:placeholder="Desconto %"
-			value="#{livroMB.livro.desconto}"/>
+		<h:inputText styleClass="input" a:placeholder="#{str.desconto}* %"
+			value="#{livroMB.livro.desconto}" required="true"
+			requiredMessage="#{str.descontoObrigatorio}" converterMessage="#{str.somenteNumerosDesconto}"
+			id="idDesconto">
+			<f:convertNumber pattern="###" maxIntegerDigits="3"/>
+		</h:inputText>
 	
 
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}"
 			converter="omnifaces.SelectItemsConverter" required="true"
 			requiredMessage="#{str.categoriaObrigatorio}">
-			<f:selectItem itemValue="#{str.selecionarCategoria}"
+			<f:selectItem itemValue="#{str.selecionarCategoria}*"
 				noSelectionOption="true" />
 			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat"
 				itemValue="#{cat}" itemLabel="#{cat.categoria}" />
@@ -65,7 +73,7 @@
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.editora}"
 			converter="omnifaces.SelectItemsConverter" required="true"
 			requiredMessage="#{str.editoraObrigatoria}">
-			<f:selectItem itemValue="#{str.selecionarEditora}"
+			<f:selectItem itemValue="#{str.selecionarEditora}*"
 				noSelectionOption="true" />
 			<f:selectItems value="#{editoraMB.listEditora}" var="edi"
 				itemValue="#{edi}" itemLabel="#{edi.nome}" />
@@ -74,7 +82,7 @@
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.autor}"
 			converter="omnifaces.SelectItemsConverter" required="true"
 			requiredMessage="#{str.autorObrigatorio}">
-			<f:selectItem itemValue="#{str.selecionarAutor}" noSelectionOption="true" />
+			<f:selectItem itemValue="#{str.selecionarAutor}*" noSelectionOption="true" />
 			<f:selectItems value="#{autorMB.listAutor}" var="aut"
 				itemValue="#{aut}" itemLabel="#{aut.nome}" />
 		</h:selectOneMenu>
@@ -85,7 +93,7 @@
                     invalidFileMessage="Tipo de imagem não suportado"
                     allowTypes="/(\.|\/)(jpe?g|png)$/" /-->
 
-		<h:inputTextarea rows = "5" cols = "10" styleClass="input" a:placeholder="#{str.sinopse}"
+		<h:inputTextarea rows = "5" cols = "10" styleClass="input" a:placeholder="#{str.sinopse}*"
 			value="#{livroMB.livro.sinopse}"></h:inputTextarea>
 			
 		<br />
