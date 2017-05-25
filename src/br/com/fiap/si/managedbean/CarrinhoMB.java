@@ -47,16 +47,14 @@ this.listLivro = listLivro;
 this.qnt = qnt;
 }
 
-public String atualizar(){
-LivroDAOImpl dao = new LivroDAOImpl();
-dao.saveLivro(livro);
-return listar();
+public String atualizar (){
+	LivroDAOImpl dao = new LivroDAOImpl();
+	dao.saveLivro(livro);
+	return listar();
 }
-public String deletar(){
-LivroDAOImpl dao = new LivroDAOImpl();
-dao.deleteLivro(livro);
-return listar();
-}
+
+
+
 public String listar() {
 LivroDAOImpl dao = new LivroDAOImpl();
 listLivro = dao.selectLivro();
