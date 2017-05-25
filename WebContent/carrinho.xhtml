@@ -43,8 +43,8 @@
 						<td rowspan="3"><img src="#{f.img}" width="100"></img></td>
 						<td colspan="3">#{f.titulo}L</td>
 						<td style="font-size: 14px;">#{str.preco}:<strike>
-								R$#{f.precoComDesconto}</strike></td>
-							
+								R$#{f.precoComDesconto}</strike> <!-- Mostrar o preço do livro com desconto -->
+						</td>	
 					</tr>
 
 					<tr>
@@ -52,13 +52,10 @@
 						<td style="font-size: 12px;">#{str.editora}: #{f.editora}</td>
 						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria}</td>
 						<td style="font-size: 14px;">#{str.quantidade}: 
-						<h:form styleClass="form">
-					<h:inputText />
-					</h:form>
+									<h:form styleClass="form"><h:inputText /></h:form>
 						</td>
-						<td id="remove"><h:commandLink value="#{str.deletar}"
-							action="#{livroMB.deletar}">
-							<i class="fa fa-trash" aria-hidden="true"></i>
+						<td id="remove"><h:commandLink value="#{str.deletar}" 
+							action="#{livroMB.deletar}">			<!-- chamar método que tire o livro do carrinho -->
 							<f:setPropertyActionListener value="#{f}"
 								target="#{livroMB.livro}" />
 						</h:commandLink></td>
@@ -66,7 +63,7 @@
 					
 					<tr>
 						<td colspan="3" style="font-size: 12px;">#{f.descricao}</td>
-						<td style="font-size: 14px;">Subtotal: R$ #{f.precoSubtotal}</td>
+						<td style="font-size: 14px;">Subtotal: R$ #{f.precoSubtotal}</td><!-- Mostrar Multiplicação do valor do livro pela quantidade -->
 					</tr>
 					
 				</tbody>
@@ -75,46 +72,38 @@
 		
 		<table id="tab">
 			<thead>
+				
 				<tr>
 					<th style="width: 35%;">#{str.frete}</th>
 					<th style="width: 30%;">Subtotal</th>
 					<th style="width: 35%;">#{str.cartao}</th>
 								
 				</tr>
-				
-				
+						
 			</thead>
-				<tbody>
-				<h:selectOneRadio value="#{user.favColor1}">
-					<tr>
-						<td style="font-size: 14px;"><f:selectItem itemValue="15" itemLabel="R$ 15,00" />a</td>
-						<td style="font-size: 14px;">R$ #{f.precoSubtotal}</td>						
-						<td><h:form width="200px" styleClass="form"><h:inputText /></h:form>
-						</td>
-					</tr>
-
-					<tr>
-						<td colspan="2"><f:selectItem itemValue="30" itemLabel="R$ 30,00" /></td>
-						<td id="finalizar"><h:commandLink value="#{str.finalizar}"
-								action="#{livroMB.finalizar}">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								<f:setPropertyActionListener value="#{f}"
-									target="#{livroMB.livro}" />
-							</h:commandLink>
-						</td>	
-					</tr>
-					
-				</h:selectOneRadio>
-					
-					
-				</tbody>
+			<thead>
+			<h:selectOneRadio value="#{user.favColor1}">
+			<tr>
 				
-				
-				
+					<td style="font-size: 14px;"><f:selectItem itemValue="15" itemLabel="R$ 15,00" /></td>
+					<td style="font-size: 14px;">R$ #{f.precoSubtotal}</td>		<!--  mostrar preço da soma dos livros com o frete -->				
+					<td><h:form width="200px" styleClass="form"><h:inputText /></h:form></td>
+			</tr>
+			<tr>
+					<td style="font-size: 14px;"><f:selectItem itemValue="30" itemLabel="R$ 30,00" /></td>
+					<td></td>					
+					<td id="remove">
+									<h:commandLink value="#{str.comprar}" action="#{livroMB.deletar}">
+										<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
+									</h:commandLink>
+								</td>
+			</tr>
+			</h:selectOneRadio>
+			</thead>
+			
 			</table>  
 			
-		
-
+			
 		
 	</h:form>
 </h:body>
