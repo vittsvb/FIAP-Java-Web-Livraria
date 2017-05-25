@@ -34,5 +34,6 @@
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.41-bin.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/postgresql-9.4.1212.jre6.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/omnifaces-1.14.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-5.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
