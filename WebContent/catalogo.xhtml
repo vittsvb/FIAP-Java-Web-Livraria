@@ -4,7 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core">
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -45,6 +46,11 @@
 	<h:form enctype="multipart/form-data">
 		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
 			placeholder="#{str.buscarLivro}"></input>
+			<input type="text" id="pesquisa2" onkeyup="filtroAutor()"
+			placeholder="#{str.buscarAutor}"></input>
+			<input type="text" id="pesquisa3" onkeyup="filtroEditora()"
+			placeholder="#{str.buscarEditora}"></input>
+			
 
 		<!--<table id="tab">
 			<thead>
@@ -145,10 +151,10 @@
 					</tr>
 
 					<tr>
-						<td style="font-size: 12px;" name="autor">#{str.autor}: #{f.autor.nome}</td>
+						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
 						<td style="font-size: 12px;">#{str.editora}: #{f.editora.nome}</td>
 						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria.categoria}</td>
-						<td style="font-size: 14px;">#{str.desconto} #{str.de} <label id="desconto">#{f.desconto}</label>%</td>
+						<td style="font-size: 14px;">#{str.desconto} #{str.de} <label id="desconto">#{f.desconto}</label>%</td>    	
 						<td rowspan="2" style="text-align:center;"><i class="fa fa-shopping-cart">&nbsp;&nbsp;
 						<h:commandLink styleClass="item-menu" value="#{str.carrinho}"
 									action="#{livroMB.addCarrinho}"></h:commandLink></i>
