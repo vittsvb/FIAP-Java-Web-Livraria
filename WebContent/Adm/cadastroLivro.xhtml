@@ -19,10 +19,17 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.cadastrarLivro}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js"
+		target="head" />
+	<h:outputScript library="primefaces" name="jquery/jquery-plugins.js"
+		target="head" />
 
 </h:head>
 <h:body>
-	<h:form>
+	<script type="text/javascript">
+		var $j = jQuery.noConflict(true);
+	</script>
+	<h:form enctype="multipart/form-data">
 		<div class="header">
 			<div class="main-logo">
 				<a class="logo"></a>
@@ -37,11 +44,15 @@
 		</div>
 	</h:form>
 
-	<h:form styleClass="form">
+	<h:form styleClass="form" enctype="multipart/form-data">
 		<h:messages styleClass="alert alert-danger"></h:messages>
 
 		<h2>#{str.cadastrarLivro}</h2>
-		<h:inputText styleClass="input" a:placeholder="#{str.livro}*"
+		<p:graphicImage value="#{livroMB.productImage}" width="100px"
+			height="100px" rendered="not empty livroMB.livro.id">
+			<f:param name="pid" value="#{livroMB.livro.id}" />
+		</p:graphicImage>
+		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
 			value="#{livroMB.livro.nome}" required="true"
 			requiredMessage="#{str.tituloObrigatorio}" id="idLivro" />
 
@@ -87,11 +98,15 @@
 				itemValue="#{aut}" itemLabel="#{aut.nome}" />
 		</h:selectOneMenu>
 
-		<!-- p:fileUpload fileUploadListener="#{mbProduto.processFileUpload}"
-                    label="Escolher" cancelLabel="Cancelar" sizeLimit="400000"
-                    invalidSizeMessage="Imagem muito grande" auto="true"
-                    invalidFileMessage="Tipo de imagem não suportado"
-                    allowTypes="/(\.|\/)(jpe?g|png)$/" /-->
+		<p:fileUpload fileUploadListener="#{livroMB.processFileUpload}"
+			label="Escolher" cancelLabel="Cancelar" sizeLimit="400000"
+			invalidSizeMessage="Imagem muito grande" auto="true"
+			invalidFileMessage="Tipo de imagem não suportado"
+			allowTypes="/(\.|\/)(jpe?g|png)$/" id="uploadFile" mode="simple"
+			uploadLabel="Carregar" dragDropSupport="true" fileLimit="1"
+			value="#{livroMB.file}" />
+
+
 
 		<h:inputTextarea rows = "5" cols = "10" styleClass="input" a:placeholder="#{str.sinopse}*"
 			value="#{livroMB.livro.sinopse}"></h:inputTextarea>
