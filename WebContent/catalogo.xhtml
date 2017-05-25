@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet"
@@ -28,7 +30,10 @@
 						value="#{str.desejos}" action="login"></h:commandLink></i>
 			</div>
 		</div>
-
+		
+	</h:form>
+	
+	<h:form enctype="multipart/form-data">
 		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
 			placeholder="#{str.buscarLivro}"></input>
 
@@ -120,7 +125,9 @@
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tbody>
 					<tr>
-						<td rowspan="3"><img src="" width="100"></img></td>
+						<td rowspan="3"><p:graphicImage value="#{livroMB.productImage}" width="100px">
+							<f:param name="pid" value="#{f.id}" />
+						</p:graphicImage></td>
 						<td colspan="3">#{f.nome}</td>
 						<td style="font-size: 14px;">#{str.de}: <strike>
 								R$#{f.valor}</strike></td>
@@ -136,7 +143,8 @@
 						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.desconto}%</td>
 						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
 									styleClass="item-menu" value="#{str.carrinho}"
-									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
+									action="#{livroMB.addCarrinho}"></h:commandLink></i>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="3" style="font-size: 12px;">#{f.sinopse}</td>
