@@ -27,10 +27,10 @@
 				</div>
 
 				<div class="main-navigation">
-					<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-							value="#{str.sair}" action="catalogo"></h:commandLink></i>
 					<i class="fa fa-arrow-left"><h:commandLink
 						styleClass="item-menu" value="#{str.voltar}" action="visualizarCategoria"></h:commandLink></i>
+					<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+							value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
 				</div>
 
 			</div>
@@ -52,7 +52,7 @@
 				rendered="#{not empty categoriaMB.categoria.id}"
 				value="#{str.alterar}" action="#{categoriaMB.atualizar}" />
 			<h:commandLink styleClass="back" value="#{str.voltar}"
-				action="visualizarCategoria" />
+				action="visualizarCategoria" immediate="true"/>
 		</h:form>
 	</h:body>
 </f:view>

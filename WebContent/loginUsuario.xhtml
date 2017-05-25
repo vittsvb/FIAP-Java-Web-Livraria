@@ -39,15 +39,15 @@
 		<h:messages styleClass="alert alert-danger"></h:messages>
 		<h2>#{str.login}</h2>
 		<h:inputText a:placeholder="#{str.usuario}" styleClass="input"
-			value="#{usuarioMB.usuario.login}" />
+			value="#{usuarioMB.usuario.login}" required="true" requiredMessage="#{str.preenchaUsuario}"/>
 		<h:inputSecret a:placeholder="#{str.senha}" styleClass="input"
-			value="#{usuarioMB.usuario.senha}" />
+			value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="#{str.preenchaSenha}"/>
 		<h:inputHidden value="#{usuarioMB.usuario.id}" />
 		<br />
 		<h:commandButton styleClass="botaoAdd" value="#{str.login}"
 			action="#{usuarioMB.login}" />
 		<h:commandLink styleClass="back" value="#{str.cadastrar}"
-			action="cadastroUsuario" />
+			action="cadastroUsuario" immediate="true"/>
 	</h:form>
 </h:body>
 </html>
