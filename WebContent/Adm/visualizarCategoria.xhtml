@@ -17,10 +17,11 @@
 			</div>
 
 			<div class="main-navigation">
-				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
 				<i class="fa fa-arrow-left"><h:commandLink
 						styleClass="item-menu" value="#{str.voltar}" action="menuAdmin"></h:commandLink></i>
+				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
+						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
+				
 			</div>
 
 		</div>
@@ -28,7 +29,7 @@
 	<h:form>
 		<h:commandLink styleClass="add" value="#{str.novaCategoria}" action="#{categoriaMB.abrirCadastro}" />
 		<h2 style="float:left;">#{str.categorias}</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarCategoria}" title="Type in a name"></input>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarCategoria}"></input>
 		<table id="tab">
 			<tr>
 				<th style="width: 60%;">#{str.categoria}</th>
@@ -40,7 +41,7 @@
 					<td>#{f.categoria}</td>
 					<td id="edit">
 						<h:commandLink value="#{str.editar}" action="#{categoriaMB.abrirEditar}">
-							<i class="fa fa-pencil" aria-hidden="true"/>
+						<i class="fa fa-pencil" aria-hidden="true"/>
 							<f:setPropertyActionListener value="#{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
 					</td>

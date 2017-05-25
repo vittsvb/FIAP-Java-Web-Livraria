@@ -4,7 +4,7 @@ import br.com.fiap.si.modelo.Usuario;
 
 public interface UsuarioDAO {
 
-	public void saveUser(Usuario usuario);
+	public boolean saveUser(Usuario usuario);
 	
 	public void updateUser(Usuario usuario);
 	
