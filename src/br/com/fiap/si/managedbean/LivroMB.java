@@ -70,6 +70,7 @@ public class LivroMB {
 		
 		return "visualizarlivro";
 	}
+	
 	@PostConstruct
 	public String abrirEditar(){
 		LivroDAOImpl dao = new LivroDAOImpl();

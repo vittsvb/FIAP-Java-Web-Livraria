@@ -36,18 +36,19 @@ public class Item {
 	private Usuario usuario;
 
 	@ManyToMany
-	private List<Livro> categorias;
+	private List<Livro> livro;
+	
 
 	public Integer getId() {
 		return id;
 	}
 
-	public List<Livro> getCategorias() {
-		return categorias;
+	public List<Livro> getLivro() {
+		return livro;
 	}
 
-	public void setCategorias(List<Livro> categorias) {
-		this.categorias = categorias;
+	public void setLivro(List<Livro> categorias) {
+		this.livro = categorias;
 	}
 
 	public void setId(Integer id) {
