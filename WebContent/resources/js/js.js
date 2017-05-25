@@ -6,15 +6,6 @@ $(document).ready(function () {
         $("#idIdade").mask('00');
         $("#idPreco").mask("##0.00");
         $("idDesconto").mask('000');
-        
-    	var preco = $('#preco').text();
-        var desconto = $('#desconto').text();
-        console.log(preco);
-        console.log(desconto);
-        var precoFinal = preco - (preco * (desconto/100));
-        console.log(precoFinal);
-        document.getElementById('precoFinal').innerHTML = precoFinal;
-        
  });
 
 function filtro() {

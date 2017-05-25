@@ -28,7 +28,7 @@
 			</div>
 			<div class="main-navigation">
 				<i class="fa fa-arrow-left"><h:commandLink
-						styleClass="item-menu" value="#{str.voltar}" action="catalogo"></h:commandLink></i>
+						styleClass="item-menu" value="#{str.voltar}" action="loginUsuario"></h:commandLink></i>
 			</div>
 
 		</div>
@@ -58,8 +58,9 @@
 			<f:validateRegex pattern="[0-9]{5}\-?[0-9]{3}" />
 		</h:inputText>
 		
-		<h:selectOneMenu styleClass="input" value="#{usuarioMB.usuario.estado}" require="true" requiredMessage="#{str.estadoObrigatorio}">
-			<f:selectItem itemValue="#{str.selecionarEstado}*"
+		<h:selectOneMenu styleClass="input" value="#{usuarioMB.usuario.estado}" required="true"
+			requiredMessage="#{str.estadoObrigatorio}">
+			<f:selectItem itemLabel="#{str.selecionarEstado}"
 				noSelectionOption="true" />
    			<f:selectItem itemValue = "AC" itemLabel = "Acre" /> 
    			<f:selectItem itemValue = "AL" itemLabel = "Alagoas" /> 

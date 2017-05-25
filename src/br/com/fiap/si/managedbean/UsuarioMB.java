@@ -44,6 +44,7 @@ public class UsuarioMB {
 
 	public String login() {
 		String retorno;
+
 		UsuarioDAOImpl dao = new UsuarioDAOImpl();
 
 		usuario = dao.login(usuario.getLogin(), usuario.getSenha());
@@ -67,6 +68,14 @@ public class UsuarioMB {
 		return retorno;
 	}
 
+	public String abrirLogin(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getExternalContext().getSessionMap().remove("#{usuarioMB}");
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.invalidate();
+		return "/loginUsuario.xhtml?faces-redirect=true";
+	}
+	
 	public String inserir() {
 		boolean valid;
 		String retorno = null;
@@ -89,22 +98,12 @@ public class UsuarioMB {
 		context.getExternalContext().getSessionMap().remove("#{usuarioMB}");
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		session.invalidate();
-		return "../catalogo.xhtml?faces-redirect=true";
+		return "/catalogo.xhtml?faces-redirect=true";
 	}
 
 	public String abrirEditar() {
-
+			sair();
 		try {
-			usuario.setAdm(false);
-			usuario.setCep(null);
-			usuario.setCpfCnpj(null);
-			usuario.setEstado(null);
-			usuario.setId(null);
-			usuario.setIdade(null);
-			usuario.setLogin(null);
-			usuario.setLogradouro(null);
-			usuario.setNome(null);
-			usuario.setSenha(null);
 			return "cadastroUsuario";
 		} catch (Exception e) {
 			erro = e.getMessage();
