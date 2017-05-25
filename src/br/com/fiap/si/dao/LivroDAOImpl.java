@@ -1,12 +1,15 @@
 package br.com.fiap.si.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import br.com.fiap.si.modelo.Item;
 import br.com.fiap.si.modelo.Livro;
+import br.com.fiap.si.modelo.Usuario;
 import br.com.fiap.si.util.JPAUtil;
 
 public class LivroDAOImpl implements LivroDAO {
@@ -78,6 +81,7 @@ public class LivroDAOImpl implements LivroDAO {
 	public void insertListOf(Item item) {
 
 		EntityManager em = new JPAUtil().getEntityManager();
+		
 		try{
 			em.getTransaction().begin();
 			em.persist(item);
@@ -102,6 +106,23 @@ public class LivroDAOImpl implements LivroDAO {
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 		}
+		
+	}
+	@Override
+	public List<Item> returnlistuser(Usuario user){
+		List<Item> items = new ArrayList();
+		try{
+		
+			EntityManager em = new JPAUtil().getEntityManager();
+			Query q = em.createQuery("select i from Item i where usuario = :user");
+			q.setParameter("user",user);
+			items = q.getResultList();
+			return items;
+		}
+		catch(NoResultException e){
+			return items;
+		}
+		
 		
 	}
 

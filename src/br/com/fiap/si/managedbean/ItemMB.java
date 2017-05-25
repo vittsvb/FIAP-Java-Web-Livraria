@@ -5,68 +5,82 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import br.com.fiap.si.dao.LivroDAOImpl;
+import br.com.fiap.si.dao.UsuarioDAOImpl;
 import br.com.fiap.si.modelo.Categoria;
 import br.com.fiap.si.modelo.Item;
 import br.com.fiap.si.modelo.Livro;
+import br.com.fiap.si.modelo.Usuario;
+
 @ManagedBean
 @SessionScoped
 public class ItemMB {
-	
-	private Item item ;
+
+	private Item item;
 	private List<Item> items;
-	private String erro;
-	private Livro livro;
-	int teste;
+	@ManagedProperty(value = "#{usuarioMB.usuario}")
+	private Usuario user;
+
+	public Usuario getUser() {
+		return user;
+	}
+
+	public void setUser(Usuario user) {
+		this.user = user;
+	}
+
 	
-	
-	
-	public ItemMB(Item item, String erro, int teste) {
-		super();
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
 		this.item = item;
-		this.erro = erro;
-		this.teste = teste;
 	}
-	public ItemMB(){
-	livro = new Livro();
-	item = new Item();
+
+	public ItemMB() {
 		
+		item = new Item();
 	}
-	public Livro getLivro() {
-		return livro;
-	}
-	public void setLivro(Livro livro) {
-		this.livro = livro;
-	}
-	public String addListaDesejos(){
+	@PostConstruct
+	public void teste(){
 		LivroDAOImpl dao = new LivroDAOImpl();
-		livro = dao.getLivroID(livro.getId());
-		List<Livro> livros = new ArrayList<>();
-		livros.add(livro);
-		item.setLivro(livros);
+		UsuarioDAOImpl usudao = new UsuarioDAOImpl();
+		Usuario usuario = usudao.login(user.getLogin(),user.getSenha());
+		items = dao.returnlistuser(usuario);
+
 		
-		LivroDAOImpl daoImpl = new LivroDAOImpl();
-		daoImpl.insertListOf(item);
-		
+	}
+
+	public String addListaDesejos() {
+		if (user.getLogin() != null) {
+			LivroDAOImpl dao = new LivroDAOImpl();
+			UsuarioDAOImpl usudao = new UsuarioDAOImpl();
+			Usuario usuario = usudao.login(user.getLogin(),user.getSenha());
+
+			item.setUsuario(usuario);
+			
+			dao.insertListOf(item);
+
+			return null;
+		}
+		return "loginUsuario";
+	}
+
+	public String deletar() {
+
 		return null;
 	}
 
-		
-	public String deletar(){
-		
-		
-		return null;
-	}
 	public List<Item> getItems() {
 		return items;
 	}
+
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
-	
-		
-	
-	
+
 }

@@ -117,7 +117,7 @@
 					<th style="width: 10%;">#{str.compra}</th>
 				</tr>
 			</thead>
-			<ui:repeat var="f" value="#{livroMB.listLivro}">
+			<ui:repeat var="f" value="#{itemMB.items}">
 				<tbody>
 					<tr>
 						<td rowspan="3"><img src="" width="100"></img></td>
@@ -126,9 +126,7 @@
 								R$#{f.valor}</strike></td>
 						<td><i class="fa fa-heart"><h:commandLink
 									styleClass="item-menu" value="#{str.desejos}"
-									action="#{itemMB.addListaDesejos}">
-									<f:setPropertyActionListener value="#{f}"
-								target="#{itemMB.item.livro}" /></h:commandLink></i></td>
+									action="#{livroMB.addListaDesejos}"></h:commandLink></i></td>
 					</tr>
 
 					<tr>

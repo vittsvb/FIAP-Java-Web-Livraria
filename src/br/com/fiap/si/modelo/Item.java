@@ -13,6 +13,7 @@ import java.util.Locale;
 
 import javax.persistence.*;
 
+@Table(name="item")
 @Entity
 public class Item {
 
@@ -22,69 +23,18 @@ public class Item {
 	@SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
 	private Integer id;
 
-	private BigDecimal valor;
-
-	@Enumerated(EnumType.STRING)
-	private TipoMovimentacao tipoMovimentacao;
-
-	@Temporal(TemporalType.DATE)
-	private Calendar data;
-
-	private String descricao;
-
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.DETACH)
 	private Usuario usuario;
 
-	@ManyToMany
-	private List<Livro> livro;
-	
+	@ManyToOne(cascade = CascadeType.DETACH)
+	private Livro livro;
 
 	public Integer getId() {
 		return id;
 	}
 
-	public List<Livro> getLivro() {
-		return livro;
-	}
-
-	public void setLivro(List<Livro> categorias) {
-		this.livro = categorias;
-	}
-
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public BigDecimal getValor() {
-		return valor;
-	}
-
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
-	}
-
-	public TipoMovimentacao getTipoMovimentacao() {
-		return tipoMovimentacao;
-	}
-
-	public void setTipoMovimentacao(TipoMovimentacao tipoMovimentacao) {
-		this.tipoMovimentacao = tipoMovimentacao;
-	}
-
-	public Calendar getData() {
-		return data;
-	}
-
-	public void setData(Calendar data) {
-		this.data = data;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 
 	public Usuario getUsuario() {
@@ -95,7 +45,14 @@ public class Item {
 		this.usuario = usuario;
 	}
 
-	
+	public Livro getLivro() {
+		return livro;
+	}
 
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+	
+	
 
 }
