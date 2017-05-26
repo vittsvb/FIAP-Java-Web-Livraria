@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:c="http://java.sun.com/jstl/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jstl/core">
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<title>THE LIBRARY | Home</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<h:outputScript name="js.js" library="js"></h:outputScript>
@@ -37,7 +27,7 @@
 					</c:when>
 					<c:otherwise>
 						#{str.bemVindo} <strong>#{usuarioMB.usuario.nome}!</strong>&nbsp;&nbsp;&nbsp;
-			         </c:otherwise>
+					</c:otherwise>
 				</c:choose>
 
 				<i class="fa fa-shopping-cart"><h:commandLink
@@ -60,89 +50,9 @@
 	</h:form>
 
 	<h:form enctype="multipart/form-data">
-		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
-			placeholder="#{str.buscarLivro}"></input>
-		<input type="text" id="pesquisa2" onkeyup="filtroAutor()"
-			placeholder="#{str.buscarAutor}"></input>
-		<input type="text" id="pesquisa3" onkeyup="filtroEditora()"
-			placeholder="#{str.buscarEditora}"></input>
-
-
-		<!--<table id="tab">
-			<thead>
-				<tr>
-					<th style="width: 5%;">Imagem</th>
-					<th colspan="3" style="width: 40%;">Descrição</th>
-					<th style="width: 10%;">Preço</th>
-					<th style="width: 10%;">Compra</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td rowspan="3"><img
-						src="http://www.infoescola.com/wp-content/uploads/2009/01/Harry-Potter-e-a-Pedra-Filosofal-livro.jpg"
-						width="100"></img></td>
-
-					<td colspan="3">HARRY POTTER E A PEDRA FILOSOFAL</td>
-					<td style="font-size: 14px;">de:<strike> R$ 38,50</strike></td>
-					<td><i class="fa fa-heart"><h:commandLink
-								styleClass="item-menu" value="Desejos" action="login"></h:commandLink></i></td>
-				</tr>
-				<tr>
-					<td style="font-size: 12px;">Autor(a): ROWLING, J. K.</td>
-					<td style="font-size: 12px;">Editora: ROCCO</td>
-					<td style="font-size: 12px;">Categoria: Ficção Fantasiosa</td>
-					<td style="font-size: 14px;">desconto de 30%</td>
-					<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
-								styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i></td>
-				</tr>
-				<tr>
-					<td colspan="3" style="font-size: 12px;">Harry Potter é um
-						garoto cujos pais, feiticeiros, foram assassinados por um
-						poderosíssimo bruxo quando ele ainda era um bebê. Ele foi levado,
-						então, para a casa dos tios que nada tinham a ver com o
-						sobrenatural. Pelo contrário. Até os 10 anos, Harry foi uma
-						espécie de gata borralheira: maltratado pelos tios, herdava roupas
-						velhas do primo gorducho, tinha óculos remendados e era tratado
-						como um estorvo.</td>
-					<td style="font-size: 14px;">por: R$ 26,95</td>
-				</tr>
-			</tbody>
-			<tbody>
-				<tr>
-					<td rowspan="3"><img
-						src="http://statics.livrariacultura.net.br/products/capas_lg/192/11008192.jpg"
-						width="100"></img></td>
-
-					<td colspan="3" name="titulo">BATMAN - CAVALEIRO DAS TREVAS</td>
-					<td style="font-size: 14px;">de: <strike>R$ 94,00</strike></td>
-					<td><i class="fa fa-heart"><h:commandLink
-								styleClass="item-menu" value="Desejos" action="login"></h:commandLink></i></td>
-				<tr>
-					<td style="font-size: 12px;">Autor(a): MILLER, FRANK</td>
-					<td style="font-size: 12px;">Editora: PANINI LIVROS</td>
-					<td style="font-size: 12px;">Categoria: Quadrinhos</td>
-					<td style="font-size: 14px;">desconto de 30%</td>
-					<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
-								styleClass="item-menu" value="Carrinho" action="login"></h:commandLink></i></td>
-				</tr>
-				<tr>
-					<td colspan="3" style="font-size: 12px;">Originalmente uma
-						minissérie em 4 edições lançada no início de 1986, BATMAN - O
-						CAVALEIRO DAS TREVAS levou muito pouco tempo para ser considerada
-						uma das duas pedras angulares dos quadrinhos modernos, ao lado de
-						Watchmen, de Alan Moore. Escrita e desenhada por Frank Miller, a
-						história, mostrando um Cavaleiro das Trevas envelhecido e
-						amargurado voltando à ativa após anos de aposentadoria,
-						ultrapassou as fronteiras do que se convencionava considerar
-						"histórias em quadrinhos", estabelecendo novos parâmetros, tanto
-						em narrativa como em temática, e influenciando tudo o que veio
-						depois.</td>
-					<td style="font-size: 14px;">por: R$ 65,80</td>
-				</tr>
-				</tr>
-			</tbody>
-		</table>-->
+		<input type="text" id="pesquisa" onkeyup="filtroLivro()" placeholder="#{str.buscarLivro}"></input>
+		<input type="text" id="pesquisa2" onkeyup="filtroAutor()" placeholder="#{str.buscarAutor}"></input>
+		<input type="text" id="pesquisa3" onkeyup="filtroEditora()" placeholder="#{str.buscarEditora}"></input>
 
 		<table id="tab">
 			<thead>
@@ -156,9 +66,11 @@
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tbody>
 					<tr>
-						<td rowspan="3"><img src="#{f.url}" width="100" /> <!-- <p:graphicImage value="" width="100px">
+						<td rowspan="3"><img src="#{f.url}" width="100" />
+							<!-- <p:graphicImage value="" width="100px">
 								<f:param name="pid" value="#{f.id}" />
-							</p:graphicImage> --></td>
+							</p:graphicImage> -->
+						</td>
 						<td colspan="3">#{f.nome}</td>
 						<td style="font-size: 14px;">R$<label id="preco">#{f.valor}</label></td>
 						<td style="text-align: center;"><i class="fa fa-heart">&nbsp;&nbsp;<h:commandLink
@@ -171,26 +83,24 @@
 
 					<tr>
 						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
-						<td style="font-size: 12px;">#{str.editora}:
-							#{f.editora.nome}</td>
-						<td style="font-size: 12px;">#{str.categoria}:
-							#{f.categoria.categoria}</td>
-						<td style="font-size: 14px;">#{str.desconto} #{str.de} <label
-							id="desconto">#{f.desconto}</label>%
+						<td style="font-size: 12px;">#{str.editora}: #{f.editora.nome}
 						</td>
-						<td rowspan="2" style="text-align: center;"><i
-							class="fa fa-shopping-cart">&nbsp;&nbsp; <h:commandLink
+						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria.categoria}
+						</td>
+						<td style="font-size: 14px;">#{str.desconto} #{str.de} <label id="desconto">#{f.desconto}</label>%
+						</td>
+						<td rowspan="2" style="text-align: center;"><i class="fa fa-shopping-cart">&nbsp;&nbsp; <h:commandLink
 									styleClass="item-menu" value="#{str.carrinho}"
 									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
 					</tr>
 					<tr>
 						<td colspan="3" style="font-size: 12px;">#{f.sinopse}</td>
-						<td style="font-size: 14px;" id="tdPrecoFinal">#{str.por} R$<label
-							id="precoFinal">#{f.valor-(f.valor*(f.desconto/100))}</label></td>
+						<td style="font-size: 14px;" id="tdPrecoFinal">#{str.por} R$<label id="precoFinal">#{f.valor-(f.valor*(f.desconto/100))}</label></td>
 					</tr>
 				</tbody>
 			</ui:repeat>
 		</table>
 	</h:form>
 </h:body>
+
 </html>

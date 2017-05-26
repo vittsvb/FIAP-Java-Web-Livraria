@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://java.sun.com/jsf/core">
 <f:view locale="#{facesContext.externalContext.requestLocale}">
 	<h:head>
-		<link rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
-		<link rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>THE LIBRARY | #{str.cadastrarCategoria}</title>
 		<h:outputStylesheet library="css" name="style.css" target="head" />
@@ -39,21 +32,14 @@
 		<h:form styleClass="form">
 			<h:messages styleClass="alert alert-danger"></h:messages>
 			<h2>#{str.cadastrarCategoria}</h2>
-			<h:inputText styleClass="input" a:placeholder="#{str.categoria}"
-				disable="#{not empty categoriaMB.categoria.categoria}"
-				value="#{categoriaMB.categoria.categoria}" required="true"
-				requiredMessage="#{str.categoriaNomeObrigatorio}" id="idCategoria" />
+			<h:inputText styleClass="input" a:placeholder="#{str.categoria}" disable="#{not empty categoriaMB.categoria.categoria}" value="#{categoriaMB.categoria.categoria}" required="true" requiredMessage="#{str.categoriaNomeObrigatorio}" id="idCategoria" />
 			<h:inputHidden value="#{categoriaMB.categoria.id}" />
 			<br />
-			<h:commandButton styleClass="botaoAdd"
-				rendered="#{empty categoriaMB.categoria.id}" value="#{str.incluir}"
-				action="#{categoriaMB.inserir}" />
-			<h:commandButton styleClass="botaoAdd"
-				rendered="#{not empty categoriaMB.categoria.id}"
-				value="#{str.alterar}" action="#{categoriaMB.atualizar}" />
-			<h:commandLink styleClass="back" value="#{str.voltar}"
-				action="visualizarCategoria" immediate="true"/>
+			<h:commandButton styleClass="botaoAdd" rendered="#{empty categoriaMB.categoria.id}" value="#{str.incluir}" action="#{categoriaMB.inserir}" />
+			<h:commandButton styleClass="botaoAdd" rendered="#{not empty categoriaMB.categoria.id}" value="#{str.alterar}" action="#{categoriaMB.atualizar}" />
+			<h:commandLink styleClass="back" value="#{str.voltar}" action="visualizarCategoria" immediate="true" />
 		</h:form>
 	</h:body>
 </f:view>
+
 </html>

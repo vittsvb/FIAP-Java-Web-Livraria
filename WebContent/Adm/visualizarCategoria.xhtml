@@ -2,15 +2,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>THE LIBRARY | #{str.categorias}</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
 <h:body>
-<h:form>
+	<h:form>
 		<div class="header">
 			<div class="main-logo">
 				<a class="logo"></a>
@@ -21,11 +20,11 @@
 						styleClass="item-menu" value="#{str.voltar}" action="menuAdmin"></h:commandLink></i>
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
 						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
-				
+
 			</div>
 
 		</div>
-</h:form>
+	</h:form>
 	<h:form>
 		<h:commandLink styleClass="add" value="#{str.novaCategoria}" action="#{categoriaMB.abrirCadastro}" />
 		<h2 style="float:left;">#{str.categorias}</h2>
@@ -41,7 +40,7 @@
 					<td>#{f.categoria}</td>
 					<td id="edit">
 						<h:commandLink value="#{str.editar}" action="#{categoriaMB.abrirEditar}">
-						<i class="fa fa-pencil" aria-hidden="true"/>
+							<i class="fa fa-pencil" aria-hidden="true" />
 							<f:setPropertyActionListener value="#{f.id}" target="#{categoriaMB.categoria.id}" />
 						</h:commandLink>
 					</td>

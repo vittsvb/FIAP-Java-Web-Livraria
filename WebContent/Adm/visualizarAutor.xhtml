@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>THE LIBRARY | #{str.autores}</title>
@@ -25,18 +21,16 @@
 						styleClass="item-menu" value="#{str.voltar}" action="menuAdmin"></h:commandLink></i>
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
 						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
-				
+
 			</div>
 
 		</div>
 	</h:form>
 	<h:form>
-		<h:commandLink styleClass="add" value="#{str.novoAutor}"
-			action="#{autorMB.abrirCadastro}" />
-		
+		<h:commandLink styleClass="add" value="#{str.novoAutor}" action="#{autorMB.abrirCadastro}" />
+
 		<h2 style="float:left;">#{str.autores}</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()"
-			placeholder="#{str.buscarAutor}"></input>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarAutor}"></input>
 		<table id="tab">
 			<thead>
 				<tr>
@@ -48,22 +42,22 @@
 			</thead>
 			<tbody>
 				<ui:repeat var="f" value="#{autorMB.listAutor}">
-				<tr>
-					<td>#{f.nome}</td>
-					<td>#{f.cpf}</td>
-					<td id="edit"><h:commandLink value="#{str.editar}"
-							action="#{autorMB.abrirEditar}">
-							<i class="fa fa-pencil" aria-hidden="true"/>
-							<f:setPropertyActionListener value="#{f.id}"
-								target="#{autorMB.autor.id}"/>
-						</h:commandLink></td>
-					<td id="remove"><h:commandLink value="#{str.deletar}"
-							action="#{autorMB.deletar}">
-							<i class="fa fa-trash" aria-hidden="true"></i>
-							<f:setPropertyActionListener value="#{f}"
-								target="#{autorMB.autor}" />
-						</h:commandLink></td>
-				</tr>
+					<tr>
+						<td>#{f.nome}</td>
+						<td>#{f.cpf}</td>
+						<td id="edit">
+							<h:commandLink value="#{str.editar}" action="#{autorMB.abrirEditar}">
+								<i class="fa fa-pencil" aria-hidden="true" />
+								<f:setPropertyActionListener value="#{f.id}" target="#{autorMB.autor.id}" />
+							</h:commandLink>
+						</td>
+						<td id="remove">
+							<h:commandLink value="#{str.deletar}" action="#{autorMB.deletar}">
+								<i class="fa fa-trash" aria-hidden="true"></i>
+								<f:setPropertyActionListener value="#{f}" target="#{autorMB.autor}" />
+							</h:commandLink>
+						</td>
+					</tr>
 				</ui:repeat>
 			</tbody>
 		</table>

@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.login}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
@@ -38,18 +31,13 @@
 	<h:form styleClass="form">
 		<h:messages styleClass="alert alert-danger"></h:messages>
 		<h2>#{str.login}</h2>
-		<h:inputText a:placeholder="#{str.usuario}" styleClass="input"
-			value="#{usuarioMB.usuario.login}" required="true" requiredMessage="#{str.preenchaUsuario}"/>
-		<h:inputSecret a:placeholder="#{str.senha}" styleClass="input"
-			value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="#{str.preenchaSenha}"/>
+		<h:inputText a:placeholder="#{str.usuario}" styleClass="input" value="#{usuarioMB.usuario.login}" required="true" requiredMessage="#{str.preenchaUsuario}" />
+		<h:inputSecret a:placeholder="#{str.senha}" styleClass="input" value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="#{str.preenchaSenha}" />
 		<h:inputHidden value="#{usuarioMB.usuario.id}" />
 		<br />
-		<h:commandButton styleClass="botaoAdd" value="#{str.login}"
-			action="#{usuarioMB.login}" />
-		<h:commandLink styleClass="back" value="#{str.cadastrar}"
-			action="cadastroUsuario" immediate="true"/>
+		<h:commandButton styleClass="botaoAdd" value="#{str.login}" action="#{usuarioMB.login}" />
+		<h:commandLink styleClass="back" value="#{str.cadastrar}" action="cadastroUsuario" immediate="true" />
 	</h:form>
 </h:body>
+
 </html>
-
-

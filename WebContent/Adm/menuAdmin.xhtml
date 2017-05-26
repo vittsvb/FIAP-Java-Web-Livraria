@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.cadastrarAutor}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
@@ -28,24 +22,28 @@
 				#{str.bemVindo} <strong>#{usuarioMB.usuario.nome}!</strong>&nbsp;&nbsp;&nbsp;
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
 						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
-						
+
 			</div>
 		</div>
 	</h:form>
-	
+
 	<h:form>
-	<br />
-		
+		<br />
+
 		<div class="row">
 			<ul class="menu-adm">
-				<li><h:commandLink value="#{str.autores}"
-				action="visualizarAutor"> </h:commandLink></li>
-				<li><h:commandLink value="#{str.categorias}"
-				action="visualizarCategoria"> </h:commandLink></li>
-				<li><h:commandLink value="#{str.livros}"
-				action="visualizarLivro"> </h:commandLink></li>
-				<li><h:commandLink value="#{str.editora}"
-				action="visualizarEditora"> </h:commandLink></li>
+				<li>
+					<h:commandLink value="#{str.autores}" action="visualizarAutor"> </h:commandLink>
+				</li>
+				<li>
+					<h:commandLink value="#{str.categorias}" action="visualizarCategoria"> </h:commandLink>
+				</li>
+				<li>
+					<h:commandLink value="#{str.livros}" action="visualizarLivro"> </h:commandLink>
+				</li>
+				<li>
+					<h:commandLink value="#{str.editora}" action="visualizarEditora"> </h:commandLink>
+				</li>
 			</ul>
 
 		</div>
