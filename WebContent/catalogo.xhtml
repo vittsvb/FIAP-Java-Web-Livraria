@@ -43,9 +43,17 @@
 				<i class="fa fa-shopping-cart"><h:commandLink
 						styleClass="item-menu" value="#{str.carrinho}" action="carrinho"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
-						value="#{str.desejos}" action="login"></h:commandLink></i> <i
-					class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
+						value="#{str.desejos}" action="login"></h:commandLink></i>
+				<c:choose>
+					<c:when test="${empty usuario}">
+					</c:when>
+					<c:otherwise>
+						<i class="fa fa-sign-out"><h:commandLink
+								styleClass="item-menu" value="#{str.sair}"
+								action="#{usuarioMB.sair}"></h:commandLink></i>
+					</c:otherwise>
+				</c:choose>
+
 			</div>
 		</div>
 
@@ -148,18 +156,17 @@
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tbody>
 					<tr>
-						<td rowspan="3"><img src="#{f.url}" width="100"/>
-							<!-- <p:graphicImage value="" width="100px">
+						<td rowspan="3"><img src="#{f.url}" width="100" /> <!-- <p:graphicImage value="" width="100px">
 								<f:param name="pid" value="#{f.id}" />
-							</p:graphicImage> -->
-						</td>
+							</p:graphicImage> --></td>
 						<td colspan="3">#{f.nome}</td>
 						<td style="font-size: 14px;">R$<label id="preco">#{f.valor}</label></td>
 						<td style="text-align: center;"><i class="fa fa-heart">&nbsp;&nbsp;<h:commandLink
 									styleClass="item-menu" value="#{str.desejos}"
 									action="#{itemMB.addListaDesejos}">
 									<f:setPropertyActionListener value="#{f}"
-								target="#{itemMB.item.livro}" /></h:commandLink></i></td>
+										target="#{itemMB.item.livro}" />
+								</h:commandLink></i></td>
 					</tr>
 
 					<tr>
