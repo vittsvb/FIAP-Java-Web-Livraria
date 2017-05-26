@@ -29,14 +29,13 @@
 			</div>
 
 			<div class="main-navigation">
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="visualizarAutor"></h:commandLink></i>
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
 			</div>
-
 		</div>
 	</h:form>
-
-
 	<h:form styleClass="form" prependId="false">
 		<h:messages styleClass="alert alert-danger"></h:messages>
 		<h2>#{str.cadastrarAutor}</h2>
@@ -59,7 +58,7 @@
 			rendered="#{not empty autorMB.autor.id}" value="#{str.editar}"
 			action="#{autorMB.atualizar}" />
 		<h:commandLink styleClass="back" value="#{str.voltar}"
-			action="visualizarAutor"></h:commandLink>
+			action="visualizarAutor" immediate="true"></h:commandLink>
 	</h:form>
 </h:body>
 

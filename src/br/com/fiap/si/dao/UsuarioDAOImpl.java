@@ -1,5 +1,7 @@
 package br.com.fiap.si.dao;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -11,18 +13,23 @@ import br.com.fiap.si.util.JPAUtil;
 public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
-	public void saveUser(Usuario usuario) {
+	public boolean saveUser(Usuario usuario) {
 		EntityManager em = new JPAUtil().getEntityManager();
+		boolean valid;
 		try {
 			em.getTransaction().begin();
 
 			em.persist(usuario);
 			
 			em.getTransaction().commit();
-
+			valid = true;
 		} catch (Exception e) {
 			em.getTransaction().rollback();
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage("O Nome de usuário já esta sendo usado"));
+			valid = false;
 		}
+		return valid;
 	}
 
 	@Override

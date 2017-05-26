@@ -3,22 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:c="http://java.sun.com/jstl/core">
-
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
 	<title>THE LIBRARY | Home</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<h:outputScript name="js.js" library="js"></h:outputScript>
@@ -30,35 +20,17 @@
 				<a class="logo"></a>
 			</div>
 			<div class="main-navigation">
-				<c:choose>
-					<c:when test="${empty usuario}">
-						<i class="fa fa-user"><h:commandLink styleClass="item-menu"
-								value="#{str.login}" action="#{usuarioMB.abrirLogin}"></h:commandLink></i>
-					</c:when>
-					<c:otherwise>
-						#{str.bemVindo} <strong>#{usuarioMB.usuario.nome}!</strong>&nbsp;&nbsp;&nbsp;
-			         </c:otherwise>
-				</c:choose>
-
-				<i class="fa fa-shopping-cart"><h:commandLink
+				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
+						value="#{str.login}" action="loginUsuario"></h:commandLink></i> <i
+					class="fa fa-shopping-cart"><h:commandLink
 						styleClass="item-menu" value="#{str.carrinho}" action="login"></h:commandLink></i>
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
-						value="#{str.desejos}" action="login"></h:commandLink></i> <i
-					class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
+						value="#{str.desejos}" action="login"></h:commandLink></i>
 			</div>
 		</div>
 
-	</h:form>
-
-	<h:form enctype="multipart/form-data">
 		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
 			placeholder="#{str.buscarLivro}"></input>
-		<input type="text" id="pesquisa2" onkeyup="filtroAutor()"
-			placeholder="#{str.buscarAutor}"></input>
-		<input type="text" id="pesquisa3" onkeyup="filtroEditora()"
-			placeholder="#{str.buscarEditora}"></input>
-
 
 		<!--<table id="tab">
 			<thead>
@@ -139,45 +111,36 @@
 		<table id="tab">
 			<thead>
 				<tr>
-					<th style="width: 5%;">#{str.imagem}</th>
-					<th colspan="3" style="width: 65%;">#{str.descricao}</th>
-					<th style="width: 15%;">#{str.preco}</th>
-					<th style="width: 15%;">#{str.compra}</th>
+					<th style="width: 10%;">#{str.imagem}</th>
+					<th colspan="3" style="width: 70%;">#{str.descricao}</th>
+					<th style="width: 10%;">#{str.preco}</th>
+					<th style="width: 10%;">#{str.compra}</th>
 				</tr>
 			</thead>
-			<ui:repeat var="f" value="#{livroMB.listLivro}">
+			<ui:repeat var="f" value="#{itemMB.items}">
 				<tbody>
 					<tr>
-						<td rowspan="3"><p:graphicImage value="" width="100px">
-								<f:param name="pid" value="#{f.id}" />
-							</p:graphicImage></td>
-						<td colspan="3">#{f.nome}</td>
-						<td style="font-size: 14px;">R$<label id="preco">#{f.valor}</label></td>
-						<td style="text-align: center;"><i class="fa fa-heart">&nbsp;&nbsp;<h:commandLink
+						<td rowspan="3"><img src="" width="100"></img></td>
+						<td colspan="3">#{f.livro.nome}</td>
+						<td style="font-size: 14px;">#{str.de}: <strike>
+								R$#{f.livro.valor}</strike></td>
+						<td><i class="fa fa-heart"><h:commandLink
 									styleClass="item-menu" value="#{str.desejos}"
-									action="#{itemMB.addListaDesejos}">
-									<f:setPropertyActionListener value="#{f}"
-								target="#{itemMB.item.livro}" /></h:commandLink></i></td>
+									action="#{livroMB.addListaDesejos}"></h:commandLink></i></td>
 					</tr>
 
 					<tr>
-						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
-						<td style="font-size: 12px;">#{str.editora}:
-							#{f.editora.nome}</td>
-						<td style="font-size: 12px;">#{str.categoria}:
-							#{f.categoria.categoria}</td>
-						<td style="font-size: 14px;">#{str.desconto} #{str.de} <label
-							id="desconto">#{f.desconto}</label>%
-						</td>
-						<td rowspan="2" style="text-align: center;"><i
-							class="fa fa-shopping-cart">&nbsp;&nbsp; <h:commandLink
+						<td style="font-size: 12px;">#{str.autor}: #{f.livro.autor.nome}</td>
+						<td style="font-size: 12px;">#{str.editora}: #{f.livro.editora.nome}</td>
+						<td style="font-size: 12px;">#{str.categoria}: #{f.livro.categoria.categoria}</td>
+						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.livro.desconto}%</td>
+						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
 									styleClass="item-menu" value="#{str.carrinho}"
 									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
 					</tr>
 					<tr>
-						<td colspan="3" style="font-size: 12px;">#{f.sinopse}</td>
-						<td style="font-size: 14px;" id="tdPrecoFinal">#{str.por} R$<label
-							id="precoFinal">#{f.valor-(f.valor*(f.desconto/100))}</label></td>
+						<td colspan="3" style="font-size: 12px;">#{f.livro.sinopse}</td>
+						<td style="font-size: 14px;">#{str.por}: R$</td>
 					</tr>
 				</tbody>
 			</ui:repeat>

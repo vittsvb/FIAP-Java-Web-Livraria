@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
@@ -13,69 +14,113 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.cadastrarLivro}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js"
+		target="head" />
+	<h:outputScript library="primefaces" name="jquery/jquery-plugins.js"
+		target="head" />
 
 </h:head>
 <h:body>
-	<h:form>
+	<script type="text/javascript">
+		var $j = jQuery.noConflict(true);
+	</script>
+	<h:form enctype="multipart/form-data">
 		<div class="header">
 			<div class="main-logo">
 				<a class="logo"></a>
 			</div>
 
 			<div class="main-navigation">
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="visualizarCategoria"></h:commandLink></i>
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
 			</div>
 		</div>
 	</h:form>
 
-	<h:form styleClass="form">
+	<h:form styleClass="form" enctype="multipart/form-data">
 		<h:messages styleClass="alert alert-danger"></h:messages>
 
 		<h2>#{str.cadastrarLivro}</h2>
+		<p:graphicImage value="#{livroMB.productImage}" width="100px"
+			height="100px" rendered="not empty livroMB.livro.id">
+			<f:param name="pid" value="#{livroMB.livro.id}" />
+		</p:graphicImage>
 		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
 			value="#{livroMB.livro.nome}" required="true"
-			requiredMessage="O Título do Livro é obrigatório" />
+			requiredMessage="#{str.tituloObrigatorio}" id="idLivro" />
 
-		<h:selectOneMenu styleClass="input">
-			<f:selectItem itemValue="#{str.selecionarCategoria}"
+		<h:inputText styleClass="input" a:placeholder="#{str.preco}*"
+			value="#{livroMB.livro.valor}" required="true"
+			requiredMessage="#{str.precoObrigatorio}" converterMessage="#{str.somenteNumerosPreco}"
+			id="idPreco">   
+			<f:convertNumber pattern="##0.00"/></h:inputText>
+
+		<h:inputText styleClass="input" a:placeholder="#{str.desconto}* %"
+			value="#{livroMB.livro.desconto}" required="true"
+			requiredMessage="#{str.descontoObrigatorio}" converterMessage="#{str.somenteNumerosDesconto}"
+			id="idDesconto">
+			<f:convertNumber pattern="###" maxIntegerDigits="3"/>
+		</h:inputText>
+	
+
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}"
+			converter="omnifaces.SelectItemsConverter" required="true"
+			requiredMessage="#{str.categoriaObrigatorio}">
+			<f:selectItem itemValue="#{str.selecionarCategoria}*"
 				noSelectionOption="true" />
 			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat"
-				itemValue="#{cat.id}" itemLabel="#{cat.categoria}" />
+				itemValue="#{cat}" itemLabel="#{cat.categoria}" />
 		</h:selectOneMenu>
 
-		<h:selectOneMenu styleClass="input">
-			<f:selectItem itemValue="#{str.selecionarEditora}"
+
+
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.editora}"
+			converter="omnifaces.SelectItemsConverter" required="true"
+			requiredMessage="#{str.editoraObrigatoria}">
+			<f:selectItem itemValue="#{str.selecionarEditora}*"
 				noSelectionOption="true" />
 			<f:selectItems value="#{editoraMB.listEditora}" var="edi"
-				itemValue="#{edi.id}" itemLabel="#{edi.nome}" />
+				itemValue="#{edi}" itemLabel="#{edi.nome}" />
 		</h:selectOneMenu>
 
-		<!-- Falta a editora -->
+		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.autor}"
+			converter="omnifaces.SelectItemsConverter" required="true"
+			requiredMessage="#{str.autorObrigatorio}">
+			<f:selectItem itemValue="#{str.selecionarAutor}*" noSelectionOption="true" />
+			<f:selectItems value="#{autorMB.listAutor}" var="aut"
+				itemValue="#{aut}" itemLabel="#{aut.nome}" />
+		</h:selectOneMenu>
 
-		<h:inputText styleClass="input" a:placeholder="Preço"
-			value="#{livroMB.livro.nome}" required="true"
-			requiredMessage="O Preço do Livro é obrigatório" />
+		<p:fileUpload fileUploadListener="#{livroMB.processFileUpload}"
+			label="Escolher" cancelLabel="Cancelar" sizeLimit="400000"
+			invalidSizeMessage="Imagem muito grande" auto="true"
+			invalidFileMessage="Tipo de imagem não suportado"
+			allowTypes="/(\.|\/)(jpe?g|png)$/" id="uploadFile" mode="simple"
+			uploadLabel="Carregar" dragDropSupport="true" fileLimit="1"
+			value="#{livroMB.file}" />
 
-		<h:inputText styleClass="input" a:placeholder="Desconto"
-			value="#{livroMB.livro.nome}" />
 
-		<h:inputTextarea cols="30" rows="10" styleClass="input" a:placeholder= "Resumo"
-			value="#{livroMB.livro.nome}" />
+
+		<h:inputTextarea rows = "5" cols = "10" styleClass="input" a:placeholder="#{str.sinopse}"
+			value="#{livroMB.livro.sinopse}"></h:inputTextarea>
 			
 		<br />
 
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{empty editoraMB.editora.id}" value="#{str.incluir}"
-			action="#{editoraMB.inserir}" />
+			rendered="#{empty livroMB.livro.id}" value="#{str.incluir}"
+			action="#{livroMB.inserir}" />
 		<h:commandButton styleClass="botaoAdd"
-			rendered="#{not empty editoraMB.editora.id}" value="#{str.editar}"
-			action="#{editoraMB.atualizar}" />
+			rendered="#{not empty livroMB.livro.id}" value="#{str.editar}"
+			action="#{livroMB.atualizar}" />
 		<h:commandLink styleClass="back" value="#{str.voltar}"
-			action="visualizarEditora" />
+			action="visualizarLivro" immediate="true"/>
 
 	</h:form>
 </h:body>

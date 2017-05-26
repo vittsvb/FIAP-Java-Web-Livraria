@@ -1,7 +1,12 @@
+
 $(document).ready(function () { 
         $("#idCPF").mask('000.000.000-00');
         $("#idCNPJ").mask('00.000.000/0000-00');
-    });
+        $("#idCEP").mask('00000-000');
+        $("#idIdade").mask('00');
+        $("#idPreco").mask("##0.00");
+        $("idDesconto").mask('000');
+ });
 
 function filtro() {
 	var input, filter, table, tr, td, i;
@@ -38,6 +43,43 @@ function filtroLivro() {
 		}
 	}
 }
+
+function filtroAutor() {
+	var input, filter, table, tbody, td, i;
+	input = document.getElementById("pesquisa2");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("tab");
+	tbody = table.getElementsByTagName("tbody");
+	for (i = 0; i < tbody.length; i++) {
+		td = tbody[i].getElementsByTagName("tr")[1].getElementsByTagName("td")[0];
+		if (td) {
+			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tbody[i].style.display = "";
+			} else {
+				tbody[i].style.display = "none";
+			}
+		}
+	}
+}
+
+function filtroEditora() {
+	var input, filter, table, tbody, td, i;
+	input = document.getElementById("pesquisa3");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("tab");
+	tbody = table.getElementsByTagName("tbody");
+	for (i = 0; i < tbody.length; i++) {
+		td = tbody[i].getElementsByTagName("tr")[1].getElementsByTagName("td")[1];
+		if (td) {
+			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tbody[i].style.display = "";
+			} else {
+				tbody[i].style.display = "none";
+			}
+		}
+	}
+}
+
 
 
 

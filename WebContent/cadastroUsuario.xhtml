@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-<h:head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 	<link rel="stylesheet"
@@ -23,10 +26,9 @@
 			<div class="main-logo">
 				<a class="logo"></a>
 			</div>
-
 			<div class="main-navigation">
-				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="loginUsuario"></h:commandLink></i>
 			</div>
 
 		</div>
@@ -35,22 +37,68 @@
 	<h:form styleClass="form" prependId="false">
 	<h:messages styleClass="alert alert-danger"></h:messages>
 		<h2>#{str.cadastrarUsuario}</h2>
-		<h:inputText a:placeholder="#{str.login}" styleClass="input" value="#{usuarioMB.usuario.login}" required="true"
-			requiredMessage="O campo Login é obrigatório"/>
-		<h:inputText a:placeholder="#{str.senha}" styleClass="input" value="#{usuarioMB.usuario.senha}" />
-		<h:inputText a:placeholder="#{str.nome}" styleClass="input" value="#{usuarioMB.usuario.nome}" />
-		<h:inputText a:placeholder="#{str.idade}" styleClass="input" value="#{usuarioMB.usuario.idade}" />
-		<h:inputText a:placeholder="CPF" styleClass="input" value="#{usuarioMB.usuario.cpfCnpj}" />
-		<h:inputText a:placeholder="#{str.endereco}" styleClass="input" value="#{usuarioMB.usuario.logradouro}" />
-		<h:inputText a:placeholder="#{str.cep}" styleClass="input" value="#{usuarioMB.usuario.cep}" />
-		<h:inputText a:placeholder="#{str.estado}" styleClass="input" value="#{usuarioMB.usuario.estado}" />
+		<h:inputText a:placeholder="#{str.usuario}*" styleClass="input" value="#{usuarioMB.usuario.login}" required="true"
+			requiredMessage="#{str.loginObrigatorio}" />
+		<h:inputText a:placeholder="#{str.senha}*" styleClass="input" value="#{usuarioMB.usuario.senha}" required="true"
+			requiredMessage="#{str.senhaObrigatorio}"/>
+		<h:inputText a:placeholder="#{str.nome}*" styleClass="input" value="#{usuarioMB.usuario.nome}" required="true"
+			requiredMessage="#{str.nomeObrigatorio}"/>
+		<h:inputText a:placeholder="#{str.idade}*" styleClass="input" value="#{usuarioMB.usuario.idade}" required="true" 
+			requiredMessage="#{str.idadeObrigatorio}" id="idIdade" a:maxlength="2"/>
+			
+		<h:inputText a:placeholder="CPF*" styleClass="input" value="#{usuarioMB.usuario.cpfCnpj}" required="true" 
+			requiredMessage="#{str.cpfObrigatorio}" id="idCPF"
+			a:maxlength="14" validatorMessage="#{str.cpfInvalido}">		
+			<f:validateRegex pattern="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}" />
+		</h:inputText>
+		<h:inputText a:placeholder="#{str.endereco}*" styleClass="input" value="#{usuarioMB.usuario.logradouro}" />
+		<h:inputText a:placeholder="#{str.cep}*" styleClass="input" value="#{usuarioMB.usuario.cep}" required="true" 
+			requiredMessage="#{str.cepObrigatorio}" id="idCEP"
+			a:maxlength="9" validatorMessage="#{str.cepInvalido}">
+			<f:validateRegex pattern="[0-9]{5}\-?[0-9]{3}" />
+		</h:inputText>
+		
+		<h:selectOneMenu styleClass="input" value="#{usuarioMB.usuario.estado}" required="true"
+			requiredMessage="#{str.estadoObrigatorio}">
+			<f:selectItem itemLabel="#{str.selecionarEstado}"
+				noSelectionOption="true" />
+   			<f:selectItem itemValue = "AC" itemLabel = "Acre" /> 
+   			<f:selectItem itemValue = "AL" itemLabel = "Alagoas" /> 
+   			<f:selectItem itemValue = "AP" itemLabel = "Amapá" /> 
+   			<f:selectItem itemValue = "AM" itemLabel = "Amazonas" />
+   			<f:selectItem itemValue = "BA" itemLabel = "Bahia" /> 
+   			<f:selectItem itemValue = "CE" itemLabel = "Ceará" /> 
+   			<f:selectItem itemValue = "DF" itemLabel = "Distrito Federal" /> 
+   			<f:selectItem itemValue = "ES" itemLabel = "Espírito Santo" /> 
+   			<f:selectItem itemValue = "GO" itemLabel = "Goiás" />
+   			<f:selectItem itemValue = "MA" itemLabel = "Maranhão" /> 
+   			<f:selectItem itemValue = "MT" itemLabel = "Mato Grosso" /> 
+   			<f:selectItem itemValue = "MS" itemLabel = "Mato Grosso do Sul" /> 
+   			<f:selectItem itemValue = "PA" itemLabel = "Pará" /> 
+   			<f:selectItem itemValue = "PB" itemLabel = "Paraíba" /> 
+   			<f:selectItem itemValue = "PR" itemLabel = "Paraná" /> 
+   			<f:selectItem itemValue = "PE" itemLabel = "Pernambuco" /> 
+   			<f:selectItem itemValue = "PI" itemLabel = "Piauí" /> 
+   			<f:selectItem itemValue = "RJ" itemLabel = "Rio de Janeiro" /> 
+   			<f:selectItem itemValue = "RN" itemLabel = "Rio Grande do Norte" /> 
+   			<f:selectItem itemValue = "RS" itemLabel = "Rio Grande do Sul" /> 
+   			<f:selectItem itemValue = "RO" itemLabel = "Rondônia" /> 
+   			<f:selectItem itemValue = "RR" itemLabel = "Roraima" /> 
+   			<f:selectItem itemValue = "SC" itemLabel = "Santa Catarina" /> 
+   			<f:selectItem itemValue = "SP" itemLabel = "São Paulo" /> 
+   			<f:selectItem itemValue = "SE" itemLabel = "Sergipe" /> 
+   			<f:selectItem itemValue = "TO" itemLabel = "Tocantins" /> 
+   			
+
+   		</h:selectOneMenu>
+		<!-- <h:inputText a:placeholder="#{str.estado}" styleClass="input" value="#{usuarioMB.usuario.estado}" /> -->
 		<h:inputHidden value="#{usuarioMB.usuario.id}" />
 		<br />
 		<h:selectBooleanCheckbox value="#{usuarioMB.usuario.adm}" /> #{str.administrador}
 		<br />
 		<br />
 		<h:commandButton styleClass="botaoAdd" rendered="#{empty usuarioMB.usuario.id}" value="#{str.incluir}" action="#{usuarioMB.inserir}" />
-		<h:commandLink styleClass="back" value="#{str.voltar}" action="loginUsuario" />
+		<h:commandLink styleClass="back" value="#{str.voltar}" action="loginUsuario" immediate="true"/>
 	</h:form>
 </h:body>
 

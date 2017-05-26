@@ -18,8 +18,11 @@
 			</div>
 
 			<div class="main-navigation">
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="menuAdmin"></h:commandLink></i>
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
+				
 			</div>
 
 		</div>
@@ -27,7 +30,7 @@
 	<h:form>
 		<h:commandLink styleClass="add" value="#{str.novaEditora}" action="#{editoraMB.abrirCadastro}" />
 		<h2 style="float:left;">#{str.editora}</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarEditora}" title="Type in a name"></input>
+		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarEditora}"></input>
 		<table id="tab">
 			<tr>
 				<th style="width: 40%;">#{str.editora}</th>
@@ -41,11 +44,13 @@
 					<td>#{f.cnpj}</td>
 					<td id="edit">
 						<h:commandLink value="#{str.editar}" action="#{editoraMB.abrirEditar}">
+							<i class="fa fa-pencil" aria-hidden="true"/>
 							<f:setPropertyActionListener value="#{f.id}" target="#{editoraMB.editora.id}" />
 						</h:commandLink>
 					</td>
 					<td id="remove">
 						<h:commandLink value="#{str.deletar}" action="#{editoraMB.deletar}">
+							<i class="fa fa-trash" aria-hidden="true"></i>
 							<f:setPropertyActionListener value="#{f.id}" target="#{editoraMB.editora.id}" />
 						</h:commandLink>
 					</td>

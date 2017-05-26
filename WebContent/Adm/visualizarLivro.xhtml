@@ -1,57 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<link rel="stylesheet"
+	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<title>THE LIBRARY | #{str.livros}</title>
 	<h:outputScript name="js.js" library="js"></h:outputScript>
+	<h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+	<h:outputScript library="primefaces" name="jquery/jquery-plugins.js" target="head" />
+	
+	
 </h:head>
 <h:body>
-
-<h:form>
+	
+	<h:form enctype="multipart/form-data">
 		<div class="header">
 			<div class="main-logo">
 				<a class="logo"></a>
 			</div>
-
 			<div class="main-navigation">
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="menuAdmin"></h:commandLink></i>
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
 			</div>
-
 		</div>
-</h:form>
-	<h:form>
-		<h:commandLink styleClass="add" value="#{str.novoLivro}" action="#{livroMB.abrirCadastro}" />
-		<h2 style="float:left;">#{str.livros}</h2>
-		<input type="text" id="pesquisa" onkeyup="filtro()" placeholder="#{str.buscarLivro}" title="Type in a name"></input>
+	</h:form>
+	
+	<h:form enctype="multipart/form-data">
+		<h:commandLink styleClass="add" value="#{str.novoLivro}"
+			action="#{livroMB.abrirCadastro}" />
+		<h2 style="float: left;">#{str.livros}</h2>
+		
+		<input type="text" id="pesquisa" onkeyup="filtroLivro()"
+			placeholder="#{str.buscarLivro}"></input>
+			
 		<table id="tab">
-			<tr>
-				<th style="width: 40%;">#{str.livro}</th>
-				<th style="width: 10%;">#{str.editar}</th>
-				<th style="width: 10%;">#{str.remover}</th>
-			</tr>
-			<ui:repeat var="f" value="#{livroMB.listLivro}">
+			<thead>
 				<tr>
-					<td>#{f.livro}</td>
-					<td id="edit">
-						<h:commandLink value="#{str.editar}" action="#{livroMB.abrirEditar}">
-							<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
-						</h:commandLink>
-					</td>
-					<td id="remove">
-						<h:commandLink value="#{str.deletar}" action="#{livroMB.deletar}">
-							<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
-						</h:commandLink>
-					</td>
+					<th style="width: 5%;">#{str.imagem}</th>
+					<th colspan="3" style="width: 65%;">#{str.descricao}</th>
+					<th style="width: 15%;">#{str.preco}</th>
+					<th style="width: 15%;">#{str.compra}</th>
 				</tr>
+			</thead>
+			<ui:repeat var="f" value="#{livroMB.listLivro}">
+				<tbody>
+					<tr>
+						<td rowspan="3"><p:graphicImage value="" width="100px">
+							<f:param name="pid" value="#{f.id}" />
+						</p:graphicImage></td>
+						<td colspan="3">#{f.nome}</td>
+						<td style="font-size: 14px;">R$#{f.valor}</td>
+						<td id="edit"><h:commandLink value="#{str.editar}"
+								action="#{livroMB.abrirEditar}">
+								<i class="fa fa-pencil" aria-hidden="true" />
+								<f:setPropertyActionListener value="#{f.id}"
+									target="#{livroMB.livro.id}" />
+							</h:commandLink></td>
+					</tr>
+
+					<tr>
+						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
+						<td style="font-size: 12px;">#{str.editora}:
+							#{f.editora.nome}</td>
+						<td style="font-size: 12px;">#{str.categoria}:
+							#{f.categoria.categoria}</td>
+						<td style="font-size: 14px;" rowspan="2">#{str.desconto}
+							#{f.desconto}%</td>
+						<td id="remove" rowspan="2">
+							<h:commandLink value="#{str.deletar}" action="#{livroMB.deletar}">
+								<i class="fa fa-trash" aria-hidden="true"></i>
+								<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
+							</h:commandLink>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" style="font-size: 12px;">#{f.sinopse}</td>
+					</tr>
+				</tbody>
 			</ui:repeat>
 		</table>
 	</h:form>
-
 </h:body>
 
 </html>

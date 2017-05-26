@@ -2,6 +2,8 @@ package br.com.fiap.si.dao;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -11,17 +13,23 @@ import br.com.fiap.si.util.JPAUtil;
 public class CategoriaDAOImpl implements CategoriaDAO {
 
 	@Override
-	public void saveCategoria(Categoria categoria) {
+	public boolean saveCategoria(Categoria categoria) {
 		EntityManager em = new JPAUtil().getEntityManager();
+		boolean valid;
 		try {
 			em.getTransaction().begin();
 
 			em.persist(categoria);
 
 			em.getTransaction().commit();
+			valid = true;
 		} catch (Exception e) {
 			em.getTransaction().rollback();
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage("A categoria já esta cadastrada"));
+			valid = false;
 		}
+		return valid;
 	}
 
 	@Override

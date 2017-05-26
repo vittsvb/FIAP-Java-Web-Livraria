@@ -6,7 +6,7 @@ import br.com.fiap.si.modelo.Categoria;
 
 public interface CategoriaDAO {
 
-	public void saveCategoria(Categoria categoria);
+	public boolean saveCategoria(Categoria categoria);
 
 	public void updateCategoria(Categoria categoria);
 
