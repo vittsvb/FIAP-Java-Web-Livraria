@@ -121,25 +121,25 @@
 				<tbody>
 					<tr>
 						<td rowspan="3"><img src="" width="100"></img></td>
-						<td colspan="3">#{f.nome}</td>
+						<td colspan="3">#{f.livro.nome}</td>
 						<td style="font-size: 14px;">#{str.de}: <strike>
-								R$#{f.valor}</strike></td>
+								R$#{f.livro.valor}</strike></td>
 						<td><i class="fa fa-heart"><h:commandLink
 									styleClass="item-menu" value="#{str.desejos}"
 									action="#{livroMB.addListaDesejos}"></h:commandLink></i></td>
 					</tr>
 
 					<tr>
-						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
-						<td style="font-size: 12px;">#{str.editora}: #{f.editora.nome}</td>
-						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria.categoria}</td>
-						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.desconto}%</td>
+						<td style="font-size: 12px;">#{str.autor}: #{f.livro.autor.nome}</td>
+						<td style="font-size: 12px;">#{str.editora}: #{f.livro.editora.nome}</td>
+						<td style="font-size: 12px;">#{str.categoria}: #{f.livro.categoria.categoria}</td>
+						<td style="font-size: 14px;">#{str.desconto} #{str.de} #{f.livro.desconto}%</td>
 						<td rowspan="2"><i class="fa fa-shopping-cart"><h:commandLink
 									styleClass="item-menu" value="#{str.carrinho}"
 									action="#{livroMB.addCarrinho}"></h:commandLink></i></td>
 					</tr>
 					<tr>
-						<td colspan="3" style="font-size: 12px;">#{f.sinopse}</td>
+						<td colspan="3" style="font-size: 12px;">#{f.livro.sinopse}</td>
 						<td style="font-size: 14px;">#{str.por}: R$</td>
 					</tr>
 				</tbody>

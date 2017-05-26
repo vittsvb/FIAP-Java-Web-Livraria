@@ -7,6 +7,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import br.com.fiap.si.dao.LivroDAOImpl;
 import br.com.fiap.si.dao.UsuarioDAOImpl;
@@ -21,9 +23,8 @@ public class ItemMB {
 
 	private Item item;
 	private List<Item> items;
-	@ManagedProperty(value = "#{usuarioMB.usuario}")
 	private Usuario user;
-
+	
 	public Usuario getUser() {
 		return user;
 	}
@@ -44,16 +45,14 @@ public class ItemMB {
 	public ItemMB() {
 		
 		item = new Item();
-	}
-	@PostConstruct
-	public void teste(){
-		LivroDAOImpl dao = new LivroDAOImpl();
-		UsuarioDAOImpl usudao = new UsuarioDAOImpl();
-		Usuario usuario = usudao.login(user.getLogin(),user.getSenha());
-		items = dao.returnlistuser(usuario);
-
 		
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+		user = (Usuario) session.getAttribute("usuario");
+		LivroDAOImpl dao = new LivroDAOImpl();
+		items = dao.returnlistuser(user);
 	}
+
 
 	public String addListaDesejos() {
 		if (user.getLogin() != null) {
@@ -64,7 +63,7 @@ public class ItemMB {
 			item.setUsuario(usuario);
 			
 			dao.insertListOf(item);
-
+			items = dao.returnlistuser(user);
 			return null;
 		}
 		return "loginUsuario";
