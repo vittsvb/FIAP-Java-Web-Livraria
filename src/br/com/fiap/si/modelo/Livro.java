@@ -12,29 +12,33 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Table(name="livros")
 @Entity
 public class Livro {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
+	@SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
     private Integer id;
     private String nome;
     private Double valor;
     private Integer desconto;
     private String sinopse;
-//    @Lob
-//    @Column(name = "imagem",columnDefinition = "LONGBLOB")
-//    private byte[] imagem;
-//    
-//	public byte[] getImagem() {
-//		return imagem;
-//	}
-//
-//	public void setImagem(byte[] imagem) {
-//		this.imagem = imagem;
-//	}
+    @Lob
+    @Column(name = "imagem",columnDefinition = "LONGBLOB")
+    private byte[] imagem;
+    
+	public byte[] getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
+	}
 
 	@ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "categoria_id")

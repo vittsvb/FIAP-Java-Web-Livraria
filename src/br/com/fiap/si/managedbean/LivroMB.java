@@ -33,24 +33,24 @@ public class LivroMB {
 	Categoria categoria;
 	UploadedFile file;
 	private StreamedContent productImage;
-//	public StreamedContent getProductImage() {
-//		FacesContext context = FacesContext.getCurrentInstance();
-//		 
-//		if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-//			return new DefaultStreamedContent();
-//		}
-// 
-//		else {
-// 
-//			int id = Integer.parseInt(context.getExternalContext().getRequestParameterMap().get("pid"));
-//			
-//			LivroDAOImpl dao = new LivroDAOImpl();
-//			byte[] image = dao.getLivroID(id).getImagem();
-// 
-//			return new DefaultStreamedContent(new ByteArrayInputStream(image));
-// 
-//		}
-//	}
+	public StreamedContent getProductImage() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		 
+		if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+			return new DefaultStreamedContent();
+		}
+ 
+		else {
+ 
+			int id = Integer.parseInt(context.getExternalContext().getRequestParameterMap().get("pid"));
+			
+			LivroDAOImpl dao = new LivroDAOImpl();
+			byte[] image = dao.getLivroID(id).getImagem();
+ 
+			return new DefaultStreamedContent(new ByteArrayInputStream(image));
+ 
+		}
+	}
 	public void setProductImage(StreamedContent productImage) {
 		this.productImage = productImage;
 	}
@@ -78,7 +78,7 @@ public class LivroMB {
 	}
 	public String inserir() throws IOException{
 		
-//		livro.setImagem(IOUtils.toByteArray(file.getInputstream()));
+		livro.setImagem(IOUtils.toByteArray(file.getInputstream()));
 		LivroDAOImpl dao = new LivroDAOImpl();
 		dao.saveLivro(livro);
 		FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("sucesso"));
@@ -107,10 +107,7 @@ public class LivroMB {
 		return "visualizarLivro";
 	}
 	
-<<<<<<< HEAD
-=======
-	@PostConstruct
->>>>>>> vitorgarcia
+
 	public String abrirEditar(){
 		
 		LivroDAOImpl dao = new LivroDAOImpl();
