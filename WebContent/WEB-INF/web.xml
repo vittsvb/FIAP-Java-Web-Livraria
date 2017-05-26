@@ -42,6 +42,11 @@
 		<filter-name>Login</filter-name>
 		<url-pattern>/Adm/*</url-pattern>
 	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Login</filter-name>
+		<url-pattern>/desejo/*</url-pattern>
+	</filter-mapping>
 	<!-- filter>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
 		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
