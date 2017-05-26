@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
+
+	<title>THE LIBRARY | Home</title>
+	<h:outputStylesheet library="css" name="style.css" target="head" />
+	<h:outputScript name="js.js" library="js"></h:outputScript>
+</h:head>
+<h:body>
+	<h:form>
+		<div class="header">
+			<div class="main-logo">
+				<a class="logo"></a>
+			</div>
+			<div class="main-navigation">
+				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
+						value="Login" action="loginUsuario"></h:commandLink></i>
+				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
+						value="#{str.desejos}" action="login"></h:commandLink></i>
+			</div>
+		</div>
+
+
+		<table id="tab">
+			<thead>
+				<tr>
+					<th style="width: 10%;">Imagem</th>
+					<th colspan="3" style="width: 70%;">Descrição</th>
+					<th style="width: 20%;">Preço</th>
+					
+				</tr>
+			</thead>
+			<ui:repeat var="f" value="#{livroMB.listLivro}">
+				<tbody>
+					<tr>
+						<td rowspan="3"><img src="#{f.img}" width="100"></img></td>
+						<td colspan="3">#{f.titulo}L</td>
+						<td style="font-size: 14px;">#{str.preco}:<strike>
+								R$#{f.precoComDesconto}</strike></td>
+							
+					</tr>
+
+					<tr>
+						<td style="font-size: 12px;">#{str.autor}: #{f.autor}</td>
+						<td style="font-size: 12px;">#{str.editora}: #{f.editora}</td>
+						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria}</td>
+						<td style="font-size: 14px;">#{str.quantidade}: 
+						<h:form styleClass="form">
+					<h:inputText />
+					</h:form>
+						</td>
+						<td id="remove"><h:commandLink value="#{str.deletar}"
+							action="#{livroMB.deletar}">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+							<f:setPropertyActionListener value="#{f}"
+								target="#{livroMB.livro}" />
+						</h:commandLink></td>
+					</tr>
+					
+					<tr>
+						<td colspan="3" style="font-size: 12px;">#{f.descricao}</td>
+						<td style="font-size: 14px;">Subtotal: R$ #{f.precoSubtotal}</td>
+					</tr>
+					
+				</tbody>
+			</ui:repeat>
+		</table>  
+		
+		<table id="tab">
+			<thead>
+				<tr>
+					<th style="width: 35%;">Frete</th>
+					<th style="width: 30%;">Total</th>
+					<th style="width: 35%;">Cartão de Crédito</th>
+								
+				</tr>
+				
+				
+			</thead>
+			<ui:repeat var="f" value="#{livroMB.listLivro}">
+				<tbody>
+					<tr>
+					<td style="font-size: 14px;"><input type="radio" name="frete1" id="frete1" value="1"/></td>
+					<td style="font-size: 14px;">Subtotal: R$ #{f.precoSubtotal}</td>						
+					<td>	
+					<h:form styleClass="form">
+					<h:inputText />
+					</h:form>
+					</td>
+					</tr>
+
+					<tr>
+					<td colspan="2"><input type="radio" name="frete2" id="frete2" value="2"/></td>
+					
+					<td id="remove"><h:commandLink value="#{str.deletar}"
+							action="#{livroMB.deletar}">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+							<f:setPropertyActionListener value="#{f}"
+								target="#{livroMB.livro}" />
+						</h:commandLink></td>	
+					</tr>
+					
+					
+					
+				</tbody>
+			</ui:repeat>
+		</table>  
+		
+
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</h:form>
+</h:body>
+</html>

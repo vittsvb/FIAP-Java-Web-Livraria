@@ -107,6 +107,10 @@ public class LivroMB {
 		return "visualizarLivro";
 	}
 	
+<<<<<<< HEAD
+=======
+	@PostConstruct
+>>>>>>> vitorgarcia
 	public String abrirEditar(){
 		
 		LivroDAOImpl dao = new LivroDAOImpl();
