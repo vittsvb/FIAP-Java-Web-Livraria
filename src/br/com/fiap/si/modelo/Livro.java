@@ -24,17 +24,17 @@ public class Livro {
     private Double valor;
     private Integer desconto;
     private String sinopse;
-    @Lob
-    @Column(name = "imagem",columnDefinition = "LONGBLOB")
-    private byte[] imagem;
-    
-	public byte[] getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(byte[] imagem) {
-		this.imagem = imagem;
-	}
+//    @Lob
+//    @Column(name = "imagem",columnDefinition = "LONGBLOB")
+//    private byte[] imagem;
+//    
+//	public byte[] getImagem() {
+//		return imagem;
+//	}
+//
+//	public void setImagem(byte[] imagem) {
+//		this.imagem = imagem;
+//	}
 
 	@ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "categoria_id")

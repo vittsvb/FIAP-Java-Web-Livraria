@@ -14,6 +14,8 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>THE LIBRARY | #{str.cadastrarLivro}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
@@ -34,8 +36,10 @@
 			</div>
 
 			<div class="main-navigation">
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="visualizarCategoria"></h:commandLink></i>
 				<i class="fa fa-sign-out"><h:commandLink styleClass="item-menu"
-						value="#{str.sair}" action="catalogo"></h:commandLink></i>
+						value="#{str.sair}" action="#{usuarioMB.sair}"></h:commandLink></i>
 			</div>
 		</div>
 	</h:form>
@@ -50,24 +54,26 @@
 		</p:graphicImage>
 		<h:inputText styleClass="input" a:placeholder="#{str.livro}"
 			value="#{livroMB.livro.nome}" required="true"
-			requiredMessage="O Título do Livro é obrigatório" id="idLivro" />
+			requiredMessage="#{str.tituloObrigatorio}" id="idLivro" />
 
-		<h:inputText styleClass="input" a:placeholder="Preço"
+		<h:inputText styleClass="input" a:placeholder="#{str.preco}*"
 			value="#{livroMB.livro.valor}" required="true"
-			requiredMessage="O preço do Livro é obrigatório" id="idPreco" />
+			requiredMessage="#{str.precoObrigatorio}" converterMessage="#{str.somenteNumerosPreco}"
+			id="idPreco">   
+			<f:convertNumber pattern="##0.00"/></h:inputText>
 
-		<h:inputText styleClass="input" a:placeholder="Sinopse"
-			value="#{livroMB.livro.sinopse}" required="true"
-			requiredMessage="A sinopse do Livro é obrigatório" id="idSinopse" />
-
-		<h:inputText styleClass="input" a:placeholder="Disconto %"
+		<h:inputText styleClass="input" a:placeholder="#{str.desconto}* %"
 			value="#{livroMB.livro.desconto}" required="true"
-			requiredMessage="A sinopse do Livro é obrigatório" id="idDesconto" />
-
+			requiredMessage="#{str.descontoObrigatorio}" converterMessage="#{str.somenteNumerosDesconto}"
+			id="idDesconto">
+			<f:convertNumber pattern="###" maxIntegerDigits="3"/>
+		</h:inputText>
+	
 
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.categoria}"
-			converter="omnifaces.SelectItemsConverter">
-			<f:selectItem itemValue="#{str.selecionarCategoria}"
+			converter="omnifaces.SelectItemsConverter" required="true"
+			requiredMessage="#{str.categoriaObrigatorio}">
+			<f:selectItem itemValue="#{str.selecionarCategoria}*"
 				noSelectionOption="true" />
 			<f:selectItems value="#{categoriaMB.listCategoria}" var="cat"
 				itemValue="#{cat}" itemLabel="#{cat.categoria}" />
@@ -76,16 +82,18 @@
 
 
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.editora}"
-			converter="omnifaces.SelectItemsConverter">
-			<f:selectItem itemValue="#{str.selecionarEditora}"
+			converter="omnifaces.SelectItemsConverter" required="true"
+			requiredMessage="#{str.editoraObrigatoria}">
+			<f:selectItem itemValue="#{str.selecionarEditora}*"
 				noSelectionOption="true" />
 			<f:selectItems value="#{editoraMB.listEditora}" var="edi"
 				itemValue="#{edi}" itemLabel="#{edi.nome}" />
 		</h:selectOneMenu>
 
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.autor}"
-			converter="omnifaces.SelectItemsConverter">
-			<f:selectItem itemValue="Autor" noSelectionOption="true" />
+			converter="omnifaces.SelectItemsConverter" required="true"
+			requiredMessage="#{str.autorObrigatorio}">
+			<f:selectItem itemValue="#{str.selecionarAutor}*" noSelectionOption="true" />
 			<f:selectItems value="#{autorMB.listAutor}" var="aut"
 				itemValue="#{aut}" itemLabel="#{aut.nome}" />
 		</h:selectOneMenu>
@@ -100,6 +108,9 @@
 
 
 
+		<h:inputTextarea rows = "5" cols = "10" styleClass="input" a:placeholder="#{str.sinopse}"
+			value="#{livroMB.livro.sinopse}"></h:inputTextarea>
+			
 		<br />
 
 		<h:commandButton styleClass="botaoAdd"
@@ -109,7 +120,7 @@
 			rendered="#{not empty livroMB.livro.id}" value="#{str.editar}"
 			action="#{livroMB.atualizar}" />
 		<h:commandLink styleClass="back" value="#{str.voltar}"
-			action="visualizarLivro" />
+			action="visualizarLivro" immediate="true"/>
 
 	</h:form>
 </h:body>

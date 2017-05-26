@@ -11,7 +11,7 @@
 		<class>br.com.fiap.si.modelo.Conta</class>
 <!-- 		<mapping class="br.com.fiap.si.modelo.Autor" /> -->
 
-		<properties>
+		<!--  <properties>
 
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fiapx" />
@@ -22,21 +22,21 @@
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-		</properties> 
+		</properties> -->
 		
-		<!-- properties>
+		<properties>
 			<property name="hibernate.archive.autodetection" value="class" />
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.Oracle10gDialect" />
 			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
 			<property name="hibernate.connection.url"
-				value="jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl" />
+				value="jdbc:oracle:thin:@192.168.60.15:1521:orcl" />
 			<property name="hibernate.connection.username" value="RM74632" />
 			<property name="hibernate.connection.password" value="241296" />
 		    <property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-		</properties> -->
+		</properties>
 		
 	</persistence-unit>
 
