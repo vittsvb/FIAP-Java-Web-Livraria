@@ -28,24 +28,34 @@ public class Livro {
     private Double valor;
     private Integer desconto;
     private String sinopse;
-    @Lob
-    @Column(name = "imagem",columnDefinition = "LONGBLOB")
-    private byte[] imagem;
-    
-	public byte[] getImagem() {
-		return imagem;
-	}
+    private String url;
 
-	public void setImagem(byte[] imagem) {
-		this.imagem = imagem;
-	}
+//    @Lob
+//    @Column(name = "imagem",columnDefinition = "LONGBLOB")
+//    private byte[] imagem;
+//    
+//	public byte[] getImagem() {
+//		return imagem;
+//	}
+//
+//	public void setImagem(byte[] imagem) {
+//		this.imagem = imagem;
+//	}
 
 	@ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
     
     
-    @ManyToOne(cascade = CascadeType.DETACH)
+    public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	@ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "autor_id")
     private Autor autor;
     

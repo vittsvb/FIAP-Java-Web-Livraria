@@ -61,9 +61,9 @@
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tbody>
 					<tr>
-						<td rowspan="3"><p:graphicImage value="" width="100px">
+						<td rowspan="3"><img src="#{f.url}" width="100" /><!-- <p:graphicImage value="" width="100px">
 							<f:param name="pid" value="#{f.id}" />
-						</p:graphicImage></td>
+						</p:graphicImage> --></td>
 						<td colspan="3">#{f.nome}</td>
 						<td style="font-size: 14px;">R$#{f.valor}</td>
 						<td id="edit"><h:commandLink value="#{str.editar}"

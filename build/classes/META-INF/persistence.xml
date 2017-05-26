@@ -30,7 +30,7 @@
 				value="org.hibernate.dialect.Oracle10gDialect" />
 			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
 			<property name="hibernate.connection.url"
-				value="jdbc:oracle:thin:@192.168.60.15:1521:orcl" />
+				value="jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl" />
 			<property name="hibernate.connection.username" value="RM74632" />
 			<property name="hibernate.connection.password" value="241296" />
 		    <property name="hibernate.show_sql" value="true"/>

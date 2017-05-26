@@ -80,7 +80,6 @@
 		</h:selectOneMenu>
 
 
-
 		<h:selectOneMenu styleClass="input" value="#{livroMB.livro.editora}"
 			converter="omnifaces.SelectItemsConverter" required="true"
 			requiredMessage="#{str.editoraObrigatoria}">
@@ -97,16 +96,10 @@
 			<f:selectItems value="#{autorMB.listAutor}" var="aut"
 				itemValue="#{aut}" itemLabel="#{aut.nome}" />
 		</h:selectOneMenu>
-
-		<p:fileUpload fileUploadListener="#{livroMB.processFileUpload}"
-			label="Escolher" cancelLabel="Cancelar" sizeLimit="400000"
-			invalidSizeMessage="Imagem muito grande" auto="true"
-			invalidFileMessage="Tipo de imagem não suportado"
-			allowTypes="/(\.|\/)(jpe?g|png)$/" id="uploadFile" mode="simple"
-			uploadLabel="Carregar" dragDropSupport="true" fileLimit="1"
-			value="#{livroMB.file}" />
-
-
+		
+		<h:inputText styleClass="input" a:placeholder="URL da imagem"
+			value="#{livroMB.livro.url}" required="true"
+			requiredMessage="#{str.tituloObrigatorio}" id="idURL" />
 
 		<h:inputTextarea rows = "5" cols = "10" styleClass="input" a:placeholder="#{str.sinopse}"
 			value="#{livroMB.livro.sinopse}"></h:inputTextarea>

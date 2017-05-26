@@ -9,7 +9,7 @@
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></link>
 
-	<title>THE LIBRARY | Home</title>
+	<title>THE LIBRARY | #{str.cart}</title>
 	<h:outputStylesheet library="css" name="style.css" target="head" />
 	<h:outputScript name="js.js" library="js"></h:outputScript>
 </h:head>
@@ -21,9 +21,11 @@
 			</div>
 			<div class="main-navigation">
 				<i class="fa fa-user"><h:commandLink styleClass="item-menu"
-						value="Login" action="loginUsuario"></h:commandLink></i>
+						value="Login" action="loginUsuario"></h:commandLink></i> 
 				<i class="fa fa-heart"><h:commandLink styleClass="item-menu"
 						value="#{str.desejos}" action="login"></h:commandLink></i>
+				<i class="fa fa-arrow-left"><h:commandLink
+						styleClass="item-menu" value="#{str.voltar}" action="catalogo"></h:commandLink></i>
 			</div>
 		</div>
 
@@ -34,77 +36,95 @@
 					<th style="width: 10%;">Imagem</th>
 					<th colspan="3" style="width: 70%;">Descrição</th>
 					<th style="width: 20%;">Preço</th>
-					
+					<th style="width: 20%;">Quantidade</th>
+					<th style="width: 20%;">Deletar</th>
+
+
+
 				</tr>
 			</thead>
 			<ui:repeat var="f" value="#{livroMB.listLivro}">
 				<tbody>
 					<tr>
-						<td rowspan="3"><img src="#{f.img}" width="100"></img></td>
-						<td colspan="3">#{f.titulo}L</td>
+						<td rowspan="3">
+							<!-- <p:graphicImage value="" width="100px">
+								<f:param name="pid" value="#{f.id}" />
+							</p:graphicImage> -->
+						</td>
+						<td colspan="3">#{f.nome}</td>
 						<td style="font-size: 14px;">#{str.preco}:<strike>
-								R$#{f.precoComDesconto}</strike> <!-- Mostrar o preço do livro com desconto -->
-						</td>	
+								R$#{f.valor}</strike> <!-- Mostrar o preço do livro com desconto -->
+						</td>
+						<td style="font-size: 14px;" rowspan="3">Quantidade: <h:inputText></h:inputText>
+
+						</td>
+						<td id="remove" rowspan="3"><h:commandLink
+								value="#{str.deletar}" action="#{livroMB.deletar}">
+								<!-- chamar método que tire o livro do carrinho -->
+								<f:setPropertyActionListener value="#{f}"
+									target="#{livroMB.livro}" />
+							</h:commandLink></td>
 					</tr>
 
 					<tr>
-						<td style="font-size: 12px;">#{str.autor}: #{f.autor}</td>
-						<td style="font-size: 12px;">#{str.editora}: #{f.editora}</td>
-						<td style="font-size: 12px;">#{str.categoria}: #{f.categoria}</td>
-						<td style="font-size: 14px;">#{str.quantidade}: 
-									<h:form styleClass="form"><h:inputText /></h:form>
+						<td style="font-size: 12px;">#{str.autor}: #{f.autor.nome}</td>
+						<td style="font-size: 12px;">#{str.editora}:
+							#{f.editora.nome}</td>
+						<td style="font-size: 12px;">#{str.categoria}:
+							#{f.categoria.categoria}</td>
+						<td style="font-size: 14px;">#{str.desconto} #{str.de} <label
+							id="desconto">#{f.desconto}</label>%
 						</td>
-						<td id="remove"><h:commandLink value="#{str.deletar}" 
-							action="#{livroMB.deletar}">			<!-- chamar método que tire o livro do carrinho -->
-							<f:setPropertyActionListener value="#{f}"
-								target="#{livroMB.livro}" />
-						</h:commandLink></td>
 					</tr>
-					
+
 					<tr>
-						<td colspan="3" style="font-size: 12px;">#{f.descricao}</td>
-						<td style="font-size: 14px;">Subtotal: R$ #{f.precoSubtotal}</td><!-- Mostrar Multiplicação do valor do livro pela quantidade -->
+						<td colspan="3" style="font-size: 12px;">#{f.sinopse}</td>
+						<td style="font-size: 14px;">Subtotal: R$00.00</td>
+						<!-- Mostrar Multiplicação do valor do livro pela quantidade -->
 					</tr>
-					
+
 				</tbody>
 			</ui:repeat>
-		</table>  
-		
+		</table>
+
 		<table id="tab">
 			<thead>
-				
+
 				<tr>
-					<th style="width: 35%;">#{str.frete}</th>
+					<th style="width: 35%;">Frete</th>
 					<th style="width: 30%;">Subtotal</th>
-					<th style="width: 35%;">#{str.cartao}</th>
-								
+					<th style="width: 35%;">Cartão</th>
+
 				</tr>
-						
+
 			</thead>
-			<thead>
-			<h:selectOneRadio value="#{user.favColor1}">
-			<tr>
-				
-					<td style="font-size: 14px;"><f:selectItem itemValue="15" itemLabel="R$ 15,00" /></td>
-					<td style="font-size: 14px;">R$ #{f.precoSubtotal}</td>		<!--  mostrar preço da soma dos livros com o frete -->				
-					<td><h:form width="200px" styleClass="form"><h:inputText /></h:form></td>
-			</tr>
-			<tr>
-					<td style="font-size: 14px;"><f:selectItem itemValue="30" itemLabel="R$ 30,00" /></td>
-					<td></td>					
-					<td id="remove">
-									<h:commandLink value="#{str.comprar}" action="#{livroMB.deletar}">
-										<f:setPropertyActionListener value="#{f.id}" target="#{livroMB.livro.id}" />
-									</h:commandLink>
-								</td>
-			</tr>
-			</h:selectOneRadio>
-			</thead>
-			
-			</table>  
-			
-			
-		
+			<tbody>
+				<h:selectOneRadio>
+					<tr>
+						<td style="font-size: 14px;"><f:selectItem itemValue="15"
+								itemLabel="R$ 15,00" /> <f:selectItem itemValue="30"
+								itemLabel="R$ 30,00" /></td>
+						<td style="font-size: 14px;">R$ 00.00</td>
+						<!--  mostrar preço da soma dos livros com o frete -->
+						<td><h:inputText /></td>
+
+					</tr>
+
+					<tr>
+						<td id="edit" colspan="3"><h:commandLink value="Comprar"
+								action="#{livroMB.deletar}">
+								<f:setPropertyActionListener value="#{f.id}"
+									target="#{livroMB.livro.id}" />
+							</h:commandLink></td>
+					</tr>
+				</h:selectOneRadio>
+
+			</tbody>
+
+		</table>
+
+
+
 	</h:form>
 </h:body>
 </html>

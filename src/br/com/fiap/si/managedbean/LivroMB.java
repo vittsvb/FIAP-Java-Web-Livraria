@@ -31,30 +31,30 @@ public class LivroMB {
 	private List<Livro> listLivro;
 	private String erro;
 	Categoria categoria;
-	UploadedFile file;
-	private StreamedContent productImage;
-	public StreamedContent getProductImage() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		 
-		if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-			return new DefaultStreamedContent();
-		}
- 
-		else {
- 
-			int id = Integer.parseInt(context.getExternalContext().getRequestParameterMap().get("pid"));
-			
-			LivroDAOImpl dao = new LivroDAOImpl();
-			byte[] image = dao.getLivroID(id).getImagem();
- 
-			return new DefaultStreamedContent(new ByteArrayInputStream(image));
- 
-		}
-	}
-	public void setProductImage(StreamedContent productImage) {
-		this.productImage = productImage;
-	}
-	
+//	UploadedFile file;
+//	private StreamedContent productImage;
+//	public StreamedContent getProductImage() {
+//		FacesContext context = FacesContext.getCurrentInstance();
+//		 
+//		if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+//			return new DefaultStreamedContent();
+//		}
+// 
+//		else {
+// 
+//			int id = Integer.parseInt(context.getExternalContext().getRequestParameterMap().get("pid"));
+//			
+//			LivroDAOImpl dao = new LivroDAOImpl();
+//			byte[] image = dao.getLivroID(id).getImagem();
+// 
+//			return new DefaultStreamedContent(new ByteArrayInputStream(image));
+// 
+//		}
+//	}
+//	public void setProductImage(StreamedContent productImage) {
+//		this.productImage = productImage;
+//	}
+//	
 	public Livro getLivro() {
 		return livro;
 	}
@@ -78,7 +78,7 @@ public class LivroMB {
 	}
 	public String inserir() throws IOException{
 		
-		livro.setImagem(IOUtils.toByteArray(file.getInputstream()));
+//		livro.setImagem(IOUtils.toByteArray(file.getInputstream()));
 		LivroDAOImpl dao = new LivroDAOImpl();
 		dao.saveLivro(livro);
 		FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("sucesso"));
@@ -134,21 +134,21 @@ public class LivroMB {
 		
 		return "cadastroLivro";
 	}
-	 public UploadedFile getFile() {
-		return file;
-	}
-	public void setFile(UploadedFile file) {
-		this.file = file;
-	}
-	public void processFileUpload(FileUploadEvent uploadEvent) {
-		 
-	        try {
-	        	file= uploadEvent.getFile();
-	        } catch (Exception ex) {
-	            ex.printStackTrace();
-	        }
-	 
-	    }
+//	 public UploadedFile getFile() {
+//		return file;
+//	}
+//	public void setFile(UploadedFile file) {
+//		this.file = file;
+//	}
+//	public void processFileUpload(FileUploadEvent uploadEvent) {
+//		 
+//	        try {
+//	        	file= uploadEvent.getFile();
+//	        } catch (Exception ex) {
+//	            ex.printStackTrace();
+//	        }
+//	 
+//	    }
 	
 	
 }
